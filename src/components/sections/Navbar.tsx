@@ -28,8 +28,9 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl bg-background/80"
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="text-lg font-semibold tracking-tight text-foreground">
-            GrowthEngine
+          <Link to="/" className="text-lg font-semibold tracking-tight text-foreground flex items-center gap-2">
+            <span className="w-2 h-2 bg-primary rounded-full"></span>
+            DevForge
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

@@ -2,26 +2,26 @@ import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
 import { Button } from "@/components/ui/button";
 import {
-  Search,
-  Building2,
-  TrendingUp,
+  Code,
+  Smartphone,
+  Cloud,
+  GitBranch,
   Zap,
-  Users,
-  Target,
+  Layers,
 } from "lucide-react";
 
 interface HeroProps {
   onOpenAudit: () => void;
 }
 
-// Network nodes with business-related icons
+// Network nodes with development-related icons
 const networkNodes = [
-  { id: 1, icon: Search, label: "Google", x: 15, y: 25 },
-  { id: 2, icon: Building2, label: "Business", x: 85, y: 30 },
-  { id: 3, icon: TrendingUp, label: "Growth", x: 50, y: 10 },
-  { id: 4, icon: Zap, label: "Leads", x: 20, y: 75 },
-  { id: 5, icon: Users, label: "Customers", x: 80, y: 70 },
-  { id: 6, icon: Target, label: "Results", x: 50, y: 85 },
+  { id: 1, icon: Code, label: "Frontend", x: 15, y: 25 },
+  { id: 2, icon: Smartphone, label: "Mobile", x: 85, y: 30 },
+  { id: 3, icon: Cloud, label: "Backend", x: 50, y: 10 },
+  { id: 4, icon: GitBranch, label: "DevOps", x: 20, y: 75 },
+  { id: 5, icon: Zap, label: "API", x: 80, y: 70 },
+  { id: 6, icon: Layers, label: "Architecture", x: 50, y: 85 },
 ];
 
 // Animated background elements
@@ -221,23 +221,23 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
           variants={fadeIn}
           className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-widest uppercase border border-border rounded-full bg-secondary text-muted-foreground"
         >
-          Google Business Profile Experts
+          Enterprise App Development
         </motion.span>
 
         <motion.h1
           variants={fadeIn}
           className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter mb-8 text-balance leading-[0.9] text-foreground"
         >
-          Turn Google Searches Into{" "}
-          <span className="text-muted-foreground">Paying Customers.</span>
+          Build Tomorrow's Apps{" "}
+          <span className="text-muted-foreground">Today.</span>
         </motion.h1>
 
         <motion.p
           variants={fadeIn}
           className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 text-pretty leading-relaxed"
         >
-          We optimize your local presence to dominate search results,
-          automate your lead flow, and manage your reputation—all in one system.
+          Enterprise-grade mobile and web applications built with cutting-edge
+          technology, scalable architecture, and agile development practices.
         </motion.p>
 
         <motion.div
@@ -249,7 +249,7 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
             onClick={onOpenAudit}
             className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors active:scale-[0.97]"
           >
-            Get Free Audit
+            Start Your Project
           </Button>
           <Button
             variant="outline"
@@ -257,7 +257,7 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
             onClick={() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth" })}
             className="h-14 px-8 text-base rounded-full border-border bg-transparent hover:bg-secondary transition-all active:scale-[0.97] text-foreground"
           >
-            View Results
+            See Our Work
           </Button>
         </motion.div>
       </motion.div>

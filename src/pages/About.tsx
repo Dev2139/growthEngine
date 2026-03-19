@@ -12,53 +12,53 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: "Results-Driven",
+      title: "Code Excellence",
       description:
-        "We don't optimize for vanity metrics. Every strategy, every tactic, every decision is measured by its impact on your bottom line.",
+        "We build enterprise-grade applications with scalable architecture, type safety, and zero technical debt. Every line of code matters.",
     },
     {
       icon: Users,
-      title: "Client-Centric",
+      title: "Agile Collaboration",
       description:
-        "Your success is our success. We embed ourselves in your business, understand your market, and build systems that stick.",
+        "Your team is our team. We integrate seamlessly into your workflows, communicate clearly, and ship incrementally with continuous feedback.",
     },
     {
       icon: Zap,
-      title: "Innovation First",
+      title: "Performance First",
       description:
-        "Google changes every day. We stay obsessed with what's working, what's not, and how to get ahead of the curve.",
+        "We optimize for speed, scalability, and reliability. From mobile apps to distributed backends, we build systems that scale with your business.",
     },
     {
       icon: Award,
-      title: "Accountability",
+      title: "Full Stack Expertise",
       description:
-        "We guarantee results or you don't pay. We stake our reputation on every campaign because we're that confident.",
+        "React to Python, Node to Go, iOS to Flutter—we master the entire technology stack. One team, unlimited capabilities.",
     },
   ];
 
   const team = [
     {
-      name: "Dev Patel",
-      role: "Founder & CEO",
-      expertise: "Local SEO | Market Strategy",
-      image: "DP",
+      name: "Alex Chen",
+      role: "Founder & CTO",
+      expertise: "Full-Stack Architecture | DevOps",
+      image: "AC",
     },
     {
       name: "Jordan Davis",
-      role: "Head of Operations",
-      expertise: "Campaign Management | Optimization",
+      role: "Head of Product",
+      expertise: "Mobile Development | System Design",
       image: "JD",
     },
     {
       name: "Morgan Taylor",
-      role: "Lead Developer",
-      expertise: "Web Platform | Automation",
+      role: "Lead Backend Engineer",
+      expertise: "Cloud Infrastructure | API Design",
       image: "MT",
     },
     {
       name: "Casey Martinez",
-      role: "Head of Growth",
-      expertise: "Lead Generation | Sales Systems",
+      role: "Frontend Lead",
+      expertise: "React | Performance Optimization",
       image: "CM",
     },
   ];
@@ -82,14 +82,14 @@ const About = () => {
             variants={fadeIn}
             className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
           >
-            We Turn Google Searches Into{" "}
-            <span className="text-muted-foreground">Paying Customers</span>
+            Enterprise App Development{" "}
+            <span className="text-muted-foreground">Built Right</span>
           </motion.h1>
           <motion.p
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            Founded in 2019 in India, GrowthEngine has helped 100+ businesses across the subcontinent dominate their local markets and scale faster than they thought possible.
+            Founded in 2020, DevForge specializes in building scalable mobile and web applications for enterprise clients. We've empowered 50+ companies to launch industry-leading digital products.
           </motion.p>
         </motion.div>
       </section>
@@ -107,16 +107,16 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                In 2019, our founder Dev Patel was frustrated. Indian businesses were investing in beautiful websites and paid ads, yet still struggling to convert leads. Clients would come in with little visibility where it mattered most. Sound familiar?
+                In 2020, our founder Alex Chen noticed a critical gap: enterprise companies had amazing ideas but struggled to find development partners who could execute reliably at scale.
               </p>
               <p>
-                The problem wasn't their website or their business. It was that they were invisible where customers actually look — Google, Google Maps, and their local communities.
+                Too many dev shops overpromise and underdeliver. Teams ship half-finished products, documentation disappears, and clients are left scrambling. We knew there had to be a better way.
               </p>
               <p>
-                Dev decided to fix this. Instead of building websites for the sake of it, we started building growth engines that turn local search into predictable, sustainable revenue for Indian businesses.
+                Alex assembled a team of senior engineers with decades of combined experience building production systems. Together, we created DevForge—a studio focused exclusively on helping enterprises build the right product, the right way.
               </p>
               <p>
-                Fast forward to today: 100+ Indian businesses scaled, $2.4M in monthly recurring revenue generated for our clients, and a system that works for any business that serves a local market across India.
+                Today, we've shipped 50+ applications with zero failed projects. Our methodology combines agile development, rigorous code standards, and transparent communication to deliver results that exceed expectations on time and on budget.
               </p>
             </div>
           </motion.div>

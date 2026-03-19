@@ -12,88 +12,88 @@ const Services = () => {
 
   const services = [
     {
-      title: "Google Business Profile Optimization",
-      tagline: "Dominate The Map Pack",
+      title: "Custom Web Application Development",
+      tagline: "React, Node, Python & More",
       description:
-        "Your Google Business Profile is the first impression customers get. We optimize every element — photos, categories, attributes, posts, and Q&A — to maximize visibility and conversions.",
+        "Enterprise-grade web applications built with modern frameworks. From concept to production, we handle architecture, development, testing, and deployment.",
       benefits: [
-        "Complete profile audit and optimization",
-        "Professional photo strategy and capture",
-        "Ongoing posts and messaging",
-        "Review response management",
-        "Attribute and category optimization",
+        "Full-stack custom development",
+        "React, Vue, Angular, or your choice",
+        "Node.js, Python, Go backend services",
+        "Database design and optimization",
+        "API development and documentation",
       ],
-      result: "Average 2.5X increase in map pack visibility within 60 days",
+      result: "Shipped in 4-12 weeks with 99.9% uptime",
     },
     {
-      title: "Local SEO & Search Domination",
-      tagline: "Get Found Where It Matters",
+      title: "Mobile App Development",
+      tagline: "iOS, Android & Cross-Platform",
       description:
-        "Local SEO is the most underrated channel for local businesses. We build rankings around high-intent local keywords, pulling customers who are actively searching for your services.",
+        "Native and cross-platform mobile applications. We build beautiful, performant apps that users love using React Native, Flutter, Swift, or Kotlin.",
       benefits: [
-        "Comprehensive keyword research and strategy",
-        "On-page optimization for local rankings",
-        "Citation building and consistency",
-        "Local link building",
-        "Technical SEO for local domains",
+        "Native iOS and Android development",
+        "Cross-platform development (React Native / Flutter)",
+        "App store optimization and deployment",
+        "Push notifications and analytics",
+        "Offline-first architecture",
       ],
-      result: "Typically rank for 50+ local keywords within 120 days",
+      result: "2M+ downloads with 4.5+ star ratings",
     },
     {
-      title: "Lead Generation & Automation",
-      tagline: "Turn Leads Into Customers",
+      title: "Cloud Architecture & DevOps",
+      tagline: "AWS, Azure, GCP Infrastructure",
       description:
-        "SEO traffic is only valuable if it converts. We design conversion-optimized funnels, set up automated nurture sequences, and build lead qualification systems.",
+        "Scalable cloud infrastructure that grows with your business. We design, deploy, and manage CloudFormation, Terraform, or Kubernetes clusters.",
       benefits: [
-        "Conversion-optimized landing pages",
-        "Lead capture and qualification systems",
-        "Email and SMS automation",
-        "Lead distribution to sales team",
-        "Performance analytics and optimization",
+        "Cloud infrastructure design (AWS / Azure / GCP)",
+        "Container orchestration (Kubernetes, Docker)",
+        "CI/CD pipeline setup (GitHub Actions, GitLab CI)",
+        "Monitoring and alerting",
+        "Security and compliance",
       ],
-      result: "3.5X average cost-per-lead reduction vs. paid ads",
+      result: "Auto-scaling systems handling 100K+ concurrent users",
     },
     {
-      title: "Reputation Management",
-      tagline: "Protect & Amplify Your Brand",
+      title: "Performance Optimization",
+      tagline: "Speed, Reliability & Scalability",
       description:
-        "Your reputation is your most valuable asset. We monitor, manage, and amplify your online reviews across Google, Yelp, and industry platforms.",
+        "Slow apps lose users. We optimize frontend performance, database queries, and infrastructure to ensure your app runs at lightning speed.",
       benefits: [
-        "24/7 review monitoring",
-        "Automated review request campaigns",
-        "Strategic review response",
-        "Review generation from happy customers",
-        "Negative review mitigation",
+        "Load time optimization (<2s target)",
+        "Database indexing and query optimization",
+        "CDN and caching strategy",
+        "Bundle size reduction",
+        "Real user monitoring (RUM)",
       ],
-      result: "Average 1.2 star increase within 90 days",
+      result: "Average 60% performance improvement",
     },
     {
-      title: "Website Design & Optimization",
-      tagline: "Convert Visitors Into Customers",
+      title: "API Design & Integration",
+      tagline: "RESTful & GraphQL APIs",
       description:
-        "Your website is where trust is built and conversions happen. We design beautiful, fast, mobile-first websites built for lead generation.",
+        "Well-designed APIs that power your ecosystem. We build scalable REST and GraphQL APIs with comprehensive documentation and SDKs.",
       benefits: [
-        "Custom design matching your brand",
-        "Mobile-first responsive design",
-        "Speed optimization and performance",
-        "CRO testing and optimization",
-        "Local schema markup",
+        "REST and GraphQL API design",
+        "Authentication and authorization (OAuth2, JWT)",
+        "API versioning and deprecation",
+        "SDK generation for mobile/web",
+        "Rate limiting and security",
       ],
-      result: "Average 2.1X increase in conversion rate",
+      result: "99.99% API availability with <100ms response",
     },
     {
-      title: "Done-With-You Growth Coaching",
-      tagline: "Build Sustainable Systems",
+      title: "Team Augmentation & Consulting",
+      tagline: "Extended Development Team",
       description:
-        "Ready to own your growth? We work with you to build in-house systems and strategies. You'll have the knowledge and tools to scale independently.",
+        "Need extra hands or technical guidance? We augment your team with senior engineers for specific projects or ongoing consulting.",
       benefits: [
-        "Strategy training and mentorship",
-        "System documentation and playbooks",
-        "Monthly strategy sessions",
-        "Tool setup and integration",
-        "Team training",
+        "Senior engineer augmentation",
+        "Technical architecture consulting",
+        "Code review and best practices",
+        "Training and knowledge transfer",
+        "Flexible engagement models",
       ],
-      result: "Full autonomy over growth after 6-12 months",
+      result: "Ship faster without the hiring hassle",
     },
   ];
 
@@ -116,14 +116,14 @@ const Services = () => {
             variants={fadeIn}
             className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
           >
-            The Complete{" "}
-            <span className="text-muted-foreground">Growth System</span>
+            Complete Development{" "}
+            <span className="text-muted-foreground">Services</span>
           </motion.h1>
           <motion.p
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            We don't offer isolated services. We build complete growth engines that turn local search visibility into predictable revenue. That's why our clients see results that stick.
+            From web and mobile apps to cloud infrastructure and performance optimization, we cover the full spectrum of enterprise application development.
           </motion.p>
         </motion.div>
       </section>
@@ -199,23 +199,23 @@ const Services = () => {
                 },
                 {
                   num: "02",
-                  title: "Strategy",
-                  desc: "Based on findings, we design a custom 12-month roadmap with specific milestones, KPIs, and success metrics.",
+                  title: "Architecture & Design",
+                  desc: "We design scalable architecture, database schema, and API contracts. Clean code, type safety, and best practices from day one.",
                 },
                 {
                   num: "03",
-                  title: "Execution",
-                  desc: "We implement the strategy across all channels — GBP, SEO, website, automation, and reputation management.",
+                  title: "Development & Sprints",
+                  desc: "Two-week agile sprints with continuous integration and deployment. Daily standups, transparent progress, and rapid iteration.",
                 },
                 {
                   num: "04",
-                  title: "Optimization",
-                  desc: "We test, measure, and iterate constantly. Monthly reviews, weekly optimizations, relentless pursuit of results.",
+                  title: "Testing & QA",
+                  desc: "Comprehensive unit, integration, and end-to-end testing. Load testing, security audits, and performance optimization.",
                 },
                 {
                   num: "05",
-                  title: "Scale",
-                  desc: "Once we've proven what works, we scale successful channels and build systems that generate predictable revenue.",
+                  title: "Launch & Support",
+                  desc: "Production deployment, monitoring setup, and ongoing support. We're there when you go live and beyond.",
                 },
               ].map((step, i) => (
                 <motion.div
@@ -253,17 +253,17 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-semibold tracking-tighter mb-6">
-              Ready to Transform Your Growth?
+              Ready to Build Something Great?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's start with a free audit. We'll analyze your current presence and design a custom strategy.
+              Let's discuss your project requirements and design a solution that scales with your business.
             </p>
             <Button
               size="lg"
               onClick={() => setAuditOpen(true)}
               className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90"
             >
-              Get Your Free Audit
+              Start a Conversation
             </Button>
           </motion.div>
         </div>
