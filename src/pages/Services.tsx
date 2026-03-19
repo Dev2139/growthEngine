@@ -12,88 +12,88 @@ const Services = () => {
 
   const services = [
     {
-      title: "Custom Web Application Development",
-      tagline: "React, Node, Python & More",
+      title: "SEO & Google Rankings",
+      tagline: "Organic Search Domination",
       description:
-        "Enterprise-grade web applications built with modern frameworks. From concept to production, we handle architecture, development, testing, and deployment.",
+        "Strategic SEO services to rank your business higher on Google. We optimize your website, build high-quality backlinks, and implement technical SEO for sustainable growth.",
       benefits: [
-        "Full-stack custom development",
-        "React, Vue, Angular, or your choice",
-        "Node.js, Python, Go backend services",
-        "Database design and optimization",
-        "API development and documentation",
+        "Keyword research and competitive analysis",
+        "On-page and technical SEO optimization",
+        "Content strategy and creation",
+        "Link building and authority growth",
+        "Monthly ranking and traffic reports",
       ],
-      result: "Shipped in 4-12 weeks with 99.9% uptime",
+      result: "Average ranking improvement from Page 3 to Page 1 in 60-90 days",
     },
     {
-      title: "Mobile App Development",
-      tagline: "iOS, Android & Cross-Platform",
+      title: "Lead Generation & Conversion",
+      tagline: "Turn Visitors Into Customers",
       description:
-        "Native and cross-platform mobile applications. We build beautiful, performant apps that users love using React Native, Flutter, Swift, or Kotlin.",
+        "High-converting landing pages and lead capture systems designed to attract qualified prospects and turn them into paying customers.",
       benefits: [
-        "Native iOS and Android development",
-        "Cross-platform development (React Native / Flutter)",
-        "App store optimization and deployment",
-        "Push notifications and analytics",
-        "Offline-first architecture",
+        "Landing page design and optimization",
+        "Lead capture forms and workflows",
+        "A/B testing for higher conversions",
+        "Email marketing automation",
+        "CRM integration and lead nurturing",
       ],
-      result: "2M+ downloads with 4.5+ star ratings",
+      result: "Average 3-5x improvement in lead conversion rates",
     },
     {
-      title: "Cloud Architecture & DevOps",
-      tagline: "AWS, Azure, GCP Infrastructure",
+      title: "Paid Search & Google Ads",
+      tagline: "SEM & PPC Campaign Management",
       description:
-        "Scalable cloud infrastructure that grows with your business. We design, deploy, and manage CloudFormation, Terraform, or Kubernetes clusters.",
+        "Strategic Google Ads and paid search campaigns that drive qualified traffic and maximize ROI. Data-driven bidding and optimization.",
       benefits: [
-        "Cloud infrastructure design (AWS / Azure / GCP)",
-        "Container orchestration (Kubernetes, Docker)",
-        "CI/CD pipeline setup (GitHub Actions, GitLab CI)",
-        "Monitoring and alerting",
-        "Security and compliance",
+        "Google Ads setup and management",
+        "Keyword research and bid strategy",
+        "Ad copy testing and optimization",
+        "Landing page optimization",
+        "Detailed ROI tracking and reporting",
       ],
-      result: "Auto-scaling systems handling 100K+ concurrent users",
+      result: "Average ROAS of 3:1 to 8:1 on ad spend",
     },
     {
-      title: "Performance Optimization",
-      tagline: "Speed, Reliability & Scalability",
+      title: "Website Design & Development",
+      tagline: "High-Performance Business Websites",
       description:
-        "Slow apps lose users. We optimize frontend performance, database queries, and infrastructure to ensure your app runs at lightning speed.",
+        "Custom-built websites optimized for both user experience and search engines. Fast-loading, mobile-friendly, and designed to convert.",
       benefits: [
-        "Load time optimization (<2s target)",
-        "Database indexing and query optimization",
-        "CDN and caching strategy",
-        "Bundle size reduction",
-        "Real user monitoring (RUM)",
+        "Responsive web design",
+        "Mobile optimization",
+        "Performance optimization",
+        "Conversion optimization",
+        "SEO-friendly architecture",
       ],
-      result: "Average 60% performance improvement",
+      result: "40%+ improvement in mobile conversion rates",
     },
     {
-      title: "API Design & Integration",
-      tagline: "RESTful & GraphQL APIs",
+      title: "Blog Content & Strategy",
+      tagline: "Content That Ranks & Converts",
       description:
-        "Well-designed APIs that power your ecosystem. We build scalable REST and GraphQL APIs with comprehensive documentation and SDKs.",
+        "Strategic blog content that attracts organic traffic, establishes authority, and nurtures leads through the sales funnel.",
       benefits: [
-        "REST and GraphQL API design",
-        "Authentication and authorization (OAuth2, JWT)",
-        "API versioning and deprecation",
-        "SDK generation for mobile/web",
-        "Rate limiting and security",
+        "Content calendar and strategy",
+        "SEO-optimized blog writing",
+        "Competitor content analysis",
+        "Topic cluster development",
+        "Traffic and engagement tracking",
       ],
-      result: "99.99% API availability with <100ms response",
+      result: "Organic traffic growth of 50-200% in 6 months",
     },
     {
-      title: "Team Augmentation & Consulting",
-      tagline: "Extended Development Team",
+      title: "Local SEO & Google Business",
+      tagline: "Dominate Local Search Results",
       description:
-        "Need extra hands or technical guidance? We augment your team with senior engineers for specific projects or ongoing consulting.",
+        "Local SEO optimization to help service-based businesses rank locally. Perfect for multi-location businesses and service areas.",
       benefits: [
-        "Senior engineer augmentation",
-        "Technical architecture consulting",
-        "Code review and best practices",
-        "Training and knowledge transfer",
-        "Flexible engagement models",
+        "Google Business Profile optimization",
+        "Local citation building",
+        "Review generation and management",
+        "Local schema markup",
+        "Location-based keyword optimization",
       ],
-      result: "Ship faster without the hiring hassle",
+      result: "Average 150% increase in local search visibility",
     },
   ];
 
@@ -116,14 +116,14 @@ const Services = () => {
             variants={fadeIn}
             className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
           >
-            Complete Development{" "}
-            <span className="text-muted-foreground">Services</span>
+            Grow Your Business{" "}
+            <span className="text-muted-foreground">Online</span>
           </motion.h1>
           <motion.p
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            From web and mobile apps to cloud infrastructure and performance optimization, we cover the full spectrum of enterprise application development.
+            From SEO and paid search to lead generation and conversion optimization, we provide comprehensive digital growth services that turn prospects into customers.
           </motion.p>
         </motion.div>
       </section>

@@ -12,54 +12,42 @@ const About = () => {
   const values = [
     {
       icon: Target,
-      title: "Code Excellence",
+      title: "SEO & Ranking",
       description:
-        "We build enterprise-grade applications with scalable architecture, type safety, and zero technical debt. Every line of code matters.",
+        "We master Google's algorithm to get your business ranking for high-intent keywords. Organic traffic that converts into paying customers.",
     },
     {
       icon: Users,
-      title: "Agile Collaboration",
+      title: "Lead Generation",
       description:
-        "Your team is our team. We integrate seamlessly into your workflows, communicate clearly, and ship incrementally with continuous feedback.",
+        "Strategic campaigns designed to capture qualified leads at every stage of the buyer journey. Systems that scale with your business.",
     },
     {
       icon: Zap,
-      title: "Performance First",
+      title: "Conversion Optimization",
       description:
-        "We optimize for speed, scalability, and reliability. From mobile apps to distributed backends, we build systems that scale with your business.",
+        "We don't just drive traffic—we convert it. Every element of your digital presence is optimized for maximum ROI and customer acquisition.",
     },
     {
       icon: Award,
-      title: "Full Stack Expertise",
+      title: "Data-Driven Results",
       description:
-        "React to Python, Node to Go, iOS to Flutter—we master the entire technology stack. One team, unlimited capabilities.",
+        "Every decision backed by analytics and performance metrics. We measure what matters and optimize for your bottom line.",
     },
   ];
 
   const team = [
     {
-      name: "Alex Chen",
-      role: "Founder & CTO",
-      expertise: "Full-Stack Architecture | DevOps",
-      image: "AC",
+      name: "Dev Patel",
+      role: "Founder & CEO",
+      expertise: "SEO Strategy | Digital Growth",
+      image: "DP",
     },
     {
-      name: "Jordan Davis",
-      role: "Head of Product",
-      expertise: "Mobile Development | System Design",
-      image: "JD",
-    },
-    {
-      name: "Morgan Taylor",
-      role: "Lead Backend Engineer",
-      expertise: "Cloud Infrastructure | API Design",
-      image: "MT",
-    },
-    {
-      name: "Casey Martinez",
-      role: "Frontend Lead",
-      expertise: "React | Performance Optimization",
-      image: "CM",
+      name: "Hardik Patel",
+      role: "Founder & Head of Operations",
+      expertise: "Lead Generation | Performance Marketing",
+      image: "HP",
     },
   ];
 
@@ -82,14 +70,14 @@ const About = () => {
             variants={fadeIn}
             className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
           >
-            Enterprise App Development{" "}
-            <span className="text-muted-foreground">Built Right</span>
+            Grow Your Digital{" "}
+            <span className="text-muted-foreground">Presence</span>
           </motion.h1>
           <motion.p
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            Founded in 2020, GrowthAxis specializes in building scalable mobile and web applications for enterprise clients. We've empowered 50+ companies to launch industry-leading digital products.
+            Founded by Dev Patel and Hardik Patel, GrowthAxis specializes in helping businesses rank higher on Google and convert more customers through strategic digital marketing and high-performing web solutions. We've helped 50+ businesses grow their online visibility and revenue.
           </motion.p>
         </motion.div>
       </section>
@@ -103,20 +91,20 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-semibold tracking-tighter mb-6">
-              How It Started
+              The Story Behind GrowthAxis
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                In 2020, our founder Alex Chen noticed a critical gap: enterprise companies had amazing ideas but struggled to find development partners who could execute reliably at scale.
+                In 2020, Dev Patel and Hardik Patel saw a massive opportunity: most businesses were losing customers on Google simply because they didn't have a proper ranking and lead generation strategy.
               </p>
               <p>
-                Too many dev shops overpromise and underdeliver. Teams ship half-finished products, documentation disappears, and clients are left scrambling. We knew there had to be a better way.
+                They noticed that traditional agencies overpromise results but underdeliver. Clients waste thousands on ineffective campaigns, and their phones stop ringing. The system was broken.
               </p>
               <p>
-                Alex assembled a team of senior engineers with decades of combined experience building production systems. Together, we created GrowthAxis—a studio focused exclusively on helping enterprises build the right product, the right way.
+                Dev and Hardik assembled a team of digital strategists and web developers who understood the complete picture—from SEO and SEM to conversion optimization and scalable web infrastructure. Together, they created GrowthAxis to change how businesses approach their digital growth.
               </p>
               <p>
-                Today, we've shipped 50+ applications with zero failed projects. Our methodology combines agile development, rigorous code standards, and transparent communication to deliver results that exceed expectations on time and on budget.
+                Today, GrowthAxis has helped 50+ businesses dominate Google rankings, scale their lead generation, and build high-performing digital products. Our methodology combines proven marketing strategies with cutting-edge technology to deliver measurable results that directly impact the bottom line.
               </p>
             </div>
           </motion.div>

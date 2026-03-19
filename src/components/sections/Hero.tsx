@@ -148,23 +148,24 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
           variants={fadeIn}
           className="inline-block px-4 py-1.5 mb-8 text-xs font-medium tracking-widest uppercase border border-border rounded-full bg-secondary text-muted-foreground"
         >
-          Enterprise App Development
+          Digital Growth & Visibility
         </motion.span>
 
         <motion.h1
           variants={fadeIn}
           className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter mb-8 text-balance leading-[0.9] text-foreground"
         >
-          Build Tomorrow's Apps{" "}
-          <span className="text-muted-foreground">Today.</span>
+          Rank Higher.{" "}
+          <span className="text-muted-foreground">Grow Faster.</span>
         </motion.h1>
 
         <motion.p
           variants={fadeIn}
           className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 text-pretty leading-relaxed"
         >
-          Enterprise-grade mobile and web applications built with cutting-edge
-          technology, scalable architecture, and agile development practices.
+          We help businesses dominate their digital presence through strategic SEO,
+          lead generation systems, and data-driven marketing that turns Google
+          searches into paying customers.
         </motion.p>
 
         <motion.div
