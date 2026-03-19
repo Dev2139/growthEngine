@@ -29,12 +29,12 @@ const Services = () => {
       title: "Lead Generation & Conversion",
       tagline: "Turn Visitors Into Customers",
       description:
-        "High-converting landing pages and lead capture systems designed to attract qualified prospects and turn them into paying customers.",
+        "High-converting systems designed to attract qualified prospects and turn visibility into revenue. We optimize every touchpoint for conversion.",
       benefits: [
         "Landing page design and optimization",
         "Lead capture forms and workflows",
         "A/B testing for higher conversions",
-        "Email marketing automation",
+        "Lead nurture workflows",
         "CRM integration and lead nurturing",
       ],
       result: "Average 3-5x improvement in lead conversion rates",
@@ -123,7 +123,7 @@ const Services = () => {
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            From SEO and paid search to lead generation and conversion optimization, we provide comprehensive digital growth services that turn prospects into customers.
+            We strategically help businesses grow and rank on Google and other platforms. Data-driven optimization combined with sustained growth systems.
           </motion.p>
         </motion.div>
       </section>

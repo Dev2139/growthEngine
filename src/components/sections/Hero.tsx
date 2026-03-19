@@ -163,9 +163,8 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
           variants={fadeIn}
           className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-10 text-pretty leading-relaxed"
         >
-          We help businesses dominate their digital presence through strategic SEO,
-          lead generation systems, and data-driven marketing that turns Google
-          searches into paying customers.
+          We strategically help businesses rank higher on Google and other platforms
+          through data-driven optimization and sustained growth systems.
         </motion.p>
 
         <motion.div

@@ -46,7 +46,7 @@ const About = () => {
     {
       name: "Hardik Patel",
       role: "Founder & Head of Operations",
-      expertise: "Lead Generation | Performance Marketing",
+      expertise: "Ranking Strategy | Platform Growth",
       image: "HP",
     },
   ];
@@ -77,7 +77,7 @@ const About = () => {
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            Founded by Dev Patel and Hardik Patel, GrowthAxis specializes in helping businesses rank higher on Google and convert more customers through strategic digital marketing and high-performing web solutions. We've helped 50+ businesses grow their online visibility and revenue.
+            Founded by Dev Patel and Hardik Patel, GrowthAxis strategically helps businesses rank higher on Google and other platforms, converting visibility into revenue. We've helped 50+ businesses achieve sustained growth through data-driven ranking strategies and optimized systems.
           </motion.p>
         </motion.div>
       </section>
@@ -104,7 +104,7 @@ const About = () => {
                 Dev and Hardik assembled a team of digital strategists and web developers who understood the complete picture—from SEO and SEM to conversion optimization and scalable web infrastructure. Together, they created GrowthAxis to change how businesses approach their digital growth.
               </p>
               <p>
-                Today, GrowthAxis has helped 50+ businesses dominate Google rankings, scale their lead generation, and build high-performing digital products. Our methodology combines proven marketing strategies with cutting-edge technology to deliver measurable results that directly impact the bottom line.
+                Today, GrowthAxis has helped 50+ businesses dominate rankings on Google and other platforms. Our methodology combines proven ranking strategies with cutting-edge technology to deliver measurable growth that directly impacts revenue.
               </p>
             </div>
           </motion.div>
