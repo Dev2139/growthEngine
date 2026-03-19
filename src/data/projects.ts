@@ -39,7 +39,7 @@ export const projects: Project[] = [
     challenge: "Build a fintech platform that handles payment processing, fraud detection, and compliance required for global operations. Requires microservices architecture, real-time data processing, and bulletproof security.",
     solution: "We architected a microservices platform using Node.js backend, PostgreSQL for transactional data, and Redis for real-time caching. Deployed on Kubernetes with auto-scaling. Implemented comprehensive testing, security audits, and monitoring with Datadog.",
     testimonial: {
-      quote: "DevForge delivered a platform that's not just functional, but enterprise-grade. The architecture is clean, the code is maintainable, and it scales. We couldn't have done this without them.",
+      quote: "GrowthAxis delivered a platform that's not just functional, but enterprise-grade. The architecture is clean, the code is maintainable, and it scales. We couldn't have done this without them.",
       name: "David Kumar",
       role: "CEO, PayFlow",
     },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     challenge: "Build a high-performance mobile app that works flawlessly on both iOS and Android, handles millions of products, manages real-time inventory, and integrates payment processing.",
     solution: "Built a React Native app with offline-first architecture using SQLite for local caching. Implemented server-side pagination, image optimization, and lazy loading for performance. Integrated with Stripe for payments and Firebase for analytics and push notifications.",
     testimonial: {
-      quote: "The app they built isn't just pretty—it's blazingly fast and handles our peak traffic without breaking a sweat. DevForge understands mobile development.",
+      quote: "The app they built isn't just pretty—it's blazingly fast and handles our peak traffic without breaking a sweat. GrowthAxis understands mobile development.",
       name: "Priya Singh",
       role: "Product Lead, ShopHub",
     },
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     challenge: "Build a secure, multi-tenant SaaS platform that handles complex business logic, manages sensitive financial data, scales to handle millions of transactions, and achieves SOC2 compliance.",
     solution: "Architected a React frontend with TypeScript, Node.js backend with Express, PostgreSQL for data with row-level security, and Redis for caching. Deployed on AWS with auto-scaling, implemented comprehensive logging with ELK stack, and achieved SOC2 Type II certification.",
     testimonial: {
-      quote: "DevForge didn't just build software—they built a platform. The architecture is so clean that our team can iterate quickly. This is what enterprise software should look like.",
+      quote: "GrowthAxis didn't just build software—they built a platform. The architecture is so clean that our team can iterate quickly. This is what enterprise software should look like.",
       name: "Michael Green",
       role: "CTO, CloudERP",
     },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     challenge: "Build a real-time collaboration platform where multiple users can edit simultaneously, changes sync instantly, conflict resolution works seamlessly, and the platform handles peak loads.",
     solution: "Implemented WebSocket connections using Socket.io for real-time communication. Built conflict-free replicated data types (CRDT) for simultaneous editing without conflicts. Used Redis for session management and AWS for scalable infrastructure.",
     testimonial: {
-      quote: "The real-time sync is magic. Our team feels like they're in the same room even when they're across continents. DevForge created something special.",
+      quote: "The real-time sync is magic. Our team feels like they're in the same room even when they're across continents. GrowthAxis created something special.",
       name: "Elena Costa",
       role: "Founder, DesignSync",
     },
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     challenge: "Build a medical-grade API that handles sensitive patient data, meets HIPAA requirements, encrypts data in transit and at rest, scales to handle millions of requests, and maintains data integrity.",
     solution: "Built a Node.js/Express API with PostgreSQL using encrypted columns for sensitive data. Implemented comprehensive audit logging, role-based access control, and API rate limiting. Deployed on AWS with VPC isolation, used KMS for key management, and achieved HIPAA compliance.",
     testimonial: {
-      quote: "We needed a team that understands healthcare regulations AND building scalable systems. DevForge delivered both. Our patients' data is secure.",
+      quote: "We needed a team that understands healthcare regulations AND building scalable systems. GrowthAxis delivered both. Our patients' data is secure.",
       name: "Dr. Arun Patel",
       role: "CTO, MediConnect",
     },
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     challenge: "Build an IoT platform that ingests massive volumes of sensor data, processes it in real-time, stores it efficiently, and provides analytics and alerting on top.",
     solution: "Deployed MQTT brokers for sensor communication, Kafka for event streaming, and InfluxDB for time-series data. Built real-time dashboards with React and WebSockets. Used Kubernetes for scalability and AWS Lambda for serverless processing of analytical workloads.",
     testimonial: {
-      quote: "The platform handles our data volume without breaking a sweat. DevForge built something that just works, scales gracefully, and our team understands it.",
+      quote: "The platform handles our data volume without breaking a sweat. GrowthAxis built something that just works, scales gracefully, and our team understands it.",
       name: "Rajesh Gupta",
       role: "VP Engineering, SmartCity Solutions",
     },

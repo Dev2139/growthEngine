@@ -6,10 +6,16 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
-            <Link to="/" className="text-lg font-semibold tracking-tight text-foreground mb-4 block">GrowthEngine</Link>
+            <Link to="/" className="flex items-center gap-2 mb-4">
+              <img 
+                src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
+                alt="GrowthAxis"
+                className="h-8 w-auto"
+              />
+              <span className="text-lg font-semibold tracking-tight text-foreground">GrowthAxis</span>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Data-backed local domination. We help businesses turn Google searches
-              into revenue through precision SEO and lead systems.
+              Enterprise app development studio. We build scalable mobile and web applications for companies that demand excellence.
             </p>
           </div>
           <div>
@@ -32,7 +38,7 @@ const Footer = () => {
 
         <div className="border-t border-border/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} GrowthEngine. All rights reserved.
+            © {new Date().getFullYear()} GrowthAxis. All rights reserved.
           </div>
           <div className="flex gap-6">
             {["Twitter", "LinkedIn", "Instagram"].map((s) => (

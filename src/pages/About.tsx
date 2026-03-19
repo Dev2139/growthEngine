@@ -89,7 +89,7 @@ const About = () => {
             variants={fadeIn}
             className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
           >
-            Founded in 2020, DevForge specializes in building scalable mobile and web applications for enterprise clients. We've empowered 50+ companies to launch industry-leading digital products.
+            Founded in 2020, GrowthAxis specializes in building scalable mobile and web applications for enterprise clients. We've empowered 50+ companies to launch industry-leading digital products.
           </motion.p>
         </motion.div>
       </section>
@@ -113,7 +113,7 @@ const About = () => {
                 Too many dev shops overpromise and underdeliver. Teams ship half-finished products, documentation disappears, and clients are left scrambling. We knew there had to be a better way.
               </p>
               <p>
-                Alex assembled a team of senior engineers with decades of combined experience building production systems. Together, we created DevForge—a studio focused exclusively on helping enterprises build the right product, the right way.
+                Alex assembled a team of senior engineers with decades of combined experience building production systems. Together, we created GrowthAxis—a studio focused exclusively on helping enterprises build the right product, the right way.
               </p>
               <p>
                 Today, we've shipped 50+ applications with zero failed projects. Our methodology combines agile development, rigorous code standards, and transparent communication to deliver results that exceed expectations on time and on budget.

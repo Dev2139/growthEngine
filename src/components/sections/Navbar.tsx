@@ -29,8 +29,12 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="text-lg font-semibold tracking-tight text-foreground flex items-center gap-2">
-            <span className="w-2 h-2 bg-primary rounded-full"></span>
-            DevForge
+            <img 
+              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
+              alt="GrowthAxis"
+              className="h-8 w-auto"
+            />
+            <span>GrowthAxis</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
