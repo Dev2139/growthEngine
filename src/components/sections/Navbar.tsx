@@ -32,7 +32,7 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
             <img 
               src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png" 
               alt="GrowthAxis"
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
