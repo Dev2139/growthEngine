@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center mb-4">
               <img 
-                src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png" 
+                src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
                 alt="GrowthAxis"
                 className="h-24 w-auto"
               />
