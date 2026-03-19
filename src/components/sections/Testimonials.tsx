@@ -4,10 +4,10 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
-  { name: "Sarah Mitchell", role: "Owner, Metro Dental Group", quote: "Within 60 days, our phone was ringing off the hook. GrowthEngine didn't just optimize our profile — they built a system that prints appointments." },
+  { name: "Sarah Mitchell", role: "Owner, Metro Dental Group", quote: "Within 60 days, our phone was ringing off the hook. GrowthAxis didn't just optimize our profile — they built a system that prints appointments." },
   { name: "James Chen", role: "CEO, Summit Plumbing Co.", quote: "We went from invisible on Google to the #1 result in our area. The ROI has been unreal. Best investment we've made in 10 years." },
   { name: "Maria Rodriguez", role: "Founder, Luxe Home Realty", quote: "Professional, data-driven, and relentless. They delivered exactly what they promised — more leads, better rankings, real growth." },
-  { name: "Jayesh Patel", role: "Owner, MV Fluid", quote: "GrowthEngine transformed how we acquire clients. We went from chasing leads to leads chasing us. The system is automated, scalable, and it works exactly as promised. Best investment we've made." },
+  { name: "Jayesh Patel", role: "Owner, MV Fluid", quote: "GrowthAxis transformed how we acquire clients. We went from chasing leads to leads chasing us. The system is automated, scalable, and it works exactly as promised. Best investment we've made." },
 ];
 
 const Testimonials = () => {

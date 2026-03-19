@@ -29,7 +29,7 @@ const Footer = () => {
           <div>
             <div className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-4">Contact</div>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <span>hello@growthengine.io</span>
+              <span>hello@growthaxis.io</span>
               <span>(555) 123-4567</span>
             </div>
           </div>
