@@ -10,7 +10,7 @@ const Footer = () => {
               <img 
                 src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
                 alt="GrowthAxis"
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
               <span className="text-lg font-semibold tracking-tight text-foreground">GrowthAxis</span>
             </Link>
