@@ -6,13 +6,12 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center mb-4">
               <img 
-                src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
+                src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png" 
                 alt="GrowthAxis"
                 className="h-12 w-auto"
               />
-              <span className="text-lg font-semibold tracking-tight text-foreground">GrowthAxis</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
               Enterprise app development studio. We build scalable mobile and web applications for companies that demand excellence.

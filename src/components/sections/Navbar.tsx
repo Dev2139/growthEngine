@@ -28,13 +28,12 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 backdrop-blur-xl bg-background/80"
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="text-lg font-semibold tracking-tight text-foreground flex items-center gap-2">
+          <Link to="/" className="text-lg font-semibold tracking-tight text-foreground flex items-center">
             <img 
-              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
+              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png" 
               alt="GrowthAxis"
               className="h-12 w-auto"
             />
-            <span>GrowthAxis</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
