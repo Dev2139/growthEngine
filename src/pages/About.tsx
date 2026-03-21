@@ -49,6 +49,44 @@ const About = () => {
       expertise: "Ranking Strategy | Platform Growth",
       image: "HP",
     },
+    {
+      name: "Priya Sharma",
+      role: "Lead SEO Strategist",
+      expertise: "Technical SEO | Keyword Research",
+      image: "PS",
+    },
+    {
+      name: "Rahul Verma",
+      role: "Full Stack Developer",
+      expertise: "Backend Development | Database Design",
+      image: "RV",
+    },
+    {
+      name: "Ananya Gupta",
+      role: "Content & Digital Marketing Specialist",
+      expertise: "Content Strategy | Lead Generation",
+      image: "AG",
+    },
+    {
+      name: "Vikram Singh",
+      role: "Project Manager",
+      expertise: "Client Relations | Project Delivery",
+      image: "VS",
+    },
+    {
+      name: "Sarah Johnson",
+      role: "Senior Product Architect",
+      expertise: "System Design | Cloud Infrastructure",
+      image: "SJ",
+      location: "🇺🇸 USA",
+    },
+    {
+      name: "James Mitchell",
+      role: "Client Success Manager",
+      expertise: "Account Management | Growth Consulting",
+      image: "JM",
+      location: "🇬🇧 UK",
+    },
   ];
 
   return (
@@ -187,9 +225,12 @@ const About = () => {
                 <p className="text-sm font-medium text-primary mb-3">
                   {member.role}
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground mb-2">
                   {member.expertise}
                 </p>
+                {member.location && (
+                  <p className="text-xs text-muted-foreground">{member.location}</p>
+                )}
               </motion.div>
             ))}
           </div>

@@ -9,6 +9,7 @@ interface NavbarProps {
 }
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Results", href: "/results" },
   { label: "About", href: "/about" },
@@ -30,7 +31,7 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="text-lg font-semibold tracking-tight text-foreground flex items-center">
             <img 
-              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773902468/nvorrj9s2hvpnwviovpx.png" 
+              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png" 
               alt="GrowthAxis"
               className="h-24 w-auto"
             />
@@ -56,7 +57,7 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
             <Button
               onClick={onOpenAudit}
               size="sm"
-              className="rounded-full bg-foreground text-background hover:bg-foreground/90 text-sm px-5 h-9"
+              className="hidden md:flex rounded-full bg-foreground text-background hover:bg-foreground/90 text-sm px-5 h-9"
             >
               Get Free Audit
             </Button>
@@ -92,6 +93,16 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
                 {link.label}
               </Link>
             ))}
+            <Button
+              onClick={() => {
+                onOpenAudit();
+                setMobileOpen(false);
+              }}
+              size="sm"
+              className="rounded-full bg-foreground text-background hover:bg-foreground/90 text-sm px-5 h-9 mt-2"
+            >
+              Get Free Audit
+            </Button>
           </div>
         </motion.div>
       )}
