@@ -8,6 +8,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import CaseStudies from "@/components/sections/CaseStudies";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Testimonials from "@/components/sections/Testimonials";
+import Guarantee from "@/components/sections/Guarantee";
 import CTASection from "@/components/sections/CTASection";
 import Footer from "@/components/sections/Footer";
 import AuditModal from "@/components/sections/AuditModal";
@@ -28,6 +29,7 @@ const Index = () => {
       <CaseStudies />
       <WhyChooseUs />
       <Testimonials />
+      <Guarantee />
       <CTASection onOpenAudit={openAudit} />
       <Footer />
       <AuditModal open={auditOpen} onClose={closeAudit} />
