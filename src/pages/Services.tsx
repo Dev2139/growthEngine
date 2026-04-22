@@ -5,247 +5,118 @@ import Footer from "@/components/sections/Footer";
 import AuditModal from "@/components/sections/AuditModal";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
+import { Link } from "react-router-dom";
 
-const Services = () => {
+const ServicesOverview = () => {
   const [auditOpen, setAuditOpen] = useState(false);
-
-  const services = [
-    {
-      title: "SEO & Google Rankings",
-      tagline: "Organic Search Domination",
-      description:
-        "Strategic SEO services to rank your business higher on Google. We optimize your website, build high-quality backlinks, and implement technical SEO for sustainable growth.",
-      benefits: [
-        "Keyword research and competitive analysis",
-        "On-page and technical SEO optimization",
-        "Content strategy and creation",
-        "Link building and authority growth",
-        "Monthly ranking and traffic reports",
-      ],
-      result: "Average ranking improvement from Page 3 to Page 1 in 60-90 days",
-    },
-    {
-      title: "Lead Generation & Conversion",
-      tagline: "Turn Visitors Into Customers",
-      description:
-        "High-converting systems designed to attract qualified prospects and turn visibility into revenue. We optimize every touchpoint for conversion.",
-      benefits: [
-        "Landing page design and optimization",
-        "Lead capture forms and workflows",
-        "A/B testing for higher conversions",
-        "Lead nurture workflows",
-        "CRM integration and lead nurturing",
-      ],
-      result: "Average 3-5x improvement in lead conversion rates",
-    },
-    {
-      title: "Paid Search & Google Ads",
-      tagline: "SEM & PPC Campaign Management",
-      description:
-        "Strategic Google Ads and paid search campaigns that drive qualified traffic and maximize ROI. Data-driven bidding and optimization.",
-      benefits: [
-        "Google Ads setup and management",
-        "Keyword research and bid strategy",
-        "Ad copy testing and optimization",
-        "Landing page optimization",
-        "Detailed ROI tracking and reporting",
-      ],
-      result: "Average ROAS of 3:1 to 8:1 on ad spend",
-    },
-    {
-      title: "Website Design & Development",
-      tagline: "High-Performance Business Websites",
-      description:
-        "Custom-built websites optimized for both user experience and search engines. Fast-loading, mobile-friendly, and designed to convert.",
-      benefits: [
-        "Responsive web design",
-        "Mobile optimization",
-        "Performance optimization",
-        "Conversion optimization",
-        "SEO-friendly architecture",
-      ],
-      result: "40%+ improvement in mobile conversion rates",
-    },
-    {
-      title: "Blog Content & Strategy",
-      tagline: "Content That Ranks & Converts",
-      description:
-        "Strategic blog content that attracts organic traffic, establishes authority, and nurtures leads through the sales funnel.",
-      benefits: [
-        "Content calendar and strategy",
-        "SEO-optimized blog writing",
-        "Competitor content analysis",
-        "Topic cluster development",
-        "Traffic and engagement tracking",
-      ],
-      result: "Organic traffic growth of 50-200% in 6 months",
-    },
-    {
-      title: "Local SEO & Google Business",
-      tagline: "Dominate Local Search Results",
-      description:
-        "Local SEO optimization to help service-based businesses rank locally. Perfect for multi-location businesses and service areas.",
-      benefits: [
-        "Google Business Profile optimization",
-        "Local citation building",
-        "Review generation and management",
-        "Local schema markup",
-        "Location-based keyword optimization",
-      ],
-      result: "Average 150% increase in local search visibility",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar onOpenAudit={() => setAuditOpen(true)} />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 border-b border-border/50">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className="max-w-7xl mx-auto"
-        >
-          <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-            Our Services
-          </motion.p>
-          <motion.h1
-            variants={fadeIn}
-            className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80&fit=crop"
+            alt="Data Analysis"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
           >
-            Grow Your Business{" "}
-            <span className="text-muted-foreground">Online</span>
-          </motion.h1>
-          <motion.p
-            variants={fadeIn}
-            className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
-          >
-            We strategically help businesses grow and rank on Google and other platforms. Data-driven optimization combined with sustained growth systems.
-          </motion.p>
-        </motion.div>
+            <motion.p variants={fadeIn} className="text-xs uppercase tracking-[0.25em] text-gold mb-6 font-medium">
+              Solutions
+            </motion.p>
+            <motion.h1
+              variants={fadeIn}
+              className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
+            >
+              Dominate Your{" "}
+              <span className="text-gold-gradient font-display italic">Digital Market.</span>
+            </motion.h1>
+            <motion.p
+              variants={fadeIn}
+              className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed mx-auto md:mx-0"
+            >
+              I provide the complete growth stack — from high-intent search ranking to automated lead conversion systems. Explore my specialized services below.
+            </motion.p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-6">
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {services.map((service, i) => (
               <motion.div
-                key={i}
+                key={service.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="p-8 rounded-lg border border-border/50 bg-gradient-to-br from-primary/5 to-accent/5 hover:border-border transition-all duration-300 flex flex-col"
               >
-                <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest border border-primary/50 rounded-full text-primary/80 w-fit">
-                  {service.tagline}
-                </div>
+                <Link 
+                  to={`/services/${service.slug}`}
+                  className="group rounded-2xl overflow-hidden card-gold bg-card flex flex-col md:flex-row h-full hover:translate-y-[-5px] transition-all duration-300"
+                >
+                  {/* Service Image */}
+                  <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-card/80 to-transparent md:block hidden" />
+                  </div>
 
-                <h3 className="text-2xl font-semibold mb-3 text-foreground">
-                  {service.title}
-                </h3>
+                  {/* Service Content */}
+                  <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                    <div className="inline-block px-3 py-1 mb-4 text-[10px] font-bold uppercase tracking-widest border border-gold/30 rounded-full text-gold w-fit">
+                      {service.category}
+                    </div>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
-                  {service.description}
-                </p>
+                    <h3 className="text-2xl font-semibold mb-4 text-foreground leading-tight group-hover:text-gold transition-colors">
+                      {service.title}
+                    </h3>
 
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-primary mb-3">
-                    Includes:
-                  </p>
-                  <ul className="space-y-2">
-                    {service.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed line-clamp-2">
+                      {service.description}
+                    </p>
 
-                <div className="p-4 rounded-lg bg-secondary/50 border border-border/50">
-                  <p className="text-sm font-semibold text-foreground">
-                    {service.result}
-                  </p>
-                </div>
+                    <div className="mb-6">
+                      <ul className="space-y-2">
+                        {service.benefits.slice(0, 3).map((benefit, idx) => (
+                          <li key={idx} className="flex gap-2 text-xs text-muted-foreground">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold mt-auto pt-5 border-t border-border/50">
+                      Learn More <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
-      <section className="py-20 px-6 border-t border-border/50 bg-secondary/30">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-semibold tracking-tighter mb-12">
-              Our Process
-            </h2>
-
-            <div className="space-y-8">
-              {[
-                {
-                  num: "01",
-                  title: "Audit",
-                  desc: "We conduct a comprehensive audit of your current online presence, competitor analysis, and market opportunity.",
-                },
-                {
-                  num: "02",
-                  title: "Architecture & Design",
-                  desc: "We design scalable architecture, database schema, and API contracts. Clean code, type safety, and best practices from day one.",
-                },
-                {
-                  num: "03",
-                  title: "Development & Sprints",
-                  desc: "Two-week agile sprints with continuous integration and deployment. Daily standups, transparent progress, and rapid iteration.",
-                },
-                {
-                  num: "04",
-                  title: "Testing & QA",
-                  desc: "Comprehensive unit, integration, and end-to-end testing. Load testing, security audits, and performance optimization.",
-                },
-                {
-                  num: "05",
-                  title: "Launch & Support",
-                  desc: "Production deployment, monitoring setup, and ongoing support. We're there when you go live and beyond.",
-                },
-              ].map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex gap-6 pb-8 border-b border-border/50 last:border-0"
-                >
-                  <div className="text-4xl font-bold text-primary/50 flex-shrink-0">
-                    {step.num}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 text-foreground">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="section-border py-24 px-6 bg-secondary/30">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -253,18 +124,17 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-semibold tracking-tighter mb-6">
-              Ready to Build Something Great?
+              Ready to Build Your Growth Engine?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss your project requirements and design a solution that scales with your business.
+            <p className="text-lg text-muted-foreground mb-10">
+              Schedule a free audit call. I'll map out exactly how to scale your lead flow.
             </p>
-            <Button
-              size="lg"
+            <button
               onClick={() => setAuditOpen(true)}
-              className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90"
+              className="h-12 px-8 text-sm rounded-md btn-gold"
             >
-              Start a Conversation
-            </Button>
+              Start Conversation
+            </button>
           </motion.div>
         </div>
       </section>
@@ -275,4 +145,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesOverview;

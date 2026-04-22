@@ -3,50 +3,107 @@ import { fadeIn, staggerContainer } from "@/lib/motion";
 import { Search, MapPin, Zap, Star, Globe, Smartphone } from "lucide-react";
 
 const services = [
-  { icon: Search, title: "GBP Optimization", desc: "Claim the 'Map Pack' with precision-tuned profiles that put you ahead of every competitor." },
-  { icon: MapPin, title: "Local SEO Ranking", desc: "Rank for the keywords that actually drive phone calls and foot traffic to your door." },
-  { icon: Zap, title: "Lead Generation System", desc: "Automated funnels that turn anonymous clicks into booked appointments." },
-  { icon: Star, title: "Review Management", desc: "Generate and showcase 5-star social proof on autopilot across every platform." },
-  { icon: Globe, title: "Web Development", desc: "High-performance sites engineered for conversion, not just aesthetics." },
-  { icon: Smartphone, title: "App Development", desc: "Custom tools to scale your business operations and delight your customers." },
+  {
+    icon: Search,
+    title: "GBP Optimization",
+    desc: "Claim the Map Pack with precision-tuned profiles that put you ahead of every local competitor.",
+    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80&fit=crop",
+  },
+  {
+    icon: MapPin,
+    title: "Local SEO Ranking",
+    desc: "Rank for the keywords that drive real phone calls and foot traffic — not just impressions.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop",
+  },
+  {
+    icon: Zap,
+    title: "Lead Generation",
+    desc: "Automated funnels that convert anonymous visitors into booked appointments, every day.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80&fit=crop",
+  },
+  {
+    icon: Star,
+    title: "Review Management",
+    desc: "Build and maintain a 5-star reputation across every platform, completely on autopilot.",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&fit=crop",
+  },
+  {
+    icon: Globe,
+    title: "Web Development",
+    desc: "High-performance sites engineered for conversion, speed, and long-term sustainable growth.",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&fit=crop",
+  },
+  {
+    icon: Smartphone,
+    title: "App Development",
+    desc: "Custom mobile and web apps that scale your operations and delight your customers.",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&fit=crop",
+  },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="py-32 px-6">
+    <section id="services" className="section-border py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
         >
-          <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-4 text-center">
-            What We Do
+          <div>
+            <motion.p
+              variants={fadeIn}
+              className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-medium"
+            >
+              What We Do
+            </motion.p>
+            <motion.h2
+              variants={fadeIn}
+              className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground max-w-lg"
+            >
+              Everything you need to dominate local search.
+            </motion.h2>
+          </div>
+          <motion.p
+            variants={fadeIn}
+            className="text-sm text-muted-foreground max-w-xs leading-relaxed"
+          >
+            A complete digital growth stack — from ranking to lead capture to customer retention.
           </motion.p>
-          <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl font-semibold tracking-tighter text-center mb-16 text-balance text-foreground">
-            Everything You Need to Dominate Local.
-          </motion.h2>
         </motion.div>
 
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/50 border border-border/50 rounded-2xl overflow-hidden"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {services.map((s, i) => (
             <motion.div
               key={i}
               variants={fadeIn}
-              className="group p-10 bg-card hover:bg-secondary/50 transition-colors duration-300 cursor-default"
+              className="group rounded-xl overflow-hidden card-gold bg-card hover:translate-y-[-3px] transition-transform duration-200"
             >
-              <div className="w-10 h-10 mb-6 rounded-xl bg-secondary border border-border flex items-center justify-center group-hover:border-muted-foreground/30 transition-colors duration-300">
-                <s.icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
+              {/* Image */}
+              <div className="h-44 overflow-hidden relative">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-md bg-card/80 backdrop-blur-sm flex items-center justify-center">
+                  <s.icon className="w-4 h-4 text-gold" />
+                </div>
               </div>
-              <h3 className="text-lg font-medium mb-3 tracking-tight text-foreground">{s.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{s.desc}</p>
+              {/* Text */}
+              <div className="p-6">
+                <h3 className="text-base font-semibold text-foreground mb-2">{s.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

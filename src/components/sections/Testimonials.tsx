@@ -1,76 +1,106 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
-  { name: "Sarah Mitchell", role: "Owner, Metro Dental Group", quote: "Within 60 days, our phone was ringing off the hook. GrowthAxis didn't just optimize our profile — they built a system that prints appointments." },
-  { name: "James Chen", role: "CEO, Summit Plumbing Co.", quote: "We went from invisible on Google to the #1 result in our area. The ROI has been unreal. Best investment we've made in 10 years." },
-  { name: "Maria Rodriguez", role: "Founder, Luxe Home Realty", quote: "Professional, data-driven, and relentless. They delivered exactly what they promised — more leads, better rankings, real growth." },
-  { name: "Jayesh Patel", role: "Owner, MV Fluid", quote: "GrowthAxis transformed how we acquire clients. We went from chasing leads to leads chasing us. The system is automated, scalable, and it works exactly as promised. Best investment we've made." },
+  {
+    name: "Sarah Mitchell",
+    role: "Owner, Metro Dental Group",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    quote:
+      "Within 60 days our phone was ringing off the hook. They didn't just optimize our profile — they built a system that consistently delivers new patients every single month.",
+    rating: 5,
+  },
+  {
+    name: "James Chen",
+    role: "CEO, Summit Plumbing Co.",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    quote:
+      "We went from invisible on Google to the #1 result in our area. The ROI has been exceptional — easily the best investment we've made in the last ten years.",
+    rating: 5,
+  },
+  {
+    name: "Maria Rodriguez",
+    role: "Founder, Luxe Home Realty",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+    quote:
+      "Professional, data-driven, and accountable. They delivered exactly what they promised — more leads, better rankings, and consistent revenue growth month over month.",
+    rating: 5,
+  },
+  {
+    name: "Jayesh Patel",
+    role: "Owner, MV Fluid Systems",
+    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
+    quote:
+      "We went from chasing leads to leads chasing us. The whole system is automated, scalable, and continues to work exactly as promised, months later.",
+    rating: 5,
+  },
 ];
 
+const Stars = () => (
+  <div className="flex gap-0.5 mb-4">
+    {[...Array(5)].map((_, i) => (
+      <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="#C8941F">
+        <path d="M7 0l1.8 4.9H14l-4.1 3 1.6 4.9L7 10.1 2.5 12.8l1.6-4.9L0 4.9h5.2z" />
+      </svg>
+    ))}
+  </div>
+);
+
 const Testimonials = () => {
-  const [active, setActive] = useState(0);
-
-  const next = () => setActive((a) => (a + 1) % testimonials.length);
-  const prev = () => setActive((a) => (a - 1 + testimonials.length) % testimonials.length);
-
   return (
-    <section className="py-32 px-6 border-t border-border/50">
-      <div className="max-w-4xl mx-auto">
+    <section className="section-border py-24 px-6">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14"
         >
-          <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
+          <motion.p
+            variants={fadeIn}
+            className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-medium"
+          >
             Testimonials
           </motion.p>
-          <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16 text-balance text-foreground">
-            What Our Clients Say.
+          <motion.h2
+            variants={fadeIn}
+            className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground max-w-lg"
+          >
+            Trusted by businesses across the country.
           </motion.h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="relative"
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
-          <div className="card-depth rounded-2xl bg-card p-10 md:p-14 text-center">
-            <Quote className="w-8 h-8 text-border mx-auto mb-8" />
-            <p className="text-lg md:text-xl text-foreground leading-relaxed mb-8 text-pretty">
-              "{testimonials[active].quote}"
-            </p>
-            <div className="text-sm font-medium text-foreground">{testimonials[active].name}</div>
-            <div className="text-xs text-muted-foreground mt-1">{testimonials[active].role}</div>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              variants={fadeIn}
+              className="bg-card card-gold rounded-xl p-7 flex flex-col"
             >
-              <ChevronLeft className="w-4 h-4 text-muted-foreground" />
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <div
-                  key={i}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${i === active ? "bg-foreground" : "bg-border"}`}
+              <Stars />
+              <p className="text-sm text-foreground leading-relaxed flex-1 mb-6">
+                "{t.quote}"
+              </p>
+              <div className="flex items-center gap-3 pt-5" style={{ borderTop: "1px solid hsl(var(--border))" }}>
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-10 h-10 rounded-full object-cover"
                 />
-              ))}
-            </div>
-            <button
-              onClick={next}
-              className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
-            >
-              <ChevronRight className="w-4 h-4 text-muted-foreground" />
-            </button>
-          </div>
+                <div>
+                  <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.role}</div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

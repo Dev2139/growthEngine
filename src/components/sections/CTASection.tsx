@@ -9,32 +9,38 @@ interface CTASectionProps {
 
 const CTASection = ({ onOpenAudit }: CTASectionProps) => {
   return (
-    <section className="py-32 px-6 border-t border-border/50">
+    <section className="section-border py-28 px-6">
       <motion.div
         variants={staggerContainer}
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
-        className="max-w-4xl mx-auto text-center"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-2xl mx-auto"
       >
+        <motion.p
+          variants={fadeIn}
+          className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-5"
+        >
+          Get Started
+        </motion.p>
         <motion.h2
           variants={fadeIn}
-          className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground"
+          className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-5"
         >
-          Ready to Dominate Local Search?
+          Ready to dominate local search?
         </motion.h2>
         <motion.p
           variants={fadeIn}
-          className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto text-pretty"
+          className="text-base text-muted-foreground mb-8 leading-relaxed"
         >
-          Book your free growth strategy call. We'll audit your local presence
-          and show you exactly where the opportunities are.
+          Book a free growth strategy call. I'll audit your local presence and show you exactly
+          where the opportunities are — no commitment required.
         </motion.p>
         <motion.div variants={fadeIn}>
           <Button
             size="lg"
             onClick={onOpenAudit}
-            className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors active:scale-[0.97] gap-2"
+            className="h-12 px-7 text-sm rounded-md border-0 btn-gold gap-2"
           >
             Book Your Free Strategy Call
             <ArrowRight className="w-4 h-4" />

@@ -35,197 +35,196 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar onOpenAudit={() => setAuditOpen(true)} />
 
-      {/* Hero */}
-      <section className="pt-28 pb-12 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero with Background Image Overlay */}
+      <section className="relative min-h-[70vh] flex items-end pb-20 px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
           >
             <motion.div variants={fadeIn}>
-              <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8">
-                <ArrowLeft className="w-4 h-4" /> All Projects
+              <Link to="/projects" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold hover:text-foreground transition-colors mb-8">
+                <ArrowLeft className="w-4 h-4" /> Back to all projects
               </Link>
             </motion.div>
 
             <motion.div variants={fadeIn} className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1 text-xs uppercase tracking-widest bg-secondary border border-border rounded-full text-muted-foreground">
+              <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full text-gold">
                 {project.category}
-              </span>
-              <span className="px-3 py-1 text-xs uppercase tracking-widest bg-secondary border border-border rounded-full text-muted-foreground">
-                {project.client}
               </span>
             </motion.div>
 
-            <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground max-w-4xl">
+            <motion.h1 variants={fadeIn} className="text-4xl md:text-6xl font-semibold tracking-tighter mb-6 text-balance text-foreground max-w-4xl leading-tight">
               {project.title}
             </motion.h1>
 
-            <motion.p variants={fadeIn} className="text-lg text-muted-foreground max-w-3xl text-pretty leading-relaxed">
-              {project.description}
+            <motion.p variants={fadeIn} className="text-lg text-muted-foreground max-w-3xl leading-relaxed">
+              {project.excerpt}
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Hero Image */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="px-6 pb-20"
-      >
+      {/* Results Bar */}
+      <section className="section-border py-16 px-6 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
-          <div className="rounded-2xl overflow-hidden card-depth">
-            <img src={project.image} alt={project.title} className="w-full h-auto object-cover aspect-[16/9]" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {project.results.map((r, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-6 rounded-xl bg-card card-gold"
+              >
+                <div className="text-3xl md:text-4xl font-bold text-gold tabular-nums mb-2">
+                  {r.value}
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{r.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Results Grid */}
-      <section className="py-20 px-6 border-t border-border/50">
-        <div className="max-w-7xl mx-auto">
+      {/* Challenge & Solution Grid */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-12 text-center">
-              Key Results
-            </motion.p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {project.results.map((r, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeIn}
-                  className="text-center p-6 rounded-2xl bg-card card-depth"
-                >
-                  <div className="text-3xl md:text-4xl font-semibold tracking-tighter text-foreground tabular-nums mb-2">
-                    {r.value}
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-6">The Challenge</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">{project.challenge}</p>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-6">Our Strategy</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">{project.solution}</p>
+            
+            <div className="mt-10 pt-10 border-t border-border/50">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6">Services Delivered:</h4>
+              <div className="flex flex-wrap gap-2">
+                {project.services.map((s) => (
+                  <div key={s} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary border border-border/50 text-[11px] font-medium text-muted-foreground">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
+                    {s}
                   </div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{r.label}</div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Challenge & Solution */}
-      <section className="py-20 px-6 border-t border-border/50">
-        <div className="max-w-7xl mx-auto">
+      {/* Detailed Content / Images */}
+      <section className="py-24 px-6 section-border bg-secondary/10">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="rounded-2xl overflow-hidden card-gold mb-16 shadow-2xl"
           >
-            <motion.div variants={fadeIn}>
-              <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-6">The Challenge</h3>
-              <p className="text-foreground leading-relaxed text-lg">{project.challenge}</p>
-            </motion.div>
-            <motion.div variants={fadeIn}>
-              <h3 className="text-sm uppercase tracking-widest text-muted-foreground mb-6">Our Solution</h3>
-              <p className="text-foreground leading-relaxed text-lg">{project.solution}</p>
-            </motion.div>
+            <img src={project.image} alt="Project detail" className="w-full h-auto" />
           </motion.div>
-        </div>
-      </section>
-
-      {/* Services Used */}
-      <section className="py-20 px-6 border-t border-border/50">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-8 text-center">
-              Services Delivered
-            </motion.p>
-            <motion.div variants={fadeIn} className="flex flex-wrap justify-center gap-3">
-              {project.services.map((s) => (
-                <div key={s} className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-muted-foreground" />
-                  {s}
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
+          
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {project.description}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Testimonial */}
       {project.testimonial && (
-        <section className="py-20 px-6 border-t border-border/50">
+        <section className="py-24 px-6 section-border">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Quote className="w-8 h-8 text-border mx-auto mb-8" />
-            <p className="text-xl md:text-2xl text-foreground leading-relaxed mb-8 text-pretty">
+            <Quote className="w-10 h-10 text-gold/30 mx-auto mb-8" />
+            <p className="text-2xl font-medium text-foreground leading-relaxed mb-10 italic">
               "{project.testimonial.quote}"
             </p>
-            <div className="text-sm font-medium text-foreground">{project.testimonial.name}</div>
-            <div className="text-xs text-muted-foreground mt-1">{project.testimonial.role}</div>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-xs font-bold text-gold mb-4">
+                {project.testimonial.name.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div className="text-sm font-bold text-foreground">{project.testimonial.name}</div>
+              <div className="text-xs text-muted-foreground mt-1 uppercase tracking-widest">{project.testimonial.role}</div>
+            </div>
           </motion.div>
         </section>
       )}
 
-      {/* CTA */}
-      <section className="py-20 px-6 border-t border-border/50">
+      {/* Final CTA */}
+      <section className="py-24 px-6 section-border bg-background">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter mb-4 text-foreground">
-            Want Results Like These?
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter mb-6 text-foreground">
+            Get Similar Results.
           </h2>
-          <p className="text-muted-foreground mb-8">
-            Let's audit your business and show you exactly where the growth opportunities are.
+          <p className="text-muted-foreground mb-10 leading-relaxed">
+            Every business is different, but the growth engine is universal. Let's audit your current systems and build your roadmap.
           </p>
-          <Button
+          <button
             onClick={() => setAuditOpen(true)}
-            size="lg"
-            className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90 active:scale-[0.97] transition-all"
+            className="h-12 px-8 text-sm rounded-md btn-gold"
           >
-            Get Your Free Audit
-          </Button>
+            Schedule Free Audit Call
+          </button>
         </motion.div>
       </section>
 
       {/* Prev/Next Navigation */}
-      <section className="border-t border-border/50">
+      <section className="section-border">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <Link
             to={`/projects/${prevProject.slug}`}
-            className="group p-10 md:p-14 border-b md:border-b-0 md:border-r border-border/50 hover:bg-card/50 transition-colors"
+            className="group p-12 md:p-16 border-b md:border-b-0 md:border-r border-border/50 hover:bg-card transition-colors"
           >
-            <div className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-3 flex items-center gap-2">
-              <ArrowLeft className="w-3 h-3" /> Previous
+            <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-4 flex items-center gap-2">
+              <ArrowLeft className="w-3.5 h-3.5" /> Previous Project
             </div>
-            <div className="text-lg font-medium tracking-tight text-foreground group-hover:text-muted-foreground transition-colors line-clamp-1">
+            <div className="text-xl font-semibold tracking-tight text-foreground group-hover:text-gold transition-colors line-clamp-1">
               {prevProject.client}
             </div>
           </Link>
           <Link
             to={`/projects/${nextProject.slug}`}
-            className="group p-10 md:p-14 text-right hover:bg-card/50 transition-colors"
+            className="group p-12 md:p-16 text-right hover:bg-card transition-colors"
           >
-            <div className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-3 flex items-center justify-end gap-2">
-              Next <ArrowRight className="w-3 h-3" />
+            <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/60 mb-4 flex items-center justify-end gap-2">
+              Next Project <ArrowRight className="w-3.5 h-3.5" />
             </div>
-            <div className="text-lg font-medium tracking-tight text-foreground group-hover:text-muted-foreground transition-colors line-clamp-1">
+            <div className="text-xl font-semibold tracking-tight text-foreground group-hover:text-gold transition-colors line-clamp-1">
               {nextProject.client}
             </div>
           </Link>

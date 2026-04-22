@@ -1,107 +1,150 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
-import { ArrowUp, ArrowRight } from "lucide-react";
+import { ArrowRight, Cpu, Globe, Database, Smartphone, Code2, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const cases = [
   {
-    slug: "metro-dental-group",
-    client: "Metro Dental Group",
-    metric: "312%",
-    label: "Increase in inbound calls",
-    before: { calls: "23/mo", ranking: "Page 3" },
-    after: { calls: "95/mo", ranking: "#1 Map Pack" },
+    slug: "fintech-portal-modernization",
+    client: "Global Fintech Solutions",
+    industry: "Fintech",
+    metric: "40%",
+    label: "Faster Processing",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop",
+    before: { tech: "Legacy PHP", perf: "Slow UI" },
+    after: { tech: "Next.js + Node", perf: "99.9% Uptime" },
   },
   {
-    slug: "summit-plumbing",
-    client: "Summit Plumbing Co.",
-    metric: "5.2X",
-    label: "Lead volume growth",
-    before: { calls: "12/mo", ranking: "Not ranked" },
-    after: { calls: "62/mo", ranking: "Top 3 Local" },
+    slug: "healthcare-saas-platform",
+    client: "MediSync Systems",
+    industry: "Healthcare SaaS",
+    metric: "60%",
+    label: "Efficiency Increase",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80&fit=crop",
+    before: { tech: "Manual Entry", perf: "Error Prone" },
+    after: { tech: "React + AWS", perf: "Automated Workflows" },
   },
   {
-    slug: "luxe-home-realty",
-    client: "Luxe Home Realty",
-    metric: "847%",
-    label: "Google profile views",
-    before: { calls: "8/mo", ranking: "Page 4" },
-    after: { calls: "74/mo", ranking: "#2 Map Pack" },
+    slug: "ecommerce-mobile-app",
+    client: "Luxe Retail App",
+    industry: "Retail / Mobile",
+    metric: "85%",
+    label: "App Store Rating",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&fit=crop",
+    before: { tech: "WebView App", perf: "High Latency" },
+    after: { tech: "React Native", perf: "Native Fluidity" },
   },
 ];
 
 const CaseStudies = () => {
   return (
-    <section id="results" className="py-32 px-6 border-t border-border/50">
+    <section id="results" className="section-border py-24 px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
         >
-          <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-4 text-center">
-            Results
-          </motion.p>
-          <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl font-semibold tracking-tighter text-center mb-20 text-balance text-foreground">
-            Real Numbers. Real Growth.
-          </motion.h2>
+          <div>
+            <motion.p
+              variants={fadeIn}
+              className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-medium"
+            >
+              Case Studies
+            </motion.p>
+            <motion.h2
+              variants={fadeIn}
+              className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground"
+            >
+              Engineering Success.
+            </motion.h2>
+          </div>
+          <motion.div variants={fadeIn}>
+            <Link to="/projects">
+              <Button
+                variant="ghost"
+                className="text-sm text-muted-foreground hover:text-foreground gap-1.5 px-0 hover:bg-transparent"
+              >
+                View all deployments <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </motion.div>
         </motion.div>
 
+        {/* Case study cards */}
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
         >
           {cases.map((c, i) => (
             <motion.div key={i} variants={fadeIn}>
               <Link
                 to={`/projects/${c.slug}`}
-                className="block card-depth rounded-2xl bg-card p-8 hover:card-depth-hover transition-shadow duration-300 group"
+                className="block rounded-xl overflow-hidden bg-card card-gold group hover:translate-y-[-3px] transition-transform duration-200"
               >
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mb-6">{c.client}</div>
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-semibold tracking-tighter text-foreground tabular-nums">{c.metric}</span>
-                  <ArrowUp className="w-5 h-5 text-muted-foreground" />
-                </div>
-                <div className="text-sm text-muted-foreground mb-8">{c.label}</div>
-
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50 mb-6">
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-2">Before</div>
-                    <div className="text-sm text-muted-foreground">{c.before.calls} calls</div>
-                    <div className="text-sm text-muted-foreground">{c.before.ranking}</div>
+                {/* Image */}
+                <div className="h-48 overflow-hidden relative">
+                  <img
+                    src={c.image}
+                    alt={c.client}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
+                  {/* Industry badge */}
+                  <div className="absolute top-3 left-3 text-xs font-medium px-2.5 py-1 rounded-full bg-gold/15 text-gold backdrop-blur-sm border border-gold/20">
+                    {c.industry}
                   </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-muted-foreground/60 mb-2">After</div>
-                    <div className="text-sm text-foreground font-medium">{c.after.calls} calls</div>
-                    <div className="text-sm text-foreground font-medium">{c.after.ranking}</div>
+                  {/* Big metric overlay */}
+                  <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                    <div>
+                      <div className="text-3xl font-bold text-foreground tabular-nums">{c.metric}</div>
+                      <div className="text-xs text-muted-foreground">{c.label}</div>
+                    </div>
+                    <Cpu className="w-6 h-6 text-gold" />
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                  View Full Case Study <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                {/* Body */}
+                <div className="p-5">
+                  <div className="text-sm font-semibold text-foreground mb-4">{c.client}</div>
+
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {/* Before */}
+                    <div className="bg-secondary rounded-lg p-3">
+                      <div className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Legacy</div>
+                      <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground mb-1">
+                        <Database className="w-3 h-3" /> {c.before.tech}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+                        <Globe className="w-3 h-3" /> {c.before.perf}
+                      </div>
+                    </div>
+                    {/* After */}
+                    <div className="bg-gold/5 rounded-lg p-3 border border-gold/10">
+                      <div className="text-xs text-gold uppercase tracking-wider mb-2">Deployed</div>
+                      <div className="flex items-center gap-1.5 text-[10px] text-foreground font-medium mb-1">
+                        <Code2 className="w-3 h-3 text-gold" /> {c.after.tech}
+                      </div>
+                      <div className="flex items-center gap-1.5 text-[10px] text-gold font-medium">
+                        <Zap className="w-3 h-3" /> {c.after.perf}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground group-hover:text-gold transition-colors">
+                    View technical breakdown <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                 </div>
               </Link>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mt-12"
-        >
-          <Link to="/projects">
-            <Button variant="outline" className="rounded-full border-border hover:bg-secondary text-foreground px-6 gap-2">
-              View All Projects <ArrowRight className="w-4 h-4" />
-            </Button>
-          </Link>
         </motion.div>
       </div>
     </section>

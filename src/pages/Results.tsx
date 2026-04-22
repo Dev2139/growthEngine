@@ -5,54 +5,63 @@ import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import AuditModal from "@/components/sections/AuditModal";
 import { useState } from "react";
-import { TrendingUp, Target, Users, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Server, Cpu, Globe, ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const Results = () => {
   const [auditOpen, setAuditOpen] = useState(false);
 
   const stats = [
-    { icon: TrendingUp, label: "Average ROI", value: "312%", description: "Across all clients" },
-    { icon: Target, label: "Avg Lead Increase", value: "247%", description: "Within 90 days" },
-    { icon: Users, label: "Businesses Scaled", value: "100+", description: "In 5 years" },
-    { icon: Zap, label: "Monthly Revenue Generated", value: "$2.4M", description: "For our clients" },
+    { icon: Server, label: "System Uptime", value: "99.9%", description: "Guaranteed SLA for all enterprise platforms" },
+    { icon: Cpu, label: "Efficiency Gain", value: "60%", description: "Average operational speed increase" },
+    { icon: Globe, label: "Deployments", value: "150+", description: "Successful system launches in 5 years" },
+    { icon: ShieldCheck, label: "Security Audits", value: "100%", description: "Compliance rate for data security" },
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar onOpenAudit={() => setAuditOpen(true)} />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 border-b border-border/50">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className="max-w-7xl mx-auto"
-        >
-          <motion.p variants={fadeIn} className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-            Proven Results
-          </motion.p>
-          <motion.h1
-            variants={fadeIn}
-            className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
+      {/* Hero Section with Image */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80&fit=crop"
+            alt="System Engineering"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center lg:text-left">
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className="max-w-4xl"
           >
-            Results That{" "}
-            <span className="text-muted-foreground">Speak Louder</span>
-            <br />
-            Than Words.
-          </motion.h1>
-          <motion.p
-            variants={fadeIn}
-            className="text-lg text-muted-foreground max-w-2xl mb-8 text-pretty leading-relaxed"
-          >
-            Every metric below is real. Every success story is a real business that transformed their growth trajectory with our system.
-          </motion.p>
-        </motion.div>
+            <motion.p variants={fadeIn} className="text-xs uppercase tracking-[0.25em] text-gold mb-6 font-medium">
+              Performance Metrics
+            </motion.p>
+            <motion.h1
+              variants={fadeIn}
+              className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6 text-balance"
+            >
+              Engineering That{" "}
+              <span className="text-gold-gradient font-display italic">Delivers.</span>
+            </motion.h1>
+            <motion.p
+              variants={fadeIn}
+              className="text-lg text-muted-foreground max-w-2xl mb-8 leading-relaxed mx-auto lg:mx-0"
+            >
+              Every system I build is benchmarked for performance. I don't just deliver software; I deliver 
+              scalable solutions that solve real business bottlenecks.
+            </motion.p>
+          </motion.div>
+        </div>
       </section>
 
-      {/* Key Stats */}
-      <section className="py-20 px-6 border-b border-border/50">
+      {/* Key Stats Bar */}
+      <section className="section-border py-20 px-6 bg-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => {
@@ -64,13 +73,15 @@ const Results = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="p-8 rounded-lg border border-border/50 bg-gradient-to-br from-primary/5 to-accent/5 hover:border-border transition-colors"
+                  className="p-8 rounded-xl bg-card card-gold text-center"
                 >
-                  <Icon className="w-10 h-10 text-primary mb-4" />
-                  <div className="text-4xl font-bold text-foreground mb-2">
+                  <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mb-6 mx-auto">
+                    <Icon className="w-6 h-6 text-gold" />
+                  </div>
+                  <div className="text-4xl font-bold text-foreground mb-2 tabular-nums">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-semibold text-muted-foreground mb-1">
+                  <div className="text-sm font-semibold text-gold uppercase tracking-widest mb-1">
                     {stat.label}
                   </div>
                   <div className="text-xs text-muted-foreground">
@@ -83,72 +94,77 @@ const Results = () => {
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-20 px-6">
+      {/* Case Studies Detailed List */}
+      <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">
-              Case Studies
-            </p>
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-balance">
-              How We Helped Businesses{" "}
-              <span className="text-muted-foreground">Hit Their Goals</span>
+          <div className="mb-20">
+            <p className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-medium">Validation</p>
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
+              Technical Case Studies
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 gap-12">
+          <div className="grid grid-cols-1 gap-20">
             {projects.slice(0, 3).map((project, i) => (
               <motion.div
                 key={project.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ duration: 0.7 }}
                 viewport={{ once: true }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 rounded-lg border border-border/50 bg-gradient-to-br from-primary/5 to-transparent"
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
               >
-                <div>
-                  <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-widest border border-primary/50 rounded-full text-primary/80">
+                <div className={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold uppercase tracking-widest border border-gold/30 rounded-full text-gold">
                     {project.category}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-foreground">
+                  <h3 className="text-3xl md:text-4xl font-semibold mb-6 text-foreground leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-base text-muted-foreground mb-8 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  
+                  <div className="grid grid-cols-2 gap-6 mb-8">
                     {project.results.map((result, idx) => (
-                      <div key={idx}>
-                        <div className="text-2xl font-bold text-primary">
+                      <div key={idx} className="p-4 rounded-lg bg-secondary/50 border border-border/50">
+                        <div className="text-2xl font-bold text-gold tabular-nums">
                           {result.value}
                         </div>
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-xs text-muted-foreground uppercase tracking-widest mt-1">
                           {result.label}
                         </div>
                       </div>
                     ))}
                   </div>
+
                   {project.testimonial && (
-                    <div className="p-4 rounded-lg bg-secondary/50 border border-border/50">
-                      <p className="text-sm italic text-foreground mb-2">
+                    <div className="p-6 rounded-xl bg-card card-gold italic">
+                      <p className="text-sm text-foreground mb-4 leading-relaxed">
                         "{project.testimonial.quote}"
                       </p>
-                      <div className="text-xs font-semibold text-muted-foreground">
-                        — {project.testimonial.name}, {project.testimonial.role}
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center text-[10px] font-bold text-gold">
+                          {project.testimonial.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-foreground">
+                            {project.testimonial.name}
+                          </div>
+                          <div className="text-[10px] text-muted-foreground">
+                            {project.testimonial.role}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
                 </div>
-                <div className="h-96 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+
+                <div className={`rounded-2xl overflow-hidden card-gold aspect-video lg:aspect-square ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <img
                     src={project.image}
                     alt={project.client}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
               </motion.div>
@@ -157,27 +173,27 @@ const Results = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 border-t border-border/50">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Final CTA */}
+      <section className="section-border py-24 px-6 bg-secondary/30">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-6">
-              Ready to be a success story?
+            <h2 className="text-4xl font-semibold tracking-tighter mb-6">
+              Let's engineer your next success.
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's audit your current presence and build your growth engine.
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+              Ready to modernize your infrastructure or build a new product? 
+              I'm ready to help you architect a solution that lasts.
             </p>
-            <Button
-              size="lg"
+            <button
               onClick={() => setAuditOpen(true)}
-              className="h-14 px-8 text-base rounded-full bg-foreground text-background hover:bg-foreground/90"
+              className="h-12 px-8 text-sm rounded-md btn-gold"
             >
-              Get Your Free Audit
-            </Button>
+              Get Free Consultation
+            </button>
           </motion.div>
         </div>
       </section>

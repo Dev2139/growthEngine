@@ -2,9 +2,7 @@ import { useState } from "react";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Trust from "@/components/sections/Trust";
-import CompanyLogos from "@/components/sections/CompanyLogos";
 import Services from "@/components/sections/Services";
-import HowItWorks from "@/components/sections/HowItWorks";
 import CaseStudies from "@/components/sections/CaseStudies";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Testimonials from "@/components/sections/Testimonials";
@@ -23,9 +21,7 @@ const Index = () => {
       <Navbar onOpenAudit={openAudit} />
       <Hero onOpenAudit={openAudit} />
       <Trust />
-      <CompanyLogos />
       <Services />
-      <HowItWorks />
       <CaseStudies />
       <WhyChooseUs />
       <Testimonials />
