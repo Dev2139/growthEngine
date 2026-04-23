@@ -25,27 +25,61 @@ const Projects = () => {
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue/5 rounded-l-[100px] -z-10" />
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
           >
-            <motion.div variants={fadeIn} className="inline-flex items-center gap-2 bg-blue/5 px-4 py-2 rounded-full mb-8 text-blue">
-              <span className="text-xs font-bold uppercase tracking-widest">Our Work</span>
+            <div>
+              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 bg-blue/5 px-4 py-2 rounded-full mb-8 text-blue">
+                <span className="text-xs font-bold uppercase tracking-widest">Our Work</span>
+              </motion.div>
+              <motion.h1
+                variants={fadeIn}
+                className="text-5xl md:text-7xl font-black tracking-tight mb-8 font-display leading-[1.1]"
+              >
+                Case Studies of <span className="text-blue">Digital Growth.</span>
+              </motion.h1>
+              <motion.p
+                variants={fadeIn}
+                className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed"
+              >
+                Discover how we've helped businesses transform their digital presence and achieve record-breaking growth through elite engineering.
+              </motion.p>
+              <motion.div variants={fadeIn}>
+                <Button 
+                  onClick={() => setAuditOpen(true)}
+                  className="bg-blue text-white hover:bg-blue/90 rounded-full px-10 h-14 font-bold text-lg shadow-xl shadow-blue/20"
+                >
+                  Start Your Project
+                </Button>
+              </motion.div>
+            </div>
+            <motion.div
+              variants={fadeIn}
+              className="relative"
+            >
+              <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&fit=crop"
+                  alt="Portfolio Showcase"
+                  className="w-full h-auto aspect-video object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[32px] shadow-2xl border border-blue/5 hidden sm:block">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-gold/15 flex items-center justify-center text-gold">
+                    <TrendingUp className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-black text-blue">150+</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Successful Projects</div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
-            <motion.h1
-              variants={fadeIn}
-              className="text-5xl md:text-8xl font-black tracking-tight mb-8 font-display leading-tight"
-            >
-              Case Studies of <br /><span className="text-blue">Digital Growth.</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeIn}
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-12"
-            >
-              Discover how we've helped 500+ businesses transform their digital presence and achieve record-breaking growth.
-            </motion.p>
           </motion.div>
         </div>
       </section>
