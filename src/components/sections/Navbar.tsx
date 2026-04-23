@@ -16,74 +16,91 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mega menu on route change
   useEffect(() => {
     setMegaMenuOpen(false);
     setMobileOpen(false);
   }, [location.pathname]);
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Portfolio", path: "/projects" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0, y: -8 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || megaMenuOpen ? "nav-scrolled" : "bg-transparent"}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? "nav-scrolled py-3 shadow-md" : "bg-transparent py-5"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+          <Link to="/" className="flex items-center group">
             <img
-              src="https://res.cloudinary.com/dsddldquo/image/upload/v1773903739/hqiknrupk4zpafsflgyn.png"
-              alt="DevDhara"
-              className="h-20 w-auto"
+              src="https://res.cloudinary.com/dsddldquo/image/upload/v1776953079/ak6c9bppjc7pwkgggmuv.png"
+              alt="DevDhara Software Solutions"
+              className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-7">
-            <Link to="/" className={`text-sm transition-colors ${location.pathname === "/" ? "text-gold font-medium" : "text-muted-foreground hover:text-foreground"}`}>Home</Link>
-            
-            {/* Mega Menu Trigger */}
-            <div 
-              className="relative h-16 flex items-center"
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.slice(0, 2).map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-semibold tracking-wide transition-colors hover:text-blue ${
+                  location.pathname === link.path ? "text-blue" : "text-foreground/80"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            {/* Services Mega Menu */}
+            <div
+              className="relative h-10 flex items-center"
               onMouseEnter={() => setMegaMenuOpen(true)}
               onMouseLeave={() => setMegaMenuOpen(false)}
             >
-              <button 
-                className={`flex items-center gap-1 text-sm transition-colors ${location.pathname.startsWith("/services") ? "text-gold font-medium" : "text-muted-foreground hover:text-foreground"}`}
+              <button
+                className={`flex items-center gap-1 text-sm font-semibold tracking-wide transition-colors hover:text-blue ${
+                  location.pathname.startsWith("/services") ? "text-blue" : "text-foreground/80"
+                }`}
               >
-                Services <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : ""}`} />
+                Services <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${megaMenuOpen ? "rotate-180" : ""}`} />
               </button>
 
               <AnimatePresence>
                 {megaMenuOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-16 left-1/2 -translate-x-1/2 w-[900px] bg-card border border-gold/20 shadow-2xl rounded-2xl overflow-hidden p-8"
+                    exit={{ opacity: 0, y: 15 }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-[850px] pt-4"
                   >
-                    <div className="grid grid-cols-4 gap-8">
+                    <div className="bg-white border border-blue/5 shadow-2xl rounded-2xl overflow-hidden p-8 grid grid-cols-4 gap-8 glass">
                       {serviceCategories.map((cat) => (
                         <div key={cat.title}>
-                          <h3 className="text-xs font-bold uppercase tracking-widest text-foreground mb-6 pb-2 border-b border-border/50">
+                          <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue/40 mb-5 pb-2 border-b border-blue/5">
                             {cat.title}
                           </h3>
-                          <ul className="space-y-4">
+                          <ul className="space-y-3">
                             {cat.services.map((s) => (
                               <li key={s.slug}>
                                 <Link
                                   to={`/services/${s.slug}`}
-                                  className="group flex items-center gap-3 text-sm text-muted-foreground hover:text-gold transition-colors"
+                                  className="group flex items-center gap-2 text-[13px] text-foreground/70 hover:text-blue transition-colors"
                                 >
-                                  <div className="w-8 h-8 rounded-lg bg-secondary group-hover:bg-gold/10 flex items-center justify-center transition-colors">
-                                    <s.icon className="w-4 h-4 text-muted-foreground group-hover:text-gold" />
-                                  </div>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-gold/30 group-hover:bg-gold group-hover:scale-125 transition-all" />
                                   <span className="font-medium">{s.name}</span>
                                 </Link>
                               </li>
@@ -97,65 +114,86 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
               </AnimatePresence>
             </div>
 
-            <Link to="/results" className={`text-sm transition-colors ${location.pathname === "/results" ? "text-gold font-medium" : "text-muted-foreground hover:text-foreground"}`}>Results</Link>
-            <Link to="/about" className={`text-sm transition-colors ${location.pathname === "/about" ? "text-gold font-medium" : "text-muted-foreground hover:text-foreground"}`}>About</Link>
-            <Link to="/projects" className={`text-sm transition-colors ${location.pathname === "/projects" ? "text-gold font-medium" : "text-muted-foreground hover:text-foreground"}`}>Projects</Link>
+            {navLinks.slice(2).map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-sm font-semibold tracking-wide transition-colors hover:text-blue ${
+                  location.pathname === link.path ? "text-blue" : "text-foreground/80"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Button
               onClick={onOpenAudit}
-              size="sm"
-              className="hidden md:flex btn-gold rounded-md text-sm px-5 h-9 border-0"
+              className="hidden md:flex bg-blue text-white hover:bg-blue/90 rounded-full px-6 h-11 font-semibold text-sm transition-all hover:shadow-lg hover:shadow-blue/20"
             >
-              Get Free Audit
+              Get Free Quote
             </Button>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-8 h-8 flex items-center justify-center"
+              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-blue/5 text-blue hover:bg-blue/10 transition-colors"
             >
-              {mobileOpen ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
-      </motion.nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="fixed inset-x-0 top-16 z-40 bg-background border-b border-border md:hidden overflow-hidden"
-          >
-            <div className="px-6 py-5 flex flex-col gap-4">
-              <Link to="/" className="text-base text-muted-foreground">Home</Link>
-              <div className="py-2 border-y border-border/50">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gold mb-4">Services</p>
-                <div className="grid grid-cols-1 gap-4">
-                  {serviceCategories.map(cat => (
-                    <div key={cat.title}>
-                      <p className="text-xs font-semibold text-foreground mb-3">{cat.title}</p>
-                      <div className="grid grid-cols-1 gap-2 pl-2 border-l border-border/50">
-                        {cat.services.map(s => (
-                          <Link key={s.slug} to={`/services/${s.slug}`} className="text-sm text-muted-foreground">{s.name}</Link>
-                        ))}
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-white border-b border-blue/5 overflow-hidden"
+            >
+              <div className="px-6 py-8 flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="text-lg font-semibold text-foreground/80 hover:text-blue"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+                <div className="pt-4 border-t border-blue/5">
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue/40 mb-6">Our Services</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    {serviceCategories.map((cat) => (
+                      <div key={cat.title}>
+                        <p className="text-sm font-bold text-blue mb-3">{cat.title}</p>
+                        <div className="flex flex-col gap-2.5 pl-3 border-l-2 border-gold/20">
+                          {cat.services.map((s) => (
+                            <Link
+                              key={s.slug}
+                              to={`/services/${s.slug}`}
+                              className="text-[13px] font-medium text-foreground/60 hover:text-blue"
+                            >
+                              {s.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
+                <Button
+                  onClick={() => { onOpenAudit(); setMobileOpen(false); }}
+                  className="w-full bg-blue text-white rounded-xl h-12 font-bold mt-4"
+                >
+                  Get Free Quote
+                </Button>
               </div>
-              <Link to="/results" className="text-base text-muted-foreground">Results</Link>
-              <Link to="/about" className="text-base text-muted-foreground">About</Link>
-              <Link to="/projects" className="text-base text-muted-foreground">Projects</Link>
-              <Button onClick={() => { onOpenAudit(); setMobileOpen(false); }} className="btn-gold rounded-md text-sm px-5 h-9 border-0 w-full mt-2">
-                Get Free Audit
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
     </>
   );
 };

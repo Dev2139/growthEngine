@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 40 30% 92%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 40% 8%;
-    --card-foreground: 40 30% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 40% 8%;
-    --popover-foreground: 40 30% 92%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 43 75% 52%;
-    --primary-foreground: 222 47% 5%;
+    --primary: 221 83% 33%; /* Deep Blue */
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 222 35% 11%;
-    --secondary-foreground: 40 30% 92%;
+    --secondary: 43 75% 52%; /* Gold */
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 222 30% 14%;
-    --muted-foreground: 220 15% 52%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 217 60% 42%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 75% 52%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 72% 56%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 222 25% 16%;
-    --input: 222 25% 16%;
-    --ring: 43 75% 52%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 33%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 222 40% 8%;
-    --sidebar-foreground: 220 15% 52%;
-    --sidebar-primary: 43 75% 52%;
-    --sidebar-primary-foreground: 222 47% 5%;
-    --sidebar-accent: 222 35% 11%;
-    --sidebar-accent-foreground: 40 30% 92%;
-    --sidebar-border: 222 25% 16%;
-    --sidebar-ring: 43 75% 52%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -63,97 +63,93 @@
 }
 
 @layer utilities {
-  .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
-  .tabular-nums { font-variant-numeric: tabular-nums; }
-  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
 }
 
-/* Gold gradient text — subtle, not gaudy */
-.text-gold {
-  color: #C8941F;
-}
-
-.text-gold-gradient {
-  background: linear-gradient(135deg, #C8941F 0%, #E8B84B 50%, #C8941F 100%);
+/* Blue gradient text */
+.text-blue-gradient {
+  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Grid background — very subtle */
+/* Grid background — for light theme */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(200, 148, 31, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 148, 31, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-/* Card styles */
+/* Card styles for light theme */
 .card-depth {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.05);
+  background: white;
 }
 
 .card-depth-hover {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 16px 40px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,148,31,0.2);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 5px 15px -5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
 }
 
-/* Gold border card */
-.card-gold {
-  border: 1px solid rgba(200, 148, 31, 0.12);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.5);
+/* Blue/Gold border card */
+.card-premium {
+  border: 1px solid rgba(30, 58, 138, 0.08);
+  background: white;
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07);
 }
 
-.card-gold:hover {
-  border-color: rgba(200, 148, 31, 0.25);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 16px 40px -12px rgba(0,0,0,0.6);
+.card-premium:hover {
+  border-color: rgba(212, 163, 42, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* Divider */
 .divider-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200,148,31,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 148, 31, 0.3), transparent);
 }
 
-/* Button gold */
-.btn-gold {
-  background: linear-gradient(135deg, #B8831A 0%, #D4A32A 50%, #B8831A 100%);
-  color: #0A0E18;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+/* Button styles */
+.btn-primary {
+  @apply bg-blue text-white hover:bg-blue/90 transition-all;
 }
 
-.btn-gold:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-}
-
-.btn-gold:active {
-  transform: translateY(0);
-}
-
-.btn-outline-gold {
-  border: 1px solid rgba(200, 148, 31, 0.35);
-  color: rgba(200, 148, 31, 0.9);
-  background: transparent;
-  font-weight: 500;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.btn-outline-gold:hover {
-  border-color: rgba(200, 148, 31, 0.6);
-  background: rgba(200, 148, 31, 0.06);
+.btn-secondary {
+  @apply bg-gold text-blue hover:bg-gold/90 transition-all;
 }
 
 /* Section border */
 .section-border {
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid rgba(30, 58, 138, 0.05);
 }
 
-/* Nav scroll */
+/* Nav scroll for light theme */
 .nav-scrolled {
-  background: rgba(6, 11, 22, 0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(200, 148, 31, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.05);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

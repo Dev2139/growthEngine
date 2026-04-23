@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import AuditModal from "@/components/sections/AuditModal";
+import FloatingButtons from "@/components/FloatingButtons";
 import { useState } from "react";
 
 const ServiceDetail = () => {
@@ -18,123 +19,125 @@ const ServiceDetail = () => {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-white text-foreground">
         <Navbar onOpenAudit={() => setAuditOpen(true)} />
-        <section className="pt-32 pb-20 px-6 text-center">
-          <h1 className="text-4xl font-semibold mb-4">Service Under Construction</h1>
-          <p className="text-muted-foreground mb-8">I'm currently building out the detailed content for {slug?.replace(/-/g, ' ')}.</p>
-          <Link to="/services" className="text-gold hover:underline">View all services</Link>
+        <section className="pt-40 pb-20 px-6 text-center">
+          <h1 className="text-4xl font-black mb-4 font-display">Service Not Found</h1>
+          <p className="text-muted-foreground mb-8 text-lg">We're currently expanding our service portfolio.</p>
+          <Link to="/services">
+            <Button className="bg-blue text-white rounded-full px-8 h-12 font-bold">
+              View All Services
+            </Button>
+          </Link>
         </section>
         <Footer />
+        <FloatingButtons />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-white text-foreground overflow-hidden">
       <Navbar onOpenAudit={() => setAuditOpen(true)} />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue/5 rounded-l-[100px] -z-10" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
           >
             <motion.div variants={fadeIn}>
-              <Link to="/services" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold mb-8 hover:text-foreground transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-blue mb-8 hover:text-gold transition-colors">
                 <ArrowLeft className="w-4 h-4" /> All Services
               </Link>
             </motion.div>
 
             <motion.h1 
               variants={fadeIn} 
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight mb-8 text-foreground"
+              className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-8 text-foreground font-display"
             >
               {service.title}
             </motion.h1>
 
             <motion.div variants={fadeIn} className="space-y-6 max-w-xl">
-              <p className="text-lg text-foreground font-medium leading-relaxed">
-                At DevDhara, I offer <span className="text-gold">{service.title.toLowerCase()}</span> that empower businesses globally to build interactive, fast, and scalable solutions.
+              <p className="text-xl text-foreground/80 font-bold leading-relaxed italic">
+                "{service.tagline}"
               </p>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 {service.fullDescription}
               </p>
             </motion.div>
 
-            <motion.div variants={fadeIn} className="mt-10">
+            <motion.div variants={fadeIn} className="mt-12 flex flex-wrap gap-4">
               <Button
                 size="lg"
                 onClick={() => setAuditOpen(true)}
-                className="h-14 px-8 text-sm rounded-md btn-gold gap-2"
+                className="bg-blue text-white hover:bg-blue/90 h-16 px-10 rounded-full font-bold text-lg shadow-xl shadow-blue/20 flex gap-2"
               >
-                Let's Discuss Your Project
-                <ArrowRight className="w-4 h-4" />
+                Start Your Project
+                <ArrowRight className="w-5 h-5" />
               </Button>
             </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden card-gold bg-secondary/50 p-4 shadow-2xl">
+            <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
               <img 
                 src={service.image} 
                 alt={service.title} 
-                className="w-full h-auto rounded-xl object-cover aspect-[4/3]"
+                className="w-full h-auto aspect-[4/3] object-cover"
               />
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 -left-6 bg-card border border-gold/30 p-4 rounded-xl shadow-xl hidden md:block"
-              >
-                <Cpu className="w-6 h-6 text-gold" />
-              </motion.div>
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-10 -right-6 bg-card border border-gold/30 px-5 py-3 rounded-xl shadow-xl hidden md:block"
-              >
-                <div className="text-xs font-bold text-gold uppercase tracking-widest">Verified Expert</div>
-              </motion.div>
+            </div>
+            <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[32px] shadow-2xl border border-blue/5 hidden sm:block">
+              <div className="text-center">
+                <div className="text-4xl font-black text-blue mb-1">99.9%</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Uptime Guaranteed</div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Benefits / Features Bar */}
-      <section className="section-border py-12 px-6 bg-secondary/40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-12 md:gap-24">
-          {service.benefits.slice(0, 3).map((benefit, i) => (
+      {/* Benefits Bar */}
+      <section className="py-12 px-6 bg-blue/5">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-10 md:gap-20">
+          {service.benefits.map((benefit, i) => (
             <div key={i} className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 text-gold" />
-              <span className="text-sm font-semibold uppercase tracking-widest text-foreground">{benefit}</span>
+              <div className="w-6 h-6 rounded-full bg-blue/10 flex items-center justify-center">
+                <CheckCircle2 className="w-4 h-4 text-blue" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-widest text-foreground/70">{benefit}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Tech Stack & Deliverables */}
-      <section className="py-24 px-6 section-border">
+      {/* Features & Tech Stack */}
+      <section className="py-28 px-6 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Tech Stack */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Laptop className="w-6 h-6 text-gold" />
-              <h2 className="text-2xl font-semibold tracking-tight">Core Tech Stack</h2>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-2xl bg-blue/5 flex items-center justify-center text-blue">
+                <Laptop className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-black tracking-tight font-display">Technology Stack</h2>
             </div>
-            <p className="text-muted-foreground mb-10 leading-relaxed">
-              I utilize the most modern and reliable technologies to ensure your product is fast, secure, and ready for future growth.
+            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
+              We leverage the most advanced and reliable technologies to ensure your product is secure, scalable, and blazingly fast.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {service.techStack?.map((tech) => (
-                <div key={tech} className="p-4 rounded-xl bg-secondary/30 border border-border/50 flex items-center justify-center text-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-foreground">{tech}</span>
+                <div key={tech} className="p-5 rounded-3xl bg-blue/5 border border-blue/5 flex items-center justify-center text-center hover:bg-blue/10 transition-colors">
+                  <span className="text-sm font-bold text-blue">{tech}</span>
                 </div>
               ))}
             </div>
@@ -142,18 +145,22 @@ const ServiceDetail = () => {
 
           {/* Deliverables */}
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <Package className="w-6 h-6 text-gold" />
-              <h2 className="text-2xl font-semibold tracking-tight">Key Deliverables</h2>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-2xl bg-gold/15 flex items-center justify-center text-gold">
+                <Package className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-black tracking-tight font-display">Key Deliverables</h2>
             </div>
-            <p className="text-muted-foreground mb-10 leading-relaxed">
-              Every project comes with a comprehensive set of deliverables to ensure you have full ownership and understanding of your system.
+            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
+              Every project includes a comprehensive set of deliverables ensuring you have full ownership of your technical assets.
             </p>
             <div className="space-y-4">
               {service.deliverables?.map((item) => (
-                <div key={item} className="flex items-start gap-4 p-5 rounded-xl bg-card card-gold">
-                  <CheckCircle2 className="w-4 h-4 text-gold mt-1 shrink-0" />
-                  <span className="text-sm text-muted-foreground font-medium">{item}</span>
+                <div key={item} className="flex items-center gap-4 p-6 rounded-3xl bg-white border border-blue/5 shadow-xl shadow-blue/5 group hover:border-blue/20 transition-all">
+                  <div className="w-8 h-8 rounded-full bg-blue/10 flex items-center justify-center group-hover:bg-blue transition-colors">
+                    <CheckCircle2 className="w-4 h-4 text-blue group-hover:text-white" />
+                  </div>
+                  <span className="text-base font-bold text-foreground/70">{item}</span>
                 </div>
               ))}
             </div>
@@ -161,105 +168,30 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Process / Workflow */}
-      <section className="py-24 px-6 bg-secondary/20 section-border">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-semibold tracking-tight mb-4">My Development Process</h2>
-            <p className="text-muted-foreground">A rigorous, multi-stage workflow designed for quality and transparency.</p>
-          </div>
-          
-          <div className="space-y-12">
-            {service.features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex gap-8 group"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-xl font-bold text-gold group-hover:bg-gold/10 transition-colors">
-                    {i + 1}
-                  </div>
-                  <div className="w-px flex-1 bg-gold/10 group-last:hidden mt-4" />
-                </div>
-                <div className="pt-2">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Final CTA */}
+      <section className="py-28 px-6 bg-blue relative overflow-hidden text-center">
+        <div className="absolute inset-0 opacity-10">
+           <img src={service.image} alt="bg" className="w-full h-full object-cover" />
         </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 px-6 section-border">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-3 justify-center mb-16">
-            <HelpCircle className="w-6 h-6 text-gold" />
-            <h2 className="text-3xl font-semibold tracking-tight">Frequently Asked Questions</h2>
-          </div>
-          
-          <div className="space-y-4">
-            {service.faqs?.map((faq, i) => (
-              <div 
-                key={i} 
-                className={`rounded-xl border transition-all duration-300 ${openFaq === i ? 'border-gold/50 bg-secondary/20' : 'border-border/50 bg-card'}`}
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left"
-                >
-                  <span className="font-semibold text-foreground">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-gold transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed border-t border-border/10 pt-4">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final Conversion */}
-      <section className="section-border py-24 px-6 bg-secondary/30 relative overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl font-semibold tracking-tighter mb-6">Ready to scale your technical infrastructure?</h2>
-          <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-            Every great product starts with a conversation. Let's discuss your requirements and how I can help you build 
-            the future of your business.
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white font-display mb-8">
+            Let's Build Your <span className="text-gold">{service.title}</span> Solution.
+          </h2>
+          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+            Ready to scale? Book a free technical audit and let's map out your roadmap to success.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button onClick={() => setAuditOpen(true)} className="h-12 px-8 btn-gold">
-              Get A Technical Audit
-            </Button>
-            <Link to="/projects">
-              <Button variant="outline" className="h-12 px-8 border-gold/30 text-gold hover:bg-gold/5">
-                View Past Projects
-              </Button>
-            </Link>
-          </div>
+          <Button 
+            onClick={() => setAuditOpen(true)}
+            className="bg-gold text-blue hover:bg-gold/90 rounded-full px-12 h-16 font-black text-xl shadow-2xl flex gap-2 mx-auto"
+          >
+            Get Free Quote <ArrowRight className="w-6 h-6" />
+          </Button>
         </div>
       </section>
 
       <Footer />
       <AuditModal open={auditOpen} onClose={() => setAuditOpen(false)} />
+      <FloatingButtons />
     </div>
   );
 };

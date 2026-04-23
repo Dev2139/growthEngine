@@ -1,111 +1,145 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
-import { Search, MapPin, Zap, Star, Globe, Smartphone } from "lucide-react";
+import { 
+  Globe, 
+  Cpu, 
+  Smartphone, 
+  Layout, 
+  Search, 
+  TrendingUp, 
+  Terminal, 
+  ShoppingCart, 
+  Settings,
+  ArrowRight
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: Search,
-    title: "GBP Optimization",
-    desc: "Claim the Map Pack with precision-tuned profiles that put you ahead of every local competitor.",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80&fit=crop",
-  },
-  {
-    icon: MapPin,
-    title: "Local SEO Ranking",
-    desc: "Rank for the keywords that drive real phone calls and foot traffic — not just impressions.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&fit=crop",
-  },
-  {
-    icon: Zap,
-    title: "Lead Generation",
-    desc: "Automated funnels that convert anonymous visitors into booked appointments, every day.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80&fit=crop",
-  },
-  {
-    icon: Star,
-    title: "Review Management",
-    desc: "Build and maintain a 5-star reputation across every platform, completely on autopilot.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80&fit=crop",
-  },
-  {
-    icon: Globe,
     title: "Web Development",
-    desc: "High-performance sites engineered for conversion, speed, and long-term sustainable growth.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80&fit=crop",
+    desc: "Custom-built, high-performance websites engineered for speed and conversion.",
+    icon: Globe,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop",
+    slug: "full-stack-web"
   },
   {
-    icon: Smartphone,
-    title: "App Development",
-    desc: "Custom mobile and web apps that scale your operations and delight your customers.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&fit=crop",
+    title: "Software Development",
+    desc: "Enterprise-grade custom software solutions tailored to your unique business needs.",
+    icon: Terminal,
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80&fit=crop",
+    slug: "enterprise-software"
   },
+  {
+    title: "Mobile App Development",
+    desc: "Scalable and intuitive mobile applications for Android and iOS platforms.",
+    icon: Smartphone,
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&fit=crop",
+    slug: "react-native"
+  },
+  {
+    title: "UI/UX Design",
+    desc: "User-centric designs that prioritize engagement and seamless digital experiences.",
+    icon: Layout,
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&fit=crop",
+    slug: "product-design"
+  },
+  {
+    title: "SEO Services",
+    desc: "Data-driven SEO strategies to increase visibility and organic traffic.",
+    icon: Search,
+    image: "https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=800&q=80&fit=crop",
+    slug: "seo-services"
+  },
+  {
+    title: "Google Ranking",
+    desc: "Expert ranking strategies to get your business to the top of search results.",
+    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop",
+    slug: "google-ranking"
+  },
+  {
+    title: "Custom IT Solutions",
+    desc: "Integrated IT strategies that solve complex technical challenges.",
+    icon: Cpu,
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80&fit=crop",
+    slug: "cloud-infra"
+  },
+  {
+    title: "E-commerce Solutions",
+    desc: "Robust online stores built to maximize sales and provide a smooth checkout.",
+    icon: ShoppingCart,
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80&fit=crop",
+    slug: "ecommerce"
+  },
+  {
+    title: "Maintenance & Support",
+    desc: "Reliable 24/7 technical support and maintenance for your digital products.",
+    icon: Settings,
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&fit=crop",
+    slug: "it-consulting"
+  }
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="section-border py-24 px-6">
+    <section id="services" className="py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, margin: "-80px" }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
         >
-          <div>
-            <motion.p
-              variants={fadeIn}
-              className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-medium"
-            >
-              What We Do
-            </motion.p>
-            <motion.h2
-              variants={fadeIn}
-              className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground max-w-lg"
-            >
-              Everything you need to dominate local search.
-            </motion.h2>
-          </div>
-          <motion.p
-            variants={fadeIn}
-            className="text-sm text-muted-foreground max-w-xs leading-relaxed"
-          >
-            A complete digital growth stack — from ranking to lead capture to customer retention.
-          </motion.p>
-        </motion.div>
+          <motion.div variants={fadeIn} className="text-center mb-20">
+            <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Our Expertise</h2>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display mb-6">
+              Solutions Designed for <span className="text-blue">Future Growth</span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We combine technical mastery with creative vision to deliver software that drives real business impact.
+            </p>
+          </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {services.map((s, i) => (
-            <motion.div
-              key={i}
-              variants={fadeIn}
-              className="group rounded-xl overflow-hidden card-gold bg-card hover:translate-y-[-3px] transition-transform duration-200"
-            >
-              {/* Image */}
-              <div className="h-44 overflow-hidden relative">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 w-9 h-9 rounded-md bg-card/80 backdrop-blur-sm flex items-center justify-center">
-                  <s.icon className="w-4 h-4 text-gold" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, i) => (
+              <motion.div
+                key={i}
+                variants={fadeIn}
+                className="group relative bg-white rounded-[40px] overflow-hidden border border-blue/5 shadow-xl shadow-blue/5 hover:shadow-2xl hover:shadow-blue/10 transition-all duration-500"
+              >
+                <div className="h-64 overflow-hidden relative">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue/80 to-transparent opacity-60" />
+                  <div className="absolute top-6 right-6 w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-[360deg]">
+                    <service.icon className="w-7 h-7 text-blue" />
+                  </div>
                 </div>
-              </div>
-              {/* Text */}
-              <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="p-10">
+                  <h4 className="text-2xl font-bold text-foreground mb-4 group-hover:text-blue transition-colors">
+                    {service.title}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    {service.desc}
+                  </p>
+                  <Link 
+                    to={`/services/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-blue group/link"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+                
+                {/* Decorative background element */}
+                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-3xl -z-10 group-hover:bg-gold/10 transition-colors" />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

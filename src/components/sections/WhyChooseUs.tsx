@@ -1,77 +1,77 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
-import { Code2, Cpu, ShieldCheck, Zap } from "lucide-react";
+import { Zap, Cpu, CircleDollarSign, Users, Expand, Headphones } from "lucide-react";
 
 const reasons = [
   {
-    icon: Code2,
-    title: "Modern Tech Stack",
-    desc: "I build with the latest high-performance frameworks like React, Next.js, and Node.js to ensure your software is fast and future-proof.",
+    icon: Zap,
+    title: "Fast Delivery",
+    desc: "We prioritize efficiency without sacrificing quality, ensuring your project hits the market on time.",
+    color: "bg-blue/10 text-blue"
   },
   {
     icon: Cpu,
-    title: "Scalable Architecture",
-    desc: "I don't just build for today. Every system I design is architected to handle growth and complex enterprise requirements.",
+    title: "Modern Technology",
+    desc: "Built with the latest high-performance frameworks to ensure your software is future-proof.",
+    color: "bg-gold/10 text-gold"
   },
   {
-    icon: ShieldCheck,
-    title: "Security First",
-    desc: "From encrypted data storage to secure API endpoints, I prioritize the safety of your business and user data at every layer.",
+    icon: CircleDollarSign,
+    title: "Affordable Pricing",
+    desc: "Premium quality software solutions delivered at competitive rates that fit your business budget.",
+    color: "bg-blue/10 text-blue"
   },
   {
-    icon: Zap,
-    title: "Performance Optimized",
-    desc: "Zero-bloat code and optimized infrastructure mean your applications load instantly and run smoothly on any device.",
+    icon: Users,
+    title: "Expert Team",
+    desc: "A dedicated group of senior developers and designers focused on your product's success.",
+    color: "bg-gold/10 text-gold"
+  },
+  {
+    icon: Expand,
+    title: "Scalable Solutions",
+    desc: "Every system we design is architected to handle growth and complex enterprise requirements.",
+    color: "bg-blue/10 text-blue"
+  },
+  {
+    icon: Headphones,
+    title: "Ongoing Support",
+    desc: "We provide continuous monitoring and 24/7 technical support to keep your systems running smoothly.",
+    color: "bg-gold/10 text-gold"
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section id="services" className="section-border overflow-hidden">
+    <section className="py-28 px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* LEFT — Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          {/* LEFT — Visuals */}
           <motion.div
-            initial={{ opacity: 0, scale: 1.05 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-[500px] lg:h-auto lg:min-h-[600px] overflow-hidden"
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80&fit=crop"
-              alt="Code and Engineering"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Gradient overlay to blend into right side */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to right, transparent 60%, hsl(var(--background)) 100%)",
-              }}
-            />
-            {/* Stats card floating on image */}
+            <div className="relative rounded-[40px] overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&fit=crop"
+                alt="Our Expert Team"
+                className="w-full h-auto aspect-[4/5] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue/40 to-transparent" />
+            </div>
+            
+            {/* Floating Experience Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="absolute bottom-8 left-8 right-12 bg-card/95 backdrop-blur-md rounded-xl p-5"
-              style={{ border: "1px solid rgba(200,148,31,0.2)" }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-10 -right-10 bg-white p-10 rounded-[40px] shadow-2xl border border-blue/5 hidden md:block"
             >
-              <p className="text-xs text-muted-foreground mb-4 uppercase tracking-widest">Engineering Excellence</p>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { v: "100%", l: "Code Quality" },
-                  { v: "99.9%", l: "Uptime" },
-                  { v: "24/7", l: "Monitoring" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <div className="text-xl font-bold text-gold tabular-nums">{s.v}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{s.l}</div>
-                  </div>
-                ))}
+              <div className="text-center">
+                <div className="text-6xl font-black text-gold mb-1 font-display">100%</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Quality Guarantee</div>
               </div>
             </motion.div>
           </motion.div>
@@ -82,43 +82,31 @@ const WhyChooseUs = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-80px" }}
-            className="px-8 lg:px-14 py-20 flex flex-col justify-center"
           >
-            <motion.p
-              variants={fadeIn}
-              className="text-xs uppercase tracking-[0.2em] text-gold mb-4 font-medium"
-            >
-              Why Partner With Me
-            </motion.p>
-            <motion.h2
-              variants={fadeIn}
-              className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground mb-4"
-            >
-              High-Performance IT.
-            </motion.h2>
-            <motion.p
-              variants={fadeIn}
-              className="text-sm text-muted-foreground leading-relaxed mb-10"
-            >
-              I am a specialist software engineer focused on building robust digital products. 
-              You aren't hiring a marketing agency; you're partnering with a technical founder 
-              who builds the infrastructure that powers modern business.
-            </motion.p>
+            <motion.div variants={fadeIn} className="mb-12">
+              <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Why DevDhara</h2>
+              <h3 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display mb-6">
+                Your Success is <span className="text-blue">Our Mission</span>
+              </h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We don't just build software; we build partnerships. Our process is designed to ensure maximum transparency, efficiency, and elite technical execution.
+              </p>
+            </motion.div>
 
-            <div className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {reasons.map((r, i) => (
                 <motion.div
                   key={i}
                   variants={fadeIn}
-                  className="flex gap-4 p-5 rounded-xl bg-card card-gold"
+                  className="p-6 rounded-3xl bg-white border border-blue/5 shadow-xl shadow-blue/5 hover:border-gold/30 hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="w-9 h-9 shrink-0 rounded-md bg-secondary flex items-center justify-center mt-0.5">
-                    <r.icon className="w-4 h-4 text-gold" />
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${r.color}`}>
+                    <r.icon className="w-6 h-6" />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-foreground mb-1">{r.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
-                  </div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">{r.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {r.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>

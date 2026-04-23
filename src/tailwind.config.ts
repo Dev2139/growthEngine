@@ -51,7 +51,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // DevDhara Brand Colors
+        // DevDhara Software Solutions Brand Colors
         gold: {
           DEFAULT: "#D4A32A",
           light: "#F5D97E",

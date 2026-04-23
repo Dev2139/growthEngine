@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, CheckCircle2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface AuditModalProps {
@@ -24,56 +24,99 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[150] bg-blue/20 backdrop-blur-md"
             onClick={onClose}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-6 pointer-events-none"
           >
-            <div className="w-full max-w-md bg-card border border-border rounded-2xl p-8 card-depth pointer-events-auto">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                  {submitted ? "We'll Be in Touch" : "Get Your Free Audit"}
-                </h3>
-                <button
-                  onClick={() => { onClose(); setSubmitted(false); }}
-                  className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors"
-                >
-                  <X className="w-4 h-4 text-muted-foreground" />
-                </button>
-              </div>
+            <div className="w-full max-w-lg bg-white rounded-[40px] shadow-[0_40px_100px_-20px_rgba(30,58,138,0.3)] p-10 relative pointer-events-auto border border-blue/5 overflow-hidden">
+              {/* Decoration */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+              
+              <button
+                onClick={() => { onClose(); setTimeout(() => setSubmitted(false), 300); }}
+                className="absolute top-8 right-8 w-10 h-10 rounded-full bg-blue/5 flex items-center justify-center text-blue hover:bg-blue hover:text-white transition-all"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
               {submitted ? (
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Thanks for reaching out. We'll review your business and get back to you within 24 hours with a full audit report.
-                </p>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  {[
-                    { name: "name", placeholder: "Your Name", type: "text" },
-                    { name: "business", placeholder: "Business Name", type: "text" },
-                    { name: "phone", placeholder: "Phone Number", type: "tel" },
-                    { name: "location", placeholder: "Business Location", type: "text" },
-                  ].map((field) => (
-                    <input
-                      key={field.name}
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      required
-                      className="h-12 px-4 rounded-xl bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-all"
-                    />
-                  ))}
+                <div className="text-center py-10">
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <CheckCircle2 className="w-10 h-10 text-green-600" />
+                  </div>
+                  <h3 className="text-3xl font-black text-foreground mb-4 font-display">Success!</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                    Your request has been received. Our senior engineer will review your requirements and get back to you within 24 hours.
+                  </p>
                   <Button
-                    type="submit"
-                    className="h-12 mt-2 rounded-xl bg-foreground text-background hover:bg-foreground/90 text-sm font-medium active:scale-[0.97] transition-all"
+                    onClick={onClose}
+                    className="bg-blue text-white rounded-full px-8 h-12 font-bold"
                   >
-                    Request Free Audit
+                    Close
                   </Button>
-                </form>
+                </div>
+              ) : (
+                <>
+                  <div className="mb-10">
+                    <div className="inline-flex items-center gap-2 bg-blue/5 px-4 py-2 rounded-full mb-4 text-blue">
+                      <Rocket className="w-4 h-4 text-gold" />
+                      <span className="text-[10px] font-bold uppercase tracking-widest">Free Consultation</span>
+                    </div>
+                    <h3 className="text-3xl font-black text-foreground font-display">
+                      Get Your <span className="text-blue">Free Quote</span>
+                    </h3>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        required
+                        className="h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        required
+                        className="h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
+                      />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Business Name"
+                      className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
+                    />
+                    <select className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground focus:ring-2 focus:ring-blue transition-all">
+                      <option>Select Service</option>
+                      <option>Web Development</option>
+                      <option>Mobile App Development</option>
+                      <option>Custom Software</option>
+                      <option>UI/UX Design</option>
+                      <option>SEO / Google Ranking</option>
+                    </select>
+                    <textarea 
+                      placeholder="Tell us about your project requirements..."
+                      rows={3}
+                      className="w-full p-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
+                    />
+                    
+                    <Button
+                      type="submit"
+                      className="w-full h-16 mt-4 rounded-2xl bg-blue text-white hover:bg-blue/90 text-lg font-bold shadow-xl shadow-blue/20 transition-all flex gap-2"
+                    >
+                      Send Request
+                    </Button>
+                    <p className="text-[10px] text-center text-muted-foreground mt-4">
+                      We respect your privacy. No spam, ever.
+                    </p>
+                  </form>
+                </>
               )}
             </div>
           </motion.div>
