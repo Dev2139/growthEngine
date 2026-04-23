@@ -3,6 +3,7 @@ import projectOmax from "@/assets/omax-industries.png";
 import projectRestoplus from "@/assets/restoplus.png";
 import projectJaiswal from "@/assets/jaiswal-app.png";
 import projectJaag from "@/assets/jaag-alumni.png";
+import projectMvFluid from "@/assets/mv-fluid.png";
 
 export interface Project {
   slug: string;
@@ -168,6 +169,36 @@ export const projects: Project[] = [
       quote: "JAAG has transformed how we Navodayans connect. The house-based theming brings back school pride, and the opportunity board is helping our younger alumni find their path.",
       name: "Association President",
       role: "JNV Alumni Association",
+    },
+  },
+  {
+    slug: "mv-fluid-industrial-digital-authority",
+    title: "MV Fluid - Precision Hydraulic Engineering & Digital Transformation",
+    client: "MV Fluid",
+    category: "Fullstack Development",
+    image: projectMvFluid,
+    excerpt: "A high-impact 'Dark Industrial' digital platform for an Ahmedabad leader in hydraulic solutions, optimized for instant lead generation and local SEO mastery.",
+    description: "MV Fluid is a premium digital platform designed for a leading industrial manufacturing firm. It serves as a modern bridge between traditional heavy engineering and the digital-first business world. The platform features a high-impact visual catalog for specialized hydraulic cylinders and power packs, integrated with a direct-to-WhatsApp inquiry system to accelerate the B2B sales cycle. Optimized for the Ahmedabad industrial sector (Kathwada GIDC), it establishes digital authority through performance-first architecture and precision design.",
+    services: [
+      "Fullstack Industrial Web App",
+      "Local SEO Strategy (GIDC)",
+      "WhatsApp Lead Integration",
+      "Dark Industrial UI Design",
+      "Framer Motion Animations",
+      "Performance Optimization"
+    ],
+    results: [
+      { label: "Lead Speed", value: "Instant" },
+      { label: "Local SEO", value: "#1 Rank" },
+      { label: "Design", value: "Dark" },
+      { label: "Load Time", value: "<1s" },
+    ],
+    challenge: "The industrial sector often relies on traditional, friction-heavy sales cycles. MV Fluid needed a platform that could transform their manufacturing excellence into a global-standard brand while ensuring procurement officers could find them easily in local searches.",
+    solution: "We built a 'Dark Industrial' themed platform using Vite and React for ultra-fast performance. We replaced slow email forms with a direct WhatsApp integration and implemented a deep local SEO strategy targeting Kathwada GIDC. The result is a future-proof foundation that positions MV Fluid as a top-tier engineering partner.",
+    testimonial: {
+      quote: "Our digital authority has soared since the launch. The WhatsApp integration has turned our product catalog into a high-converting sales machine, and our local rankings have never been better.",
+      name: "MV Fluid Team",
+      role: "Manufacturing Directors",
     },
   },
 ];
