@@ -4,32 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const projects = [
-  {
-    title: "E-commerce Platform",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80&fit=crop",
-    link: "/projects/ecommerce-platform"
-  },
-  {
-    title: "HealthTech App",
-    category: "Mobile App",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80&fit=crop",
-    link: "/projects/healthtech-app"
-  },
-  {
-    title: "Fintech Dashboard",
-    category: "Software",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop",
-    link: "/projects/fintech-dashboard"
-  },
-  {
-    title: "SEO Optimization",
-    category: "Digital Growth",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop",
-    link: "/projects/seo-optimization"
-  }
-];
+import { projects } from "@/data/projects";
 
 const CaseStudies = () => {
   return (
@@ -79,7 +54,7 @@ const CaseStudies = () => {
                     {project.title}
                   </h4>
                   <Link
-                    to={project.link}
+                    to={`/projects/${project.slug}`}
                     className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 hover:bg-white hover:text-blue transition-all"
                   >
                     <ExternalLink className="w-5 h-5" />

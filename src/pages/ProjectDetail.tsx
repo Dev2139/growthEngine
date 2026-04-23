@@ -181,32 +181,34 @@ const ProjectDetail = () => {
       )}
 
       {/* Next/Prev Navigation */}
-      <section className="border-t border-blue/5">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <Link
-            to={`/projects/${prevProject.slug}`}
-            className="group p-16 md:p-24 border-b md:border-b-0 md:border-r border-blue/5 hover:bg-blue/5 transition-all"
-          >
-            <div className="text-xs font-black uppercase tracking-[0.3em] text-blue/40 mb-6 flex items-center gap-2 group-hover:text-blue transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Previous Case Study
-            </div>
-            <div className="text-3xl font-black tracking-tight text-foreground group-hover:text-blue transition-colors font-display">
-              {prevProject.title}
-            </div>
-          </Link>
-          <Link
-            to={`/projects/${nextProject.slug}`}
-            className="group p-16 md:p-24 text-right hover:bg-blue/5 transition-all"
-          >
-            <div className="text-xs font-black uppercase tracking-[0.3em] text-blue/40 mb-6 flex items-center justify-end gap-2 group-hover:text-blue transition-colors">
-              Next Case Study <ArrowRight className="w-4 h-4" />
-            </div>
-            <div className="text-3xl font-black tracking-tight text-foreground group-hover:text-blue transition-colors font-display">
-              {nextProject.title}
-            </div>
-          </Link>
-        </div>
-      </section>
+      {projects.length > 1 && (
+        <section className="border-t border-blue/5">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <Link
+              to={`/projects/${prevProject.slug}`}
+              className="group p-16 md:p-24 border-b md:border-b-0 md:border-r border-blue/5 hover:bg-blue/5 transition-all"
+            >
+              <div className="text-xs font-black uppercase tracking-[0.3em] text-blue/40 mb-6 flex items-center gap-2 group-hover:text-blue transition-colors">
+                <ArrowLeft className="w-4 h-4" /> Previous Case Study
+              </div>
+              <div className="text-3xl font-black tracking-tight text-foreground group-hover:text-blue transition-colors font-display">
+                {prevProject.title}
+              </div>
+            </Link>
+            <Link
+              to={`/projects/${nextProject.slug}`}
+              className="group p-16 md:p-24 text-right hover:bg-blue/5 transition-all"
+            >
+              <div className="text-xs font-black uppercase tracking-[0.3em] text-blue/40 mb-6 flex items-center justify-end gap-2 group-hover:text-blue transition-colors">
+                Next Case Study <ArrowRight className="w-4 h-4" />
+              </div>
+              <div className="text-3xl font-black tracking-tight text-foreground group-hover:text-blue transition-colors font-display">
+                {nextProject.title}
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
 
       <Footer />
       <AuditModal open={auditOpen} onClose={() => setAuditOpen(false)} />
