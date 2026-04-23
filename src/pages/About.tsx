@@ -87,8 +87,8 @@ const About = () => {
             >
               <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
                 <img
-                  src="https://images.unsplash.com/photo-1522071823991-b1ae5e6a3048?w=1000&q=80&fit=crop"
-                  alt="Modern Office"
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=80&fit=crop"
+                  alt="DevDhara Engineering Studio"
                   className="w-full h-auto aspect-video object-cover"
                 />
               </div>
@@ -119,7 +119,7 @@ const About = () => {
           >
             <div className="rounded-[40px] overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80&fit=crop"
+                src="https://res.cloudinary.com/dsddldquo/image/upload/v1775846755/hf4rkdghqt0ieam6jnuw.jpg"
                 alt="Dev Patel"
                 className="w-full h-auto aspect-[4/5] object-cover"
               />

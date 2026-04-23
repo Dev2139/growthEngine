@@ -110,7 +110,7 @@ const Services = () => {
                 <div className="h-64 overflow-hidden relative">
                   <img 
                     src={service.image} 
-                    alt={service.title} 
+                    alt={`${service.title} - DevDhara Software Solutions`} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue/80 to-transparent opacity-60" />

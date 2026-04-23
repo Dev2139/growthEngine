@@ -43,7 +43,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Premium software engineering and IT services studio. We build digital infrastructure for the modern enterprise.
+              DevDhara Software Solutions is a premium software engineering and IT services studio in Ahmedabad, Gujarat. We build digital infrastructure for the modern enterprise.
             </p>
 
           </div>
