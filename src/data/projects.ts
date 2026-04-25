@@ -4,6 +4,9 @@ import projectRestoplus from "@/assets/restoplus.png";
 import projectJaiswal from "@/assets/jaiswal-app.png";
 import projectJaag from "@/assets/jaag-alumni.png";
 import projectMvFluid from "@/assets/mv-fluid.png";
+import projectInvoxa from "@/assets/invoxa-erp.png";
+import projectAwmStore from "@/assets/awm-store.png";
+import projectSavioErp from "@/assets/savio-erp.png";
 
 export interface Project {
   slug: string;
@@ -199,6 +202,96 @@ export const projects: Project[] = [
       quote: "Our digital authority has soared since the launch. The WhatsApp integration has turned our product catalog into a high-converting sales machine, and our local rankings have never been better.",
       name: "MV Fluid Team",
       role: "Manufacturing Directors",
+    },
+  },
+  {
+    slug: "invoxaerp-saas-platform",
+    title: "InvoxaERP - Comprehensive Business & Invoicing SaaS",
+    client: "In-House Product",
+    category: "SaaS Products",
+    image: projectInvoxa,
+    excerpt: "A powerful Enterprise Resource Planning (ERP) platform designed to streamline CRM, financial tracking, invoicing, and business analytics in one centralized SaaS ecosystem.",
+    description: "InvoxaERP is our proprietary SaaS solution tailored for modern businesses to manage their end-to-end operations. From maintaining a detailed client CRM to generating professional PDF quotes and invoices, the platform acts as the financial backbone of an organization. It features a robust product catalog, real-time expense tracking, customizable tax management, and secure administrative controls, all wrapped in a clean, intuitive dashboard.",
+    services: [
+      "SaaS Architecture & Development",
+      "Financial Tracking & Tax Engine",
+      "Dynamic PDF Generation",
+      "Client Management (CRM)",
+      "Secure Authentication & RBAC",
+      "Analytics Dashboard UI"
+    ],
+    results: [
+      { label: "Core Focus", value: "ERP/Billing" },
+      { label: "Target Market", value: "B2B SaaS" },
+      { label: "Availability", value: "Live Platform" },
+      { label: "Architecture", value: "Cloud-Native" },
+    ],
+    challenge: "Businesses often struggle with fragmented tools for billing, CRM, and expense tracking. We recognized the need for a unified, scalable system that could handle complex workflows—like converting quotes to invoices—without overwhelming the user with a clunky interface.",
+    solution: "We engineered InvoxaERP as a cohesive, cloud-native ecosystem. We implemented a sophisticated relational database to link clients, products, quotes, and invoices seamlessly. The platform features automated PDF generation, granular expense categorization, and an interactive analytics dashboard, providing businesses with absolute financial clarity and operational control.",
+    testimonial: {
+      quote: "InvoxaERP represents our commitment to building business-critical software. It drastically reduces administrative overhead and brings professional financial management to any growing enterprise.",
+      name: "DevDhara Team",
+      role: "Product Architects",
+    },
+  },
+  {
+    slug: "awm-store-affiliate-ecommerce",
+    title: "AWM Store - Modern Affiliate-Driven E-Commerce Platform",
+    client: "A World Marketing",
+    category: "E-Commerce Development",
+    image: projectAwmStore,
+    excerpt: "A high-conversion e-commerce platform that seamlessly integrates a frictionless guest checkout experience with a robust, automated affiliate marketing ecosystem.",
+    description: "AWM Store (A World Marketing) is a dynamic retail platform built to scale sales organically through a motivated network of agents. The ecosystem serves three distinct user bases: retail customers enjoying a frictionless shopping experience, affiliates tracking real-time commission earnings, and administrators managing operations from a centralized command center. The platform is engineered to maximize conversion rates while fully automating referral tracking and payouts.",
+    services: [
+      "Custom E-Commerce Engine",
+      "Affiliate Tracking System",
+      "Frictionless Guest Checkout",
+      "Agent Performance Dashboard",
+      "Centralized Admin Oversight",
+      "High-Engagement UI/UX"
+    ],
+    results: [
+      { label: "Checkout", value: "Frictionless" },
+      { label: "Affiliates", value: "Automated" },
+      { label: "UI Design", value: "Vibrant" },
+      { label: "Management", value: "Centralized" },
+    ],
+    challenge: "The business needed to merge a traditional retail storefront with a complex multi-level referral network. Forcing customers to create accounts creates friction, but tracking affiliate sales requires precise data attribution. The challenge was building a system that satisfies both without compromising user experience.",
+    solution: "We engineered a dual-sided platform with strict role-based access. For customers, we implemented a highly vibrant, guest-friendly checkout flow for maximum conversion. For affiliates and admins, we built a sophisticated tracking engine that logs referrals in real-time and provides transparent commission oversight, all managed through a robust centralized dashboard.",
+    testimonial: {
+      quote: "The platform has completely transformed how we scale. The frictionless checkout keeps our customers happy, and the automated affiliate tracking has mobilized our sales agents like never before.",
+      name: "Platform Management",
+      role: "A World Marketing",
+    },
+  },
+  {
+    slug: "savioerp-b2b-marketing-platform",
+    title: "SavioERP - Strategic B2B Marketing & Lead Generation Engine",
+    client: "SavioERP",
+    category: "Fullstack Development",
+    image: projectSavioErp,
+    excerpt: "A sophisticated digital storefront and marketing platform that translates a massive manufacturing ERP ecosystem into digestible, high-conversion business value.",
+    description: "The SavioERP Website is a professional lead generation engine designed for a comprehensive Enterprise Resource Planning (ERP) software tailored to mid-to-large manufacturers. Acting as more than an informational brochure, the platform utilizes interactive module showcases to educate decision-makers on supply chain, production, finance, and CRM integrations. It establishes deep domain authority while driving prospective clients toward demo bookings.",
+    services: [
+      "B2B Corporate Website",
+      "Lead Generation Integration",
+      "Interactive Module Showcase",
+      "Technical SEO Optimization",
+      "Talent Acquisition Portal",
+      "Brand Storytelling UI"
+    ],
+    results: [
+      { label: "Target", value: "B2B Enterprise" },
+      { label: "Goal", value: "Lead Gen" },
+      { label: "Expertise", value: "15+ Years" },
+      { label: "SEO Focus", value: "Manufacturing" },
+    ],
+    challenge: "Manufacturing ERPs are inherently complex. The challenge was to prevent the website from becoming an overwhelming wall of text, and instead create an engaging user journey that clearly articulates business benefits—like cost optimization and scalable growth—to C-level executives.",
+    solution: "We engineered an interactive, full-stack marketing platform that breaks down the 9 core modules of SavioERP into intuitive, bite-sized components. We integrated prominent 'Book a Demo' CTAs, showcased a 15-year heritage of trust through a dedicated clientele section, and built a custom career portal to support internal corporate growth.",
+    testimonial: {
+      quote: "This platform successfully bridges the gap between our complex technical software and the business-centric needs of our clients. It has become our most powerful tool for lead generation and brand authority.",
+      name: "Anand Patel",
+      role: "Managing Director, SavioERP",
     },
   },
 ];
