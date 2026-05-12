@@ -199,8 +199,8 @@ const About = () => {
                 subRole: "Fullstack Engineer",
               },
               { 
-                name: "Bhavy Patel", 
-                role: "Design Lead", 
+                name: "Mohit Soni", 
+                role: "Tech Lead", 
                 subRole: "UI/UX Specialist",
               },
               { 
