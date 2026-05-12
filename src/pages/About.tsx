@@ -7,6 +7,7 @@ import FloatingButtons from "@/components/FloatingButtons";
 import { useState } from "react";
 import { Award, Users, Zap, Target, CheckCircle2, Search, BarChart3, Globe, Code2, Monitor, Cpu, Layout, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FaUserCircle, FaLinkedinIn, FaGithub, FaTwitter, FaDribbble } from "react-icons/fa";
 
 const About = () => {
   const [auditOpen, setAuditOpen] = useState(false);
@@ -108,7 +109,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder Bio */}
+      {/* Expertise Section (formerly Founder Bio) */}
       <section className="py-28 px-6 bg-blue/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -117,27 +118,27 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="rounded-[40px] overflow-hidden shadow-2xl">
+            <div className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white">
               <img
-                src="https://res.cloudinary.com/dsddldquo/image/upload/v1775846755/hf4rkdghqt0ieam6jnuw.jpg"
-                alt="Dev Patel"
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1000&q=80&fit=crop"
+                alt="Technical Excellence"
                 className="w-full h-auto aspect-[4/5] object-cover"
               />
             </div>
             <div className="absolute -bottom-10 -right-10 bg-white p-10 rounded-[40px] shadow-2xl border border-gold/10">
-              <div className="text-5xl font-black text-blue font-display mb-1">5+</div>
-              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Years of Experience</div>
+              <div className="text-5xl font-black text-blue font-display mb-1">Elite</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Technical Standards</div>
             </div>
           </motion.div>
 
           <div>
-            <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Founder's Vision</h2>
+            <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Our Expertise</h2>
             <h3 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display mb-8">
-              Obsessed with Code. <span className="text-blue">Driven by Results.</span>
+              Built on Code. <span className="text-blue">Driven by Results.</span>
             </h3>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                My name is Dev Patel, and I built DevDhara Software Solutions to provide businesses with the technical foundation they need to scale. In an era where software is the backbone of every industry, I focus on building tools that are reliable, secure, and beautiful.
+                At DevDhara Software Solutions, we provide businesses with the technical foundation they need to scale. In an era where software is the backbone of every industry, we focus on building tools that are reliable, secure, and beautiful.
               </p>
               <p>
                 When you work with us, you're partnering with a team that understands the product lifecycle. We don't just write code; we help you design the strategy, the user experience, and the infrastructure that will carry your business forward.
@@ -158,6 +159,108 @@ const About = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-28 px-6 bg-white relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-40 left-0 w-72 h-72 bg-blue/5 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-40 right-0 w-72 h-72 bg-gold/10 rounded-full blur-[100px] -z-10" />
+
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Our Talent</h2>
+              <h3 className="text-4xl md:text-6xl font-black tracking-tight text-foreground font-display mb-6">
+                Meet the <span className="text-blue">Experts</span>
+              </h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                A diverse group of engineers and designers committed to building the next generation of digital products.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {[
+              { 
+                name: "Dev Patel", 
+                role: "Managing Director", 
+                subRole: "Fullstack Developer",
+              },
+              { 
+                name: "Mahir Patel", 
+                role: "Lead Developer", 
+                subRole: "Fullstack Engineer",
+              },
+              { 
+                name: "Bhavy Patel", 
+                role: "Design Lead", 
+                subRole: "UI/UX Specialist",
+              },
+              { 
+                name: "Harshit Tiwari", 
+                role: "Backend Lead", 
+                subRole: "System Architect",
+              },
+              { 
+                name: "Jaiv Patel", 
+                role: "Mobile Lead", 
+                subRole: "Flutter Specialist",
+              },
+              { 
+                name: "Manthan Bharwad", 
+                role: "SEO Specialist", 
+                subRole: "Digital Strategist",
+              },
+              { 
+                name: "Tanish Parmar", 
+                role: "Project Manager", 
+                subRole: "Agile Specialist",
+              },
+              { 
+                name: "Mahiraj Gohil", 
+                role: "DevOps Engineer", 
+                subRole: "Cloud Architect",
+              },
+            ].map((member, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="group relative"
+              >
+                <div className="relative bg-white rounded-[40px] p-10 text-center border border-blue/5 shadow-2xl shadow-blue/5 hover:shadow-blue/10 hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                  {/* Decorative Gradient Background on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue/[0.02] to-gold/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative mb-8">
+                    <div className="w-32 h-32 rounded-[32px] bg-gradient-to-br from-blue/5 to-blue/10 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-blue/5 p-1 relative z-10">
+                      <div className="w-full h-full bg-white rounded-[28px] flex items-center justify-center overflow-hidden">
+                        <FaUserCircle className="w-full h-full text-blue/40" />
+                      </div>
+                    </div>
+                    {/* Floating Accent */}
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gold rounded-2xl flex items-center justify-center text-white shadow-lg border-4 border-white transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                      <Zap className="w-4 h-4 fill-white" />
+                    </div>
+                  </div>
+
+                  <div className="relative z-10">
+                    <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-blue transition-colors">{member.name}</h4>
+                    <div className="text-sm font-bold text-blue uppercase tracking-widest mb-2">{member.role}</div>
+                    <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{member.subRole}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

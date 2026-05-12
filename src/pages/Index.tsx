@@ -5,6 +5,7 @@ import Trust from "@/components/sections/Trust";
 import Services from "@/components/sections/Services";
 import CaseStudies from "@/components/sections/CaseStudies";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import TechStack from "@/components/sections/TechStack";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -26,6 +27,7 @@ const Index = () => {
       <Trust />
       <Services />
       <WhyChooseUs />
+      <TechStack />
       <CaseStudies />
       <Process />
       <Testimonials />

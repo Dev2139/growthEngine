@@ -16,10 +16,39 @@ const bullets = [
 const Hero = ({ onOpenAudit }: HeroProps) => {
   return (
     <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-white pt-24">
-      {/* Abstract Background Elements */}
+      {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-blue/5 rounded-l-[100px] -z-10 hidden lg:block" />
       <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-blue/5 rounded-full blur-[100px] -z-10" />
+      
+      {/* Interactive Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-blue/[0.03]"
+            style={{
+              width: Math.random() * 300 + 100,
+              height: Math.random() * 300 + 100,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, Math.random() * 100 - 50, 0],
+              x: [0, Math.random() * 100 - 50, 0],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+        {/* Animated Grid Pattern */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] mix-blend-overlay" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Content */}

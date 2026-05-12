@@ -11,6 +11,7 @@ interface NavbarProps {
 
 const Navbar = ({ onOpenAudit }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const location = useLocation();
@@ -24,12 +25,14 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
   useEffect(() => {
     setMegaMenuOpen(false);
     setMobileOpen(false);
+    setMobileServicesOpen(false);
   }, [location.pathname]);
 
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Portfolio", path: "/projects" },
+    { name: "Partners", path: "/partners" },
     { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
   ];
@@ -153,36 +156,77 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
               className="lg:hidden bg-white border-b border-blue/5 overflow-hidden"
             >
               <div className="px-6 py-8 flex flex-col gap-6">
-                {navLinks.map((link) => (
+                {/* Home */}
+                <Link
+                  to="/"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-lg font-semibold text-foreground/80 hover:text-blue"
+                >
+                  Home
+                </Link>
+
+                {/* About */}
+                <Link
+                  to="/about"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-lg font-semibold text-foreground/80 hover:text-blue"
+                >
+                  About
+                </Link>
+
+                {/* Services Dropdown */}
+                <div>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between text-lg font-semibold text-foreground/80 hover:text-blue"
+                  >
+                    <span>Services</span>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-4 flex flex-col gap-4 pl-4 border-l-2 border-blue/10">
+                          {serviceCategories.map((cat) => (
+                            <div key={cat.title} className="flex flex-col gap-2">
+                              <p className="text-sm font-bold text-blue">{cat.title}</p>
+                              <div className="flex flex-col gap-2.5 pl-3 border-l border-gold/20">
+                                {cat.services.map((s) => (
+                                  <Link
+                                    key={s.slug}
+                                    to={`/services/${s.slug}`}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="text-[13px] font-medium text-foreground/60 hover:text-blue"
+                                  >
+                                    {s.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Remaining Links */}
+                {navLinks.slice(2).map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
+                    onClick={() => setMobileOpen(false)}
                     className="text-lg font-semibold text-foreground/80 hover:text-blue"
                   >
                     {link.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-blue/5">
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue/40 mb-6">Our Services</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    {serviceCategories.map((cat) => (
-                      <div key={cat.title}>
-                        <p className="text-sm font-bold text-blue mb-3">{cat.title}</p>
-                        <div className="flex flex-col gap-2.5 pl-3 border-l-2 border-gold/20">
-                          {cat.services.map((s) => (
-                            <Link
-                              key={s.slug}
-                              to={`/services/${s.slug}`}
-                              className="text-[13px] font-medium text-foreground/60 hover:text-blue"
-                            >
-                              {s.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
                 <Button
                   onClick={() => { onOpenAudit(); setMobileOpen(false); }}
                   className="w-full bg-blue text-white rounded-xl h-12 font-bold mt-4"

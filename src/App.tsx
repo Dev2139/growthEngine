@@ -16,6 +16,8 @@ import Contact from "./pages/Contact.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import Terms from "./pages/Terms.tsx";
+import Partners from "./pages/Partners.tsx";
+import PartnerPrograms from "./pages/PartnerPrograms.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -47,6 +49,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/partners/programs" element={<PartnerPrograms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

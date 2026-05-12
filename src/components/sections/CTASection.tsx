@@ -58,9 +58,8 @@ const CTASection = ({ onOpenAudit }: CTASectionProps) => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
-              variant="outline"
               size="lg"
-              className="border-white/20 text-white hover:bg-white/10 h-16 px-10 rounded-full font-bold text-lg"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue h-16 px-10 rounded-full font-bold text-lg transition-all"
             >
               Schedule a Call
             </Button>
