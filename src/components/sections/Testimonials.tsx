@@ -1,11 +1,10 @@
-import { motion, useAnimationControls } from "framer-motion";
-import { useEffect } from "react";
-import { FaStar, FaQuoteRight, FaUserCircle } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
     name: "Romang Patel",
-    role: "Owner, Romang Patel and Assosiates",
+    role: "Owner, Romang Patel & Associates",
     quote: "The strategic insights and technical execution provided by Devdhara Software Solutions have been pivotal in scaling our consultancy. They delivered a solution that perfectly aligns with our vision for digital excellence.",
     rating: 5,
   },
@@ -29,7 +28,7 @@ const testimonials = [
   },
   {
     name: "Narendrabhai Jayswal",
-    role: "Commitee member, Jayswal Samaj",
+    role: "Committee Member, Jayswal Samaj",
     quote: "The community platform developed by Devdhara Software Solutions has brought our members closer than ever. It's user-friendly, secure, and has simplified our event management and outreach tremendously.",
     rating: 5,
   },
@@ -41,80 +40,118 @@ const testimonials = [
   },
 ];
 
-// Duplicate for infinite scroll
-const duplicatedTestimonials = [...testimonials, ...testimonials];
+const getAvatarGradient = (name: string) => {
+  const hash = name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const gradients = [
+    "from-amber-100 to-gold",
+    "from-blue-200 to-blue-900",
+    "from-amber-200 to-amber-700",
+    "from-slate-200 to-slate-800",
+    "from-indigo-200 to-indigo-900",
+    "from-yellow-100 to-gold",
+  ];
+  return gradients[hash % gradients.length];
+};
 
 const Testimonials = () => {
-  const controls = useAnimationControls();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-  useEffect(() => {
-    const startAnimation = async () => {
-      await controls.start({
-        x: "-50%",
-        transition: {
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-        },
-      });
-    };
-    startAnimation();
-  }, [controls]);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
 
   return (
-    <section className="py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Testimonials</h2>
-        <h3 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display">
-          Trusted by <span className="text-blue">Industry Leaders</span>
-        </h3>
+    <section className="py-32 bg-[#F8F8F6] relative overflow-hidden grid-pattern-premium border-t border-black/[0.03]">
+      <div className="max-w-7xl mx-auto px-6 mb-20 text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-4 block">
+            Testimonials
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display max-w-2xl mx-auto leading-[1.15]">
+            Trusted by <span className="font-serif-italic font-light text-gold text-5xl">visionary</span> leaders
+          </h2>
+          <p className="text-sm text-foreground/50 tracking-wide mt-4 uppercase">
+            Real feedback from our partners across diverse industries
+          </p>
+        </motion.div>
       </div>
 
-      <div className="relative">
-        {/* Gradient overlays for smooth fading at edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
-
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          animate={controls}
-          className="flex gap-8 px-4"
-          style={{ width: "max-content" }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {duplicatedTestimonials.map((t, i) => (
-            <div
-              key={i}
-              className="w-[350px] md:w-[450px] flex-shrink-0 bg-white p-10 rounded-[40px] border border-blue/5 shadow-xl shadow-blue/5 flex flex-col relative group hover:border-gold/30 transition-all duration-300"
-            >
-              <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-20 transition-opacity">
-                <FaQuoteRight className="w-12 h-12 text-blue" />
-              </div>
-              
-              <div className="flex gap-1 mb-6">
-                {[...Array(t.rating)].map((_, i) => (
-                  <FaStar key={i} className="w-5 h-5 text-gold" />
-                ))}
-              </div>
+          {testimonials.map((t, i) => {
+            const initials = t.name
+              .split(" ")
+              .map((n) => n[0])
+              .join("");
+            const isDarkGradient = [1, 2, 3, 4].includes(i % 6);
+            return (
+              <motion.div
+                key={i}
+                variants={itemVariants}
+                className="card-premium-modern p-10 md:p-12 rounded-[32px] flex flex-col justify-between relative group overflow-hidden"
+              >
+                {/* Accent glow on hover */}
+                <div className="absolute -right-20 -top-20 w-40 h-40 bg-gold/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-              <p className="text-lg text-foreground/80 leading-relaxed italic mb-10 relative z-10">
-                "{t.quote}"
-              </p>
-
-              <div className="flex items-center gap-4 pt-8 border-t border-blue/5 mt-auto">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-blue/5 flex items-center justify-center border-2 border-white shadow-lg overflow-hidden">
-                    <FaUserCircle className="w-full h-full text-blue/40" />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue rounded-full flex items-center justify-center border-2 border-white">
-                    <FaStar className="w-3 h-3 text-white" />
-                  </div>
-                </div>
                 <div>
-                  <div className="text-lg font-bold text-foreground">{t.name}</div>
-                  <div className="text-sm font-semibold text-blue uppercase tracking-widest leading-tight">{t.role}</div>
+                  <div className="flex gap-1 mb-8">
+                    {[...Array(t.rating)].map((_, idx) => (
+                      <FaStar key={idx} className="w-3.5 h-3.5 text-gold" />
+                    ))}
+                  </div>
+
+                  <p className="font-serif-italic text-2xl text-foreground/90 font-light leading-relaxed mb-12 relative z-10">
+                    "{t.quote}"
+                  </p>
                 </div>
-              </div>
-            </div>
-          ))}
+
+                <div className="flex items-center gap-4 pt-8 border-t border-black/[0.04] mt-auto">
+                  <div
+                    className={`w-12 h-12 rounded-full bg-gradient-to-tr ${getAvatarGradient(
+                      t.name
+                    )} flex items-center justify-center font-display text-xs font-semibold tracking-wider border border-white/40 shadow-sm ${
+                      isDarkGradient ? "text-white" : "text-zinc-800"
+                    }`}
+                  >
+                    {initials}
+                  </div>
+                  <div>
+                    <div className="text-base font-bold text-foreground tracking-tight">{t.name}</div>
+                    <div className="text-[11px] font-bold text-gold uppercase tracking-[0.15em] mt-0.5">
+                      {t.role}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

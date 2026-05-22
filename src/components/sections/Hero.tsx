@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Play } from "lucide-react";
+import { ArrowRight, CheckCircle2, Play, Cpu, Shield, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface HeroProps {
@@ -8,123 +8,116 @@ interface HeroProps {
 }
 
 const bullets = [
-  "Custom Software & Enterprise Solutions",
-  "Scalable Web & Mobile App Development",
-  "UI/UX Design & Product Strategy",
+  "Custom Enterprise Solutions",
+  "Scalable Products & APIs",
+  "Luxury UI/UX & Strategy",
 ];
 
 const Hero = ({ onOpenAudit }: HeroProps) => {
   return (
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-white pt-24">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-blue/5 rounded-l-[100px] -z-10 hidden lg:block" />
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-blue/5 rounded-full blur-[100px] -z-10" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F8F8F6] pt-32 pb-20">
+      {/* Background Decorative Streaks & Glows */}
+      <div className="absolute inset-0 grid-pattern-premium -z-10 opacity-70" />
+      <div className="absolute top-[10%] right-[5%] w-[450px] h-[450px] bg-blue-500/5 rounded-full blur-[140px] -z-10 pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[5%] w-[500px] h-[500px] bg-gold/5 rounded-full blur-[160px] -z-10 pointer-events-none" />
       
-      {/* Interactive Floating Particles */}
+      {/* Animated Light streak across the top */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent -z-10" />
+
+      {/* Floating Interactive Particles */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-blue/[0.03]"
+            className="absolute rounded-full bg-black/[0.02] border border-black/[0.03]"
             style={{
-              width: Math.random() * 300 + 100,
-              height: Math.random() * 300 + 100,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: Math.random() * 180 + 80,
+              height: Math.random() * 180 + 80,
+              left: `${Math.random() * 90}%`,
+              top: `${Math.random() * 80 + 10}%`,
             }}
             animate={{
-              y: [0, Math.random() * 100 - 50, 0],
-              x: [0, Math.random() * 100 - 50, 0],
-              scale: [1, 1.2, 1],
+              y: [0, Math.random() * 60 - 30, 0],
+              x: [0, Math.random() * 60 - 30, 0],
+              scale: [1, 1.1, 1],
               opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 12 + 12,
               repeat: Infinity,
               ease: "easeInOut",
             }}
           />
         ))}
-        {/* Animated Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] mix-blend-overlay" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
         {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-10"
+          className="lg:col-span-7 flex flex-col justify-center"
         >
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-blue/5 border border-blue/10 px-4 py-2 rounded-full mb-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2.5 bg-black/[0.03] border border-black/[0.04] px-4 py-1.5 rounded-full mb-8 self-start shadow-sm backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
             </span>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-blue">
-              Leading Software Engineering Agency
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-black/60">
+              System Release v2.4 • Active Engineering
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 font-display text-foreground">
-            Building Powerful <br />
-            <span className="text-blue">Digital Solutions</span> <br />
-            <span className="relative">
-              for Growing Businesses
-              <motion.span
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="absolute bottom-2 left-0 h-3 bg-gold/20 -z-10"
-              />
-            </span>
+          <h1 className="text-5xl md:text-[5.5rem] font-black tracking-tight leading-[0.95] mb-8 text-black font-display">
+            Engineering <br />
+            <span className="font-serif-italic font-normal text-[#92680A] italic tracking-wide">exceptional</span> <br />
+            digital systems
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl">
-            Websites, Apps, Software & Growth Services tailored for your business. 
-            We engineer premium digital products that scale.
+          <p className="text-base md:text-lg text-black/50 leading-relaxed mb-10 max-w-xl font-medium">
+            We design, build, and scale premium software solutions for growing businesses. 
+            Blending technical mastery with luxury minimalism to build the future of enterprise tech.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
             <Button
               size="lg"
               onClick={onOpenAudit}
-              className="bg-blue text-white hover:bg-blue/90 h-14 px-10 rounded-full font-bold text-base shadow-xl shadow-blue/20 flex gap-2 group transition-all hover:scale-105 active:scale-95"
+              className="bg-black text-white hover:bg-black/90 h-13 px-8 rounded-full font-bold text-xs tracking-wider uppercase shadow-xl flex gap-2.5 group transition-all hover:scale-[1.02] active:scale-95 border border-black/10"
             >
               Start Project
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Link to="/projects">
               <Button
                 variant="outline"
                 size="lg"
-                className="border-blue/20 text-blue hover:bg-blue/5 h-14 px-10 rounded-full font-bold text-base transition-all active:scale-95"
+                className="bg-transparent border-black/10 hover:bg-black/5 text-black hover:text-black h-13 px-8 rounded-full font-bold text-xs tracking-wider uppercase transition-all hover:scale-[1.02] active:scale-95"
               >
                 View Portfolio
               </Button>
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="flex flex-wrap gap-x-8 gap-y-4">
             {bullets.map((b, i) => (
               <motion.div
                 key={b}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.1 }}
-                className="flex items-center gap-3"
+                transition={{ delay: 0.4 + i * 0.1 }}
+                className="flex items-center gap-2.5"
               >
-                <div className="w-6 h-6 rounded-full bg-blue/10 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-blue" />
+                <div className="w-5 h-5 rounded-full bg-black/[0.03] border border-black/[0.04] flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-3 h-3 text-gold" />
                 </div>
-                <span className="text-[13px] font-semibold text-foreground/80 leading-tight">
+                <span className="text-[12px] font-bold text-black/60 uppercase tracking-wider">
                   {b}
                 </span>
               </motion.div>
@@ -134,57 +127,120 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
 
         {/* Right Visuals */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, x: 40 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative lg:block"
+          initial={{ opacity: 0, scale: 0.95, y: 40 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="lg:col-span-5 relative w-full flex items-center justify-center lg:justify-end"
         >
-          <div className="relative">
-            {/* Main Hero Image */}
-            <div className="rounded-[40px] overflow-hidden shadow-[0_32px_80px_-20px_rgba(30,58,138,0.2)] border-8 border-white relative z-10">
-              <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80&fit=crop"
-                alt="DevDhara Software Solutions Team"
-                className="w-full h-auto aspect-[4/5] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue/30 to-transparent" />
+          <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[36px] glass-premium p-7 border border-black/[0.03] shadow-[0_32px_80px_-20px_rgba(0,0,0,0.06)] flex flex-col justify-between overflow-hidden">
+            {/* Soft inner lighting */}
+            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-gold/10 rounded-full blur-[70px] -z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[150px] h-[150px] bg-blue-500/5 rounded-full blur-[60px] -z-10 pointer-events-none" />
+            
+            {/* Header elements inside card */}
+            <div className="flex items-center justify-between border-b border-black/[0.04] pb-4">
+              <div className="flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-black/70 animate-pulse" />
+                <span className="text-[10px] font-bold uppercase tracking-widest text-black/70 font-mono">NODE_ENG_ONLINE</span>
+              </div>
+              <div className="flex gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#10B981]" />
+                <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
+                <span className="w-2 h-2 rounded-full bg-[#EF4444]" />
+              </div>
             </div>
 
-            {/* Floating Experience Card */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -left-12 bg-white p-8 rounded-3xl shadow-2xl z-20 border border-blue/5 hidden sm:block"
-            >
-              <div className="flex flex-col items-center">
-                <div className="text-5xl font-black text-blue mb-1 font-display tracking-tight">5+</div>
-                <div className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground whitespace-nowrap">
-                  Years of Excellence
+            {/* Dashboard Graphics */}
+            <div className="my-6 flex-1 flex flex-col justify-center">
+              <div className="space-y-4">
+                <div className="p-4 rounded-2xl bg-white/70 border border-black/[0.02] shadow-sm relative group hover:border-black/[0.06] transition-colors">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-black/40">SYSTEM PERFORMANCE</span>
+                    <span className="text-[11px] font-bold text-emerald-600 font-mono">99.98%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "99.98%" }}
+                      transition={{ duration: 1.5, delay: 0.6 }}
+                      className="h-full bg-black rounded-full" 
+                    />
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/70 border border-black/[0.02] shadow-sm relative group hover:border-black/[0.06] transition-colors">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-black/40">LATENCY INDEX</span>
+                    <span className="text-[11px] font-bold text-black/80 font-mono">6ms Avg</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "12%" }}
+                      transition={{ duration: 1.2, delay: 0.8 }}
+                      className="h-full bg-gold rounded-full" 
+                    />
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/70 border border-black/[0.02] shadow-sm relative group hover:border-black/[0.06] transition-colors">
+                  <div className="flex justify-between items-center mb-1.5">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-black/40">GLOBAL THROUGHPUT</span>
+                    <span className="text-[11px] font-bold text-black/80 font-mono">4.2 TB/s</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-black/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "85%" }}
+                      transition={{ duration: 1.5, delay: 1 }}
+                      className="h-full bg-black rounded-full" 
+                    />
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Floating Project Card */}
+            {/* Bottom Widgets */}
+            <div className="grid grid-cols-2 gap-4 border-t border-black/[0.04] pt-4">
+              <div className="flex flex-col">
+                <span className="text-[9px] font-extrabold uppercase tracking-wider text-black/40 mb-0.5">ESTABLISHED</span>
+                <span className="text-xl font-extrabold text-black font-display tracking-tight">5+ Years</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[9px] font-extrabold uppercase tracking-wider text-black/40 mb-0.5">COMPLETED</span>
+                <span className="text-xl font-extrabold text-black font-display tracking-tight">150+ Apps</span>
+              </div>
+            </div>
+
+            {/* Micro Decorative Floating Card */}
             <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/4 -right-12 bg-white px-6 py-4 rounded-2xl shadow-2xl z-20 border border-gold/10 hidden sm:flex items-center gap-4"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-6 -right-6 bg-black text-[#F8F8F6] p-4 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 z-20 pointer-events-none"
             >
-              <div className="w-12 h-12 rounded-full bg-gold/15 flex items-center justify-center">
-                <Play className="w-5 h-5 text-gold fill-gold" />
+              <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-gold fill-gold" />
               </div>
               <div>
-                <div className="text-sm font-bold text-foreground">150+ Projects</div>
-                <div className="text-[11px] font-medium text-muted-foreground">Successfully Delivered</div>
+                <div className="text-[10px] font-bold text-white/50 uppercase tracking-widest leading-none mb-1">PROD STACK</div>
+                <div className="text-xs font-black tracking-tight font-display text-white">AI Scale Built</div>
               </div>
             </motion.div>
 
-            {/* Tech Stack Bubbles */}
-            <div className="absolute -top-10 -right-4 flex flex-col gap-3 z-0">
-               {[1, 2, 3].map((i) => (
-                 <div key={i} className={`w-${8+i*4} h-${8+i*4} rounded-full bg-blue/5 blur-xl`} />
-               ))}
-            </div>
+            {/* Micro Decorative Shield Card */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-2xl border border-black/[0.03] flex items-center gap-3 z-20 pointer-events-none"
+            >
+              <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
+                <Shield className="w-4 h-4 text-gold" />
+              </div>
+              <div>
+                <div className="text-[10px] font-bold text-black/40 uppercase tracking-widest leading-none mb-1">SECURITY</div>
+                <div className="text-xs font-black tracking-tight font-display text-black">ISO Compliant</div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

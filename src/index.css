@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --background: 45 10% 97.5%; /* Beautiful soft warm off-white #F8F8F6 */
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 221 83% 33%; /* Deep Blue */
-    --primary-foreground: 210 40% 98%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 43 75% 52%; /* Gold */
-    --secondary-foreground: 222 47% 11%;
+    --secondary-foreground: 240 5.9% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 43 75% 52%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 33%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
 
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 1rem;
   }
 }
 
@@ -53,8 +44,10 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: #F8F8F6;
+    color: hsl(var(--foreground));
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   html {
@@ -76,80 +69,82 @@
   }
 
   .font-display {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  .font-serif-italic {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
   }
 }
 
-/* Blue gradient text */
-.text-blue-gradient {
-  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Glassmorphism & Soft Glowing Borders */
+.glass-premium {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-/* Grid background — for light theme */
-.grid-pattern {
-  background-image:
-    linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+.glass-premium-dark {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Card styles for light theme */
-.card-depth {
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.05);
-  background: white;
+/* Light Grids & Dotted Patterns */
+.grid-pattern-premium {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-.card-depth-hover {
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 5px 15px -5px rgba(0, 0, 0, 0.05);
-  transform: translateY(-4px);
-  transition: all 0.3s ease;
+/* Soft glow effects */
+.glow-blue-soft {
+  box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.15);
 }
 
-/* Blue/Gold border card */
-.card-premium {
-  border: 1px solid rgba(30, 58, 138, 0.08);
-  background: white;
-  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07);
+.glow-gold-soft {
+  box-shadow: 0 0 50px -10px rgba(212, 163, 42, 0.15);
 }
 
-.card-premium:hover {
-  border-color: rgba(212, 163, 42, 0.3);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+.glow-white-soft {
+  box-shadow: 0 0 50px -10px rgba(255, 255, 255, 0.3);
 }
 
-/* Divider */
-.divider-gold {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 148, 31, 0.3), transparent);
+/* Custom premium card outlines */
+.card-premium-modern {
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Button styles */
-.btn-primary {
-  @apply bg-blue text-white hover:bg-blue/90 transition-all;
+.card-premium-modern:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.04), 0 0 30px -5px rgba(212, 163, 42, 0.05);
+  transform: translateY(-2px);
 }
 
-.btn-secondary {
-  @apply bg-gold text-blue hover:bg-gold/90 transition-all;
+/* Thin Elegant Borders */
+.border-thin-premium {
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Section border */
-.section-border {
-  border-top: 1px solid rgba(30, 58, 138, 0.05);
+/* Modern scrolling indicators */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
-
-/* Nav scroll for light theme */
-.nav-scrolled {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(30, 58, 138, 0.05);
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 99px;
 }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}

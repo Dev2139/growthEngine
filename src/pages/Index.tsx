@@ -21,7 +21,7 @@ const Index = () => {
   const closeAudit = () => setAuditOpen(false);
 
   return (
-    <div className="min-h-screen bg-white text-foreground">
+    <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden">
       <Navbar onOpenAudit={openAudit} />
       <Hero onOpenAudit={openAudit} />
       <Trust />

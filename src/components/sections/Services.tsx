@@ -82,7 +82,10 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-28 px-6 bg-white">
+    <section id="services" className="py-32 px-6 bg-[#F8F8F6] relative overflow-hidden">
+      {/* Subtle glowing elements in the background */}
+      <div className="absolute top-[20%] right-[-10%] w-[350px] h-[350px] bg-gold/5 rounded-full blur-[100px] -z-10 pointer-events-none" />
+      
       <div className="max-w-7xl mx-auto">
         <motion.div
           variants={staggerContainer}
@@ -90,53 +93,49 @@ const Services = () => {
           whileInView="animate"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <motion.div variants={fadeIn} className="text-center mb-20">
-            <h2 className="text-xs uppercase tracking-[0.3em] text-blue font-bold mb-4">Our Expertise</h2>
-            <h3 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display mb-6">
-              Solutions Designed for <span className="text-blue">Future Growth</span>
+          <motion.div variants={fadeIn} className="text-center mb-24">
+            <h2 className="text-[10px] uppercase tracking-[0.25em] text-[#92680A] font-extrabold mb-4">Our Expertise</h2>
+            <h3 className="text-4xl md:text-6xl font-black tracking-tight text-black font-display mb-6">
+              Solutions built for <span className="font-serif-italic font-normal text-[#92680A] lowercase italic">future scale</span>
             </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base text-black/50 max-w-2xl mx-auto leading-relaxed font-medium">
               We combine technical mastery with creative vision to deliver software that drives real business impact.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <motion.div
                 key={i}
                 variants={fadeIn}
-                className="group relative bg-white rounded-[40px] overflow-hidden border border-blue/5 shadow-xl shadow-blue/5 hover:shadow-2xl hover:shadow-blue/10 transition-all duration-500"
+                className="group relative bg-white/40 hover:bg-white/90 rounded-[32px] border border-black/[0.03] hover:border-black/[0.08] p-8 md:p-10 flex flex-col justify-between transition-all duration-500 shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.02)] min-h-[320px]"
               >
-                <div className="h-64 overflow-hidden relative">
-                  <img 
-                    src={service.image} 
-                    alt={`${service.title} - DevDhara Software Solutions`} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue/80 to-transparent opacity-60" />
-                  <div className="absolute top-6 right-6 w-14 h-14 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-[360deg]">
-                    <service.icon className="w-7 h-7 text-blue" />
+                <div>
+                  {/* Minimal Icon Container */}
+                  <div className="w-12 h-12 rounded-2xl bg-black/[0.02] border border-black/[0.04] text-black/80 flex items-center justify-center transition-all duration-500 group-hover:bg-black group-hover:text-[#F8F8F6] group-hover:scale-105">
+                    <service.icon className="w-5 h-5" />
                   </div>
-                </div>
 
-                <div className="p-10">
-                  <h4 className="text-2xl font-bold text-foreground mb-4 group-hover:text-blue transition-colors">
+                  <h4 className="text-xl font-bold text-black font-display mb-3 mt-8 group-hover:text-[#92680A] transition-colors duration-300">
                     {service.title}
                   </h4>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
+                  <p className="text-black/50 text-sm leading-relaxed mb-8 font-medium">
                     {service.desc}
                   </p>
+                </div>
+
+                <div>
                   <Link 
                     to={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue group/link"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-black group/link"
                   >
                     Learn More
-                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
                 
-                {/* Decorative background element */}
-                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-3xl -z-10 group-hover:bg-gold/10 transition-colors" />
+                {/* Micro hover shadow spot */}
+                <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
               </motion.div>
             ))}
           </div>

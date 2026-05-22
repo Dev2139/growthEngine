@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -29,76 +29,73 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-6 bg-white relative overflow-hidden">
-      {/* Decorative Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue/5 rounded-full blur-[120px] -z-10" />
-
-      <div className="max-w-4xl mx-auto relative z-10">
+    <section className="py-32 bg-[#F8F8F6] relative overflow-hidden border-t border-black/[0.03]">
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-blue/5 border border-blue/10 px-4 py-2 rounded-full mb-6">
-              <HelpCircle className="w-4 h-4 text-blue" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-blue">Support Center</span>
-            </div>
-            <h3 className="text-4xl md:text-6xl font-black tracking-tight text-foreground font-display mb-6">
-              Frequently Asked <span className="text-blue">Questions</span>
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              Find answers to common questions about our process, pricing, and specialized software engineering services.
+            <span className="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-4 block">
+              Support Center
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground font-display mb-6">
+              Frequently Asked <span className="font-serif-italic font-light text-gold text-5xl">Questions</span>
+            </h2>
+            <p className="text-xs text-foreground/50 max-w-xl mx-auto leading-relaxed uppercase tracking-wider">
+              Answers to common queries regarding our timeline, model, and security protocols.
             </p>
           </motion.div>
         </div>
 
-        <div className="space-y-6">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className={`group rounded-[32px] transition-all duration-300 border ${
-                openIndex === i 
-                  ? 'bg-blue/5 border-blue/20 shadow-xl shadow-blue/5' 
-                  : 'bg-white border-blue/5 hover:border-blue/20 hover:shadow-lg'
-              }`}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-8 text-left"
+        <div className="divide-y divide-black/[0.06] border-t border-b border-black/[0.06]">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="overflow-hidden"
               >
-                <span className={`text-xl font-bold transition-colors ${openIndex === i ? 'text-blue' : 'text-foreground'}`}>
-                  {faq.q}
-                </span>
-                <div className={`shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${
-                  openIndex === i 
-                    ? 'bg-blue text-white rotate-180' 
-                    : 'bg-blue/5 text-blue group-hover:bg-blue group-hover:text-white'
-                }`}>
-                  {openIndex === i ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
-                </div>
-              </button>
-              
-              <AnimatePresence>
-                {openIndex === i && (
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-center justify-between py-8 text-left group transition-colors duration-300"
+                >
+                  <span className="text-lg md:text-xl font-bold tracking-tight text-foreground font-display pr-6 transition-colors group-hover:text-gold">
+                    {faq.q}
+                  </span>
                   <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                    className="shrink-0 w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-foreground/60 transition-colors group-hover:border-gold group-hover:text-gold"
                   >
-                    <div className="px-8 pb-8 text-lg text-muted-foreground leading-relaxed border-t border-blue/5 pt-6">
-                      {faq.a}
-                    </div>
+                    <Plus className="w-4 h-4" />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="pb-8 pr-12 text-base md:text-lg text-foreground/60 leading-relaxed font-light">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

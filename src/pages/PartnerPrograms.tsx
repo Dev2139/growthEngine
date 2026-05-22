@@ -32,7 +32,7 @@ const PartnerPrograms = () => {
         "Real-time referral tracking",
         "Monthly payouts via wire transfer"
       ],
-      color: "blue"
+      color: "gold"
     },
     {
       id: "strategic",
@@ -64,86 +64,93 @@ const PartnerPrograms = () => {
         "Joint case studies & webinars",
         "Internal team training sessions"
       ],
-      color: "blue"
+      color: "gold"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white text-foreground">
+    <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">
+      {/* Background patterns */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-[30%] right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none -z-10" />
+
       <Navbar onOpenAudit={() => setAuditOpen(true)} />
 
-      <section className="relative pt-40 pb-20 px-6 bg-blue/5">
+      {/* Hero Section */}
+      <section className="relative pt-44 pb-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-             <div className="inline-flex items-center gap-2 bg-blue/10 border border-blue/20 px-4 py-2 rounded-full mb-6">
-              <Info className="w-4 h-4 text-blue" />
-              <span className="text-[11px] font-bold uppercase tracking-widest text-blue">Program Details</span>
+             <div className="inline-flex items-center gap-2 bg-black/[0.03] border border-black/[0.04] px-4 py-2 rounded-full mb-6 text-black/60 shadow-sm backdrop-blur-sm">
+              <Info className="w-3.5 h-3.5 text-gold-dark" />
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.2em]">Program Details</span>
             </div>
-            <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-8 font-display">
-              Our Partnership <span className="text-blue">Programs</span>
+            <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-8 font-display text-black">
+              Our Partnership <span className="font-serif-italic italic text-gold font-light">programs</span>.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-black/60 max-w-2xl mx-auto leading-relaxed font-medium">
               Explore our structured partnership tiers designed to drive mutual growth and deliver unparalleled value to clients.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-white">
+      {/* Programs List */}
+      <section className="py-20 px-6 border-t border-black/[0.03] bg-black/[0.01]">
         <div className="max-w-7xl mx-auto space-y-32">
           {programs.map((prog, i) => (
             <motion.div
               key={prog.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true, margin: "-100px" }}
-              className={`flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-20 items-center`}
+              className={`flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-16 items-center`}
             >
               <div className="flex-1">
-                <div className={`w-20 h-20 rounded-[28px] ${prog.color === 'blue' ? 'bg-blue/5 text-blue' : 'bg-gold/10 text-gold'} flex items-center justify-center mb-8`}>
-                  <prog.icon className="w-10 h-10" />
+                <div className={`w-14 h-14 rounded-2xl bg-gold/15 text-gold-dark flex items-center justify-center mb-6`}>
+                  <prog.icon className="w-6 h-6" />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4 font-display">{prog.title}</h2>
-                <div className="text-xl font-bold text-blue mb-6">{prog.subtitle}</div>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+                <h2 className="text-3xl md:text-5xl font-black text-black mb-2 font-display leading-tight">{prog.title}</h2>
+                <div className="text-lg font-serif-italic italic text-gold-dark mb-6">{prog.subtitle}</div>
+                <p className="text-xs text-black/60 leading-relaxed mb-8 font-medium">
                   {prog.details}
                 </p>
-                <div className="bg-blue/5 rounded-3xl p-8 border border-blue/10 mb-10">
-                  <div className="text-xs font-bold uppercase tracking-widest text-blue mb-2">Benefit Focus</div>
-                  <div className="text-2xl font-black text-foreground">{prog.commission}</div>
+                <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-black/[0.04] mb-8 shadow-sm">
+                  <div className="text-[9px] font-extrabold uppercase tracking-widest text-black/40 mb-1">Benefit Focus</div>
+                  <div className="text-xl font-black text-black font-display">{prog.commission}</div>
                 </div>
                 <Button 
                   onClick={() => setAuditOpen(true)}
-                  className="bg-blue text-white hover:bg-blue/90 rounded-full px-10 h-14 font-bold text-lg shadow-xl shadow-blue/20"
+                  className="bg-black text-white hover:bg-black/90 rounded-full px-8 h-12 font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-md border border-black/10 shadow-lg flex items-center gap-2"
                 >
-                  Join This Program <ArrowRight className="w-5 h-5 ml-2" />
+                  Join This Program <ArrowRight className="w-4 h-4 text-gold" />
                 </Button>
               </div>
 
-              <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-8">
-                  <h3 className="text-sm font-black uppercase tracking-[0.2em] text-foreground/40 border-b border-blue/5 pb-4">Requirements</h3>
-                  <ul className="space-y-4">
+              <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white/40 backdrop-blur-sm p-8 rounded-[32px] border border-black/[0.04]">
+                <div className="space-y-6">
+                  <h3 className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-black/40 border-b border-black/[0.03] pb-3">Requirements</h3>
+                  <ul className="space-y-3.5">
                     {prog.requirements.map((req, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-gold shrink-0" />
-                        <span className="text-sm font-semibold text-foreground/80">{req}</span>
+                      <li key={idx} className="flex items-center gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
+                        <span className="text-xs font-bold text-black/75 leading-none">{req}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="space-y-8">
-                  <h3 className="text-sm font-black uppercase tracking-[0.2em] text-foreground/40 border-b border-blue/5 pb-4">Key Features</h3>
-                  <ul className="space-y-4">
+                <div className="space-y-6">
+                  <h3 className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-black/40 border-b border-black/[0.03] pb-3">Key Features</h3>
+                  <ul className="space-y-3.5">
                     {prog.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-blue shrink-0" />
-                        <span className="text-sm font-semibold text-foreground/80">{feature}</span>
+                      <li key={idx} className="flex items-center gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-gold-dark shrink-0" />
+                        <span className="text-xs font-bold text-black/75 leading-none">{feature}</span>
                       </li>
                     ))}
                   </ul>

@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer } from "@/lib/motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface CTASectionProps {
   onOpenAudit: () => void;
@@ -9,61 +7,53 @@ interface CTASectionProps {
 
 const CTASection = ({ onOpenAudit }: CTASectionProps) => {
   return (
-    <section className="py-28 px-6 relative overflow-hidden bg-blue">
-      {/* Background visual elements */}
-      <div className="absolute top-0 right-0 w-full h-full opacity-10">
-        <img 
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80&fit=crop" 
-          alt="Growth" 
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-[100px]" />
-
-      <div className="max-w-7xl mx-auto relative z-10 text-center">
+    <section className="py-24 px-6 md:px-12 bg-[#F8F8F6] relative overflow-hidden border-t border-black/[0.03]">
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-80px" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative rounded-[48px] bg-zinc-950 text-white overflow-hidden p-12 md:p-24 shadow-2xl border border-white/5 flex flex-col items-center text-center"
         >
-          <motion.div variants={fadeIn} className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-8 text-white">
-            <Rocket className="w-4 h-4 text-gold" />
-            <span className="text-xs font-bold uppercase tracking-widest">Ignite Your Success</span>
-          </motion.div>
+          {/* Deluxe Radial Ambient Glows */}
+          <div className="absolute right-[-10%] top-[-20%] w-[350px] h-[350px] bg-gold/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute left-[-10%] bottom-[-20%] w-[350px] h-[350px] bg-indigo-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-gold/5 to-indigo-500/5 rounded-full blur-[130px] pointer-events-none" />
 
-          <motion.h2
-            variants={fadeIn}
-            className="text-4xl md:text-6xl font-black tracking-tight text-white font-display mb-8 max-w-4xl mx-auto leading-[1.1]"
-          >
-            Ready to Build Your <span className="text-gold">Digital Future?</span>
-          </motion.h2>
+          {/* Minimalist grid overlay inside card */}
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] opacity-100 pointer-events-none" />
 
-          <motion.p
-            variants={fadeIn}
-            className="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed"
-          >
-            Join 500+ businesses that scaled with DevDhara Software Solutions. 
-            Book a free quote today and let's turn your vision into reality.
-          </motion.p>
+          <div className="relative z-10 max-w-3xl">
+            <span className="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-6 block">
+              Elevate Your Operations
+            </span>
+            
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight text-white font-display mb-8 leading-[1.1]">
+              Ready to build your <span className="font-serif-italic font-light text-gold text-5xl">digital future</span>?
+            </h2>
 
-          <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={onOpenAudit}
-              className="bg-gold text-blue hover:bg-gold/90 h-16 px-10 rounded-full font-bold text-lg shadow-2xl flex gap-2 group transition-all"
-            >
-              Get My Free Quote
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue h-16 px-10 rounded-full font-bold text-lg transition-all"
-            >
-              Schedule a Call
-            </Button>
-          </motion.div>
+            <p className="text-base md:text-lg text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">
+              Partner with Devdhara Software Solutions. Obtain an executive consultation or request a custom architectural roadmap designed for your enterprise scale.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={onOpenAudit}
+                className="w-full sm:w-auto bg-white text-zinc-950 hover:bg-zinc-100 active:scale-95 transition-all duration-200 h-14 px-8 rounded-full font-display text-xs font-bold tracking-[0.15em] uppercase flex items-center justify-center gap-2 group shadow-lg"
+              >
+                Get My Free Quote
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button
+                onClick={onOpenAudit}
+                className="w-full sm:w-auto bg-transparent border border-white/20 hover:bg-white/5 active:scale-95 text-white transition-all duration-200 h-14 px-8 rounded-full font-display text-xs font-bold tracking-[0.15em] uppercase flex items-center justify-center"
+              >
+                Schedule a Call
+              </button>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
