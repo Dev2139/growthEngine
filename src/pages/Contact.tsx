@@ -8,8 +8,16 @@ import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/lib/motion";
 import { MessageSquare } from "lucide-react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Contact = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Contact Us | DevDhara Technologies",
+    description: "Get in touch with DevDhara Technologies in Ahmedabad, Gujarat. Let's schedule a free consult for your custom web development, mobile app, or software architecture projects.",
+    keywords: "Contact DevDhara, Hire Web Developer Ahmedabad, Contact Dev Patel, Software Agency Phone"
+  });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">

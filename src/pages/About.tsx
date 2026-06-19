@@ -9,8 +9,16 @@ import { useState } from "react";
 import { Award, Zap, CheckCircle2, Code2, Monitor, Cpu, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const About = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "About Us | DevDhara Technologies",
+    description: "Learn about DevDhara Technologies' mission, core values, and our elite team of software developers and designers in Ahmedabad, Gujarat.",
+    keywords: "About DevDhara, Dev Patel, Mahir Patel, DevDhara Team, Software Engineering Ahmedabad"
+  });
 
   const values = [
     {

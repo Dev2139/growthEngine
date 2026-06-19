@@ -14,8 +14,16 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const PartnerPrograms = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Partner Programs Details | DevDhara Technologies",
+    description: "Detailed guide to DevDhara Technologies' strategic agency partnership tiers, affiliate requirements, commission rates, and technology SaaS integrations.",
+    keywords: "DevDhara Affiliate Commission, White label software dev, Strategic Partnership requirements"
+  });
 
   const programs = [
     {

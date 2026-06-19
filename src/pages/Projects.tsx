@@ -12,9 +12,17 @@ import { Button } from "@/components/ui/button";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Projects = () => {
   const [auditOpen, setAuditOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useSEO({
+    title: "Our Portfolio & Case Studies | DevDhara Technologies",
+    description: "Explore DevDhara Technologies' client portfolio. High-performance software engineering, bespoke corporate ERP tools, custom community apps, and SaaS platforms.",
+    keywords: "DevDhara Portfolio, Case Studies, Software Projects, ERP Gujarat, Custom Flutter Apps"
+  });
 
   const filtered = activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);
 

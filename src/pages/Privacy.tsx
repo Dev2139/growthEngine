@@ -7,8 +7,16 @@ import FloatingButtons from "@/components/FloatingButtons";
 import { useState } from "react";
 import { Shield } from "lucide-react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Privacy = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Privacy Policy | DevDhara Technologies",
+    description: "Read DevDhara Technologies' Privacy Policy to learn how we collect, protect, and use your personal information and project data.",
+    keywords: "DevDhara Privacy, Data Protection policy"
+  });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">

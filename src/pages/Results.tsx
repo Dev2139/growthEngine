@@ -11,8 +11,16 @@ import { Server, Cpu, Globe, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Results = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Engineering Results & Performance Metrics | DevDhara Technologies",
+    description: "Review DevDhara Technologies' engineering performance. Key metrics including average operational speed increases, verified system uptime, and project deliverables.",
+    keywords: "DevDhara Uptime SLA, Software Engineering performance metrics, system latency"
+  });
 
   const stats = [
     { icon: Server, label: "System Uptime", value: "99.9%", description: "Guaranteed SLA for all enterprise platforms" },

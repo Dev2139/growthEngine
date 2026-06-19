@@ -10,10 +10,18 @@ import AuditModal from "@/components/sections/AuditModal";
 import FloatingButtons from "@/components/FloatingButtons";
 import { useState } from "react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const ProjectDetail = () => {
   const { slug } = useParams();
   const [auditOpen, setAuditOpen] = useState(false);
   const project = projects.find((p) => p.slug === slug);
+
+  useSEO({
+    title: project ? `${project.client} | Case Study | DevDhara Technologies` : "Case Study | DevDhara Technologies",
+    description: project ? project.excerpt : "Bespoke custom software and SaaS product case studies built by DevDhara Technologies.",
+    keywords: project ? `${project.client}, ${project.category}, DevDhara Case Study` : "Case Studies, DevDhara"
+  });
 
   if (!project) {
     return (

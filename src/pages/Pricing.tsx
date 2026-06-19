@@ -62,8 +62,16 @@ const plans = [
   }
 ];
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Pricing = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Pricing & Engagement Models | DevDhara Technologies",
+    description: "Flexible, milestone-based corporate engagement pricing. Get custom software, full-stack website design, and mobile app quote estimates from DevDhara Technologies.",
+    keywords: "DevDhara Pricing, Custom Software Quote, Web Development Estimate India"
+  });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">

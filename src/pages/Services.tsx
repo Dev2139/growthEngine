@@ -10,8 +10,16 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 import { Link } from "react-router-dom";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const ServicesOverview = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Our IT & Custom Software Services | DevDhara Technologies",
+    description: "Premium IT services by DevDhara Technologies in Ahmedabad. Specializing in Custom Web Development, Android & iOS Mobile Apps, UI/UX Design, and SEO ranking strategies.",
+    keywords: "DevDhara Services, Web Development Services, App Development Ahmedabad, UI/UX Design Gujarat, SEO Agency"
+  });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">

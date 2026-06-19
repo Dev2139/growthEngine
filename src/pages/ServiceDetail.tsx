@@ -11,11 +11,19 @@ import FloatingButtons from "@/components/FloatingButtons";
 import CTASection from "@/components/sections/CTASection";
 import { useState } from "react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const ServiceDetail = () => {
   const { slug } = useParams();
   const [auditOpen, setAuditOpen] = useState(false);
   
   const service = services.find((s) => s.slug === slug);
+
+  useSEO({
+    title: service ? `${service.title} | Services | DevDhara Technologies` : "Service Detail | DevDhara Technologies",
+    description: service ? service.description : "Premium IT and Custom Software development service at DevDhara Technologies.",
+    keywords: service ? `${service.title}, ${service.category}, DevDhara IT Services` : "IT Services, DevDhara"
+  });
 
   if (!service) {
     return (
