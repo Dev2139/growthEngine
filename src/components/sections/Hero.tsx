@@ -204,11 +204,11 @@ const Hero = ({ onOpenAudit }: HeroProps) => {
             <div className="grid grid-cols-2 gap-4 border-t border-black/[0.04] pt-4">
               <div className="flex flex-col">
                 <span className="text-[9px] font-extrabold uppercase tracking-wider text-black/40 mb-0.5">ESTABLISHED</span>
-                <span className="text-xl font-extrabold text-black font-display tracking-tight">5+ Years</span>
+                <span className="text-xl font-extrabold text-black font-display tracking-tight">2+ Years</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-[9px] font-extrabold uppercase tracking-wider text-black/40 mb-0.5">COMPLETED</span>
-                <span className="text-xl font-extrabold text-black font-display tracking-tight">150+ Apps</span>
+                <span className="text-xl font-extrabold text-black font-display tracking-tight">25+ Apps</span>
               </div>
             </div>
 

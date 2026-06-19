@@ -80,7 +80,7 @@ const Projects = () => {
                     <TrendingUp className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-lg font-black text-black">150+</div>
+                    <div className="text-lg font-black text-black">25+</div>
                     <div className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-black/40">Successful Projects</div>
                   </div>
                 </div>

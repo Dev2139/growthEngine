@@ -64,7 +64,7 @@ const Stats = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <Counter 
-            value={150} 
+            value={25} 
             suffix="+" 
             label="Projects Delivered" 
             icon={CheckCircle} 
@@ -78,7 +78,7 @@ const Stats = () => {
             delay={0.2}
           />
           <Counter 
-            value={5} 
+            value={2} 
             suffix="+" 
             label="Years of Innovation" 
             icon={Award} 

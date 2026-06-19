@@ -17,7 +17,7 @@ const Results = () => {
   const stats = [
     { icon: Server, label: "System Uptime", value: "99.9%", description: "Guaranteed SLA for all enterprise platforms" },
     { icon: Cpu, label: "Efficiency Gain", value: "60%", description: "Average operational speed increase" },
-    { icon: Globe, label: "Deployments", value: "150+", description: "Successful launches in 5 years" },
+    { icon: Globe, label: "Deployments", value: "25+", description: "Successful launches in 2 years" },
     { icon: ShieldCheck, label: "Security Audits", value: "100%", description: "Compliance rate for data security" },
   ];
 

@@ -3,9 +3,9 @@ import { fadeIn, staggerContainer } from "@/lib/motion";
 import { Users, Briefcase, Award, Headphones } from "lucide-react";
 
 const stats = [
-  { value: "120+", label: "Happy Clients", icon: Users },
-  { value: "150+", label: "Projects Completed", icon: Briefcase },
-  { value: "5+", label: "Years Experience", icon: Award },
+  { value: "20+", label: "Happy Clients", icon: Users },
+  { value: "25+", label: "Projects Completed", icon: Briefcase },
+  { value: "2+", label: "Years Experience", icon: Award },
   { value: "24/7", label: "Support Availability", icon: Headphones },
 ];
 
