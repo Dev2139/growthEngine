@@ -74,7 +74,7 @@ export const services: ServiceDetail[] = [
     icon: Globe,
     tagline: "High-performance websites engineered for speed and conversion.",
     description: "Custom-built, high-performance websites engineered for speed and conversion.",
-    fullDescription: "At DevDhara Software Solutions, we build robust web applications that handle complex business logic and provide seamless user experiences. From corporate websites to complex portals, we ensure your digital presence is elite.",
+    fullDescription: "At DevDhara Technologies, we build robust web applications that handle complex business logic and provide seamless user experiences. From corporate websites to complex portals, we ensure your digital presence is elite.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop",
     benefits: ["SEO Optimized", "Responsive Design", "Fast Loading", "Secure"],
     techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],

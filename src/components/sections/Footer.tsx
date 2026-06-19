@@ -40,13 +40,13 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-6 group">
               <img
-                src="https://res.cloudinary.com/dsddldquo/image/upload/v1776953079/ak6c9bppjc7pwkgggmuv.png"
-                alt="DevDhara Software Solutions"
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-102"
+                src="https://res.cloudinary.com/dsddldquo/image/upload/v1779710012/fsm1uhfqtmeamioetwao.png"
+                alt="DevDhara Technologies"
+                className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-102"
               />
             </Link>
             <p className="text-sm text-foreground/50 leading-relaxed font-light pr-4">
-              DevDhara Software Solutions is an elite software engineering and IT services studio building high-performance digital infrastructure for the modern enterprise.
+              DevDhara Technologies is an elite software engineering and IT services studio building high-performance digital infrastructure for the modern enterprise.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-black/[0.04] flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-xs text-foreground/40 font-light">
-            © {new Date().getFullYear()} DevDhara Software Solutions. All rights reserved.
+            © {new Date().getFullYear()} DevDhara Technologies. All rights reserved.
           </div>
           <div className="flex gap-6 text-xs font-light">
             <Link to="/privacy" className="text-foreground/40 hover:text-gold transition-colors">Privacy Policy</Link>

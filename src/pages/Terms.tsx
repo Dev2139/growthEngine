@@ -40,21 +40,21 @@ const Terms = () => {
               <div className="pt-6 border-t border-black/[0.03]">
                 <h2 className="text-xl font-bold text-black mb-3">1. Acceptance of Terms</h2>
                 <p className="text-xs md:text-sm">
-                  By accessing or using the services of Devdhara Software Solutions, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                  By accessing or using the services of DevDhara Technologies, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-black/[0.03]">
                 <h2 className="text-xl font-bold text-black mb-3">2. Services Provided</h2>
                 <p className="text-xs md:text-sm">
-                  Devdhara Software Solutions provides custom software engineering, web development, mobile app development, and IT consulting services. The specific scope of work for any project will be outlined in a separate service agreement.
+                  DevDhara Technologies provides custom software engineering, web development, mobile app development, and IT consulting services. The specific scope of work for any project will be outlined in a separate service agreement.
                 </p>
               </div>
 
               <div className="pt-6 border-t border-black/[0.03]">
                 <h2 className="text-xl font-bold text-black mb-3">3. Intellectual Property</h2>
                 <p className="text-xs md:text-sm">
-                  Unless otherwise agreed upon in writing, all source code and design assets created during the course of a project will be transferred to the client upon full payment of the project fees. Devdhara Software Solutions retains the right to use non-proprietary code snippets and methodologies for other projects.
+                  Unless otherwise agreed upon in writing, all source code and design assets created during the course of a project will be transferred to the client upon full payment of the project fees. DevDhara Technologies retains the right to use non-proprietary code snippets and methodologies for other projects.
                 </p>
               </div>
 
@@ -68,7 +68,7 @@ const Terms = () => {
               <div className="pt-6 border-t border-black/[0.03]">
                 <h2 className="text-xl font-bold text-black mb-3">5. Limitation of Liability</h2>
                 <p className="text-xs md:text-sm">
-                  Devdhara Software Solutions will not be liable for any indirect, incidental, or consequential damages resulting from the use of our services or any software products delivered.
+                  DevDhara Technologies will not be liable for any indirect, incidental, or consequential damages resulting from the use of our services or any software products delivered.
                 </p>
               </div>
 

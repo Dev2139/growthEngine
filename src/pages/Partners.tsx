@@ -116,7 +116,7 @@ const Partners = () => {
                 variants={fadeIn}
                 className="text-base md:text-lg text-black/60 max-w-2xl mb-10 leading-relaxed font-medium"
               >
-                Join the Devdhara Software Solutions Partner Network. Whether you're an individual consultant or a global agency, we provide the technical firepower you need to succeed.
+                Join the DevDhara Technologies Partner Network. Whether you're an individual consultant or a global agency, we provide the technical firepower you need to succeed.
               </motion.p>
               
               <motion.div variants={fadeIn} className="flex flex-wrap justify-center lg:justify-start gap-4">
@@ -175,12 +175,12 @@ const Partners = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                quote: "Partnering with Devdhara Software Solutions allowed our agency to take on enterprise-level software projects that we previously had to turn away. Their technical expertise is truly world-class.",
+                quote: "Partnering with DevDhara Technologies allowed our agency to take on enterprise-level software projects that we previously had to turn away. Their technical expertise is truly world-class.",
                 author: "Vaibhav Patel",
                 role: "Owner, V R Graphics",
               },
               {
-                quote: "The affiliate program is straightforward and highly rewarding. I've referred multiple clients, and the feedback from them about Devdhara Software Solutions's work has been exceptional.",
+                quote: "The affiliate program is straightforward and highly rewarding. I've referred multiple clients, and the feedback from them about DevDhara Technologies's work has been exceptional.",
                 author: "Anand Patel",
                 role: "MD, Savio ERP Softwares pvt ltd",
               }
@@ -288,7 +288,7 @@ const Partners = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h2 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-dark mb-4">The Devdhara Software Solutions Advantage</h2>
+              <h2 className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-dark mb-4">The DevDhara Technologies Advantage</h2>
               <h3 className="text-4xl md:text-6xl font-black tracking-tight text-black font-display mb-10 leading-[1.1]">
                 Why industry leaders <span className="font-serif-italic italic text-gold font-light">partner with us</span>
               </h3>

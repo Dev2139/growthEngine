@@ -51,9 +51,9 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
         >
           <Link to="/" className="flex items-center group">
             <img
-              src="https://res.cloudinary.com/dsddldquo/image/upload/v1776953079/ak6c9bppjc7pwkgggmuv.png"
-              alt="DevDhara Software Solutions"
-              className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              src="https://res.cloudinary.com/dsddldquo/image/upload/v1779710012/fsm1uhfqtmeamioetwao.png"
+              alt="DevDhara Technologies"
+              className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
@@ -156,7 +156,7 @@ const Navbar = ({ onOpenAudit }: NavbarProps) => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed top-24 left-4 right-4 z-45 lg:hidden bg-[#F8F8F6]/95 backdrop-blur-xl border border-black/[0.04] shadow-2xl rounded-3xl overflow-hidden p-6 max-h-[80vh] overflow-y-auto"
+            className="fixed top-24 left-4 right-4 z-50 lg:hidden bg-[#F8F8F6]/95 backdrop-blur-xl border border-black/[0.04] shadow-2xl rounded-3xl overflow-hidden p-6 max-h-[80vh] overflow-y-auto"
           >
             <div className="flex flex-col gap-5">
               {/* Home */}

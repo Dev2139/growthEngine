@@ -40,7 +40,7 @@ const Privacy = () => {
               <div className="pt-6 border-t border-black/[0.03]">
                 <h2 className="text-xl font-bold text-black mb-3">1. Introduction</h2>
                 <p className="text-xs md:text-sm">
-                  At Devdhara Software Solutions, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.
+                  At DevDhara Technologies, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.
                 </p>
               </div>
 

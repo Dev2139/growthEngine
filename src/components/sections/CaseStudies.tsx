@@ -1,108 +1,117 @@
-import { motion, useAnimationControls } from "framer-motion";
-import { useEffect } from "react";
-import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 import { projects } from "@/data/projects";
 
-// Duplicate for infinite scroll
-const duplicatedProjects = [...projects, ...projects];
-
 const CaseStudies = () => {
-  const controls = useAnimationControls();
-
-  useEffect(() => {
-    const startAnimation = async () => {
-      await controls.start({
-        x: "-50%",
-        transition: {
-          duration: 35, // Slightly slower than testimonials as projects have more detail
-          ease: "linear",
-          repeat: Infinity,
-        },
-      });
-    };
-    startAnimation();
-  }, [controls]);
+  const featuredProjects = projects.slice(0, 4);
 
   return (
-    <section id="portfolio" className="py-32 bg-[#F8F8F6] overflow-hidden relative border-t border-black/[0.02]">
-      {/* Dynamic background light streaks */}
+    <section id="portfolio" className="py-32 bg-[#F8F8F6] relative border-t border-black/[0.02]">
+      {/* Ambient background light */}
       <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-gold/5 rounded-full blur-[130px] -z-10 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
-          <div className="max-w-2xl">
-            <h2 className="text-[10px] uppercase tracking-[0.25em] text-[#92680A] font-extrabold mb-4">Our Portfolio</h2>
-            <h3 className="text-4xl md:text-6xl font-black tracking-tight text-black font-display">
-              Selected <span className="font-serif-italic font-normal text-[#92680A] lowercase italic">masterpieces</span>
-            </h3>
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Left Column: Copy & Details */}
+          <div className="lg:col-span-5 space-y-6">
+            <div>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-black/40 mb-4 block">
+                Our Portfolio
+              </span>
+              <h2 className="text-4xl md:text-5xl lg:text-[52px] font-black text-black tracking-tight leading-[1.1] font-display">
+                Selected <br />
+                <span className="font-serif-italic italic text-gold font-light tracking-wide text-5xl md:text-6xl lg:text-[58px] block mt-1">
+                  masterpieces.
+                </span>
+              </h2>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 text-[9px] font-bold uppercase tracking-wider text-black/50 font-display">
+              <span>Elite Engineering</span>
+              <span className="text-gold/60">•</span>
+              <span>Custom Software</span>
+              <span className="text-gold/60">•</span>
+              <span>Premium Systems</span>
+            </div>
+
+            {/* Premium Dotted Divider */}
+            <div className="flex gap-2 py-2">
+              {[...Array(16)].map((_, i) => (
+                <span key={i} className="w-1.5 h-1.5 rounded-full bg-black/[0.1]" />
+              ))}
+            </div>
+
+            <p className="text-base text-black/60 max-w-md leading-relaxed font-medium">
+              Discover how we've helped businesses transform their digital presence and achieve compounding growth through elite engineering, bespoke systems, and state-of-the-art architectures.
+            </p>
+
+            <div className="pt-4">
+              <Link to="/projects">
+                <Button className="bg-transparent border border-black/10 hover:border-black/30 hover:bg-black/5 text-black rounded-full px-8 h-12 font-semibold text-xs tracking-wider uppercase shadow-sm active:scale-95 transition-all">
+                  View all projects
+                </Button>
+              </Link>
+            </div>
           </div>
-          <div>
-            <Link to="/projects">
-              <Button className="bg-black text-white hover:bg-black/90 rounded-full px-7 h-12 font-semibold text-xs tracking-wider uppercase flex gap-2.5 shadow-md active:scale-95 transition-all border border-black/10">
-                View All Projects <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
+
+          {/* Right Column: 2x2 Luxury Grid of Real Projects */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {featuredProjects.map((p, idx) => (
+                <Link
+                  key={idx}
+                  to={`/projects/${p.slug}`}
+                  className="group block"
+                >
+                  <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden border border-black/[0.04] shadow-[0_12px_30px_rgba(0,0,0,0.03)] bg-white/20 mb-4">
+                    {/* Background image with high quality blur */}
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover blur-[3px] scale-105 transition-all duration-[600ms] ease-out group-hover:scale-100 group-hover:blur-0"
+                    />
+                    
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-black/10 transition-colors duration-300 group-hover:bg-transparent" />
+
+                    {/* Centered Vector Brand Icon Badge with Monogram or Logo Image */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-zinc-950/95 border border-white/10 rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 p-3">
+                        {p.client === "Romang Patel And Associates" ? (
+                          <img
+                            src="https://res.cloudinary.com/dsddldquo/image/upload/v1755931760/gcepe8ymvf9oti4b66q4.png"
+                            alt="Romang Patel And Associates Logo"
+                            className="max-h-full max-w-full object-contain filter brightness-0 invert"
+                          />
+                        ) : p.client === "Omax Industries" ? (
+                          <img
+                            src="https://res.cloudinary.com/dsddldquo/image/upload/v1777916054/nzyzdizrpbbrkhldn1br.png"
+                            alt="Omax Industries Logo"
+                            className="max-h-full max-w-full object-contain filter brightness-0 invert"
+                          />
+                        ) : (
+                          <span className="text-white font-display text-2xl font-black tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                            {p.client.slice(0, 2).toUpperCase()}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Label details */}
+                  <div className="flex items-center justify-between px-2">
+                    <span className="text-lg font-bold text-black group-hover:text-gold-dark transition-colors duration-300 truncate max-w-[65%]">
+                      {p.client}
+                    </span>
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-black/40 text-right max-w-[35%] truncate">
+                      {p.category}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="relative">
-        {/* Soft edge blur overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#F8F8F6] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#F8F8F6] to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          animate={controls}
-          className="flex gap-8 px-4"
-          style={{ width: "max-content" }}
-        >
-          {duplicatedProjects.map((project, i) => (
-            <motion.div
-              key={i}
-              className="w-[320px] md:w-[440px] flex-shrink-0 group relative h-[520px] rounded-[40px] overflow-hidden border border-black/[0.03] shadow-[0_15px_40px_rgba(0,0,0,0.03)] bg-white/20 transition-all duration-500"
-            >
-              {/* Zooming Cover Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105"
-              />
-              
-              {/* Subtle top shading gradient */}
-              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/20 to-transparent pointer-events-none" />
-
-              {/* Floating Client Monogram Badge */}
-              <div className="absolute top-6 right-6 w-11 h-11 rounded-full bg-[#F8F8F6]/85 border border-white/40 backdrop-blur-md shadow-md flex items-center justify-center font-bold text-xs tracking-widest text-black/80 pointer-events-none">
-                {project.client.slice(0, 2).toUpperCase()}
-              </div>
-
-              {/* Floating Glass description capsule at the bottom */}
-              <div className="absolute bottom-6 inset-x-6 p-6 rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/30 shadow-[0_15px_35px_rgba(0,0,0,0.05)] flex flex-col justify-between">
-                <div>
-                  <div className="text-[9px] font-extrabold uppercase tracking-widest text-[#92680A] mb-1.5">
-                    {project.category}
-                  </div>
-                  <h4 className="text-base font-bold text-black leading-snug font-display mb-4">
-                    {project.title.split(" - ")[0]}
-                  </h4>
-                </div>
-                
-                <div className="flex items-center justify-between border-t border-black/[0.04] pt-4">
-                  <span className="text-[10px] font-bold text-black/40 uppercase tracking-widest">Explore System</span>
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="w-9 h-9 rounded-full bg-black text-[#F8F8F6] flex items-center justify-center transition-all duration-300 group-hover:bg-[#92680A] group-hover:text-black shadow-sm"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

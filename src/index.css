@@ -147,4 +147,36 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+/* Premium Infinite Scroll Animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left var(--scroll-duration, 45s) linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right var(--scroll-duration, 45s) linear infinite;
+}
+
+.pause-on-hover:hover .animate-scroll-left,
+.pause-on-hover:hover .animate-scroll-right {
+  animation-play-state: paused;
 }

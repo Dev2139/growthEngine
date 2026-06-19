@@ -34,7 +34,7 @@ const CTASection = ({ onOpenAudit }: CTASectionProps) => {
             </h2>
 
             <p className="text-base md:text-lg text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">
-              Partner with Devdhara Software Solutions. Obtain an executive consultation or request a custom architectural roadmap designed for your enterprise scale.
+              Partner with DevDhara Technologies. Obtain an executive consultation or request a custom architectural roadmap designed for your enterprise scale.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

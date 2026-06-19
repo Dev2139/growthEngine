@@ -132,7 +132,7 @@ const About = () => {
                 variants={fadeIn}
                 className="text-base md:text-lg text-black/60 max-w-2xl mb-10 leading-relaxed font-medium"
               >
-                Devdhara Software Solutions was founded with a single mission: to bridge the gap between complex business challenges and elegant technical execution.
+                DevDhara Technologies was founded with a single mission: to bridge the gap between complex business challenges and elegant technical execution.
               </motion.p>
               <motion.div variants={fadeIn}>
                 <Button 
@@ -151,7 +151,7 @@ const About = () => {
                 <div className="rounded-[32px] overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=80&fit=crop"
-                    alt="Devdhara Engineering Studio"
+                    alt="DevDhara Engineering Studio"
                     className="w-full h-auto aspect-video object-cover"
                   />
                 </div>
@@ -204,7 +204,7 @@ const About = () => {
             </h3>
             <div className="space-y-6 text-base text-black/60 leading-relaxed font-medium">
               <p>
-                At Devdhara Software Solutions, we provide businesses with the technical foundation they need to scale. In an era where software is the backbone of every industry, we focus on building tools that are reliable, secure, and beautiful.
+                At DevDhara Technologies, we provide businesses with the technical foundation they need to scale. In an era where software is the backbone of every industry, we focus on building tools that are reliable, secure, and beautiful.
               </p>
               <p>
                 When you work with us, you're partnering with a team that understands the product lifecycle. We don't just write code; we help you design the strategy, the user experience, and the infrastructure that will carry your business forward.
