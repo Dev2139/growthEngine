@@ -7,8 +7,16 @@ import FloatingButtons from "@/components/FloatingButtons";
 import { useState } from "react";
 import { FileText } from "lucide-react";
 
+import { useSEO } from "@/hooks/useSEO";
+
 const Terms = () => {
   const [auditOpen, setAuditOpen] = useState(false);
+
+  useSEO({
+    title: "Terms of Service | DevDhara Technologies",
+    description: "Read the Terms of Service for DevDhara Technologies to understand contract guidelines, intellectual property ownership, and payment terms.",
+    keywords: "DevDhara Terms, Software Service contract"
+  });
 
   return (
     <div className="min-h-screen bg-[#F8F8F6] text-foreground selection:bg-gold/20 selection:text-gold-dark overflow-x-hidden relative">
