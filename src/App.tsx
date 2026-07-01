@@ -19,6 +19,7 @@ import Terms from "./pages/Terms.tsx";
 import Partners from "./pages/Partners.tsx";
 import PartnerPrograms from "./pages/PartnerPrograms.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import JaiswalParivaarPrivacyPolicy from "./pages/JaiswalParivaarPrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/partners/programs" element={<PartnerPrograms />} />
+          <Route path="/apps/jaiswal-parivaar/privacy-policy" element={<JaiswalParivaarPrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
