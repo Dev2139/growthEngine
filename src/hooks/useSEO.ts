@@ -38,6 +38,9 @@ export const useSEO = ({ title, description, keywords, canonicalUrl }: SEOProps)
     let ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", description);
 
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", canonicalUrl || window.location.href);
+
     // 5. Update Twitter Meta Tags
     let twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) twitterTitle.setAttribute("content", title);
