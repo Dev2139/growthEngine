@@ -2,156 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core Pages -->
   <url>
-    <loc>https://devdhara.in/</loc>
+    <loc>https://devdhar.in/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/about</loc>
+    <loc>https://devdhar.in/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services</loc>
+    <loc>https://devdhar.in/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects</loc>
+    <loc>https://devdhar.in/projects</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/pricing</loc>
+    <loc>https://devdhar.in/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/contact</loc>
+    <loc>https://devdhar.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/partners</loc>
+    <loc>https://devdhar.in/partners</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/partners/programs</loc>
+    <loc>https://devdhar.in/partners/programs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/results</loc>
+    <loc>https://devdhar.in/results</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/privacy</loc>
+    <loc>https://devdhar.in/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/terms</loc>
+    <loc>https://devdhar.in/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Service Subpages -->
   <url>
-    <loc>https://devdhara.in/services/full-stack-web</loc>
+    <loc>https://devdhar.in/services/full-stack-web</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/enterprise-software</loc>
+    <loc>https://devdhar.in/services/enterprise-software</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/react-native</loc>
+    <loc>https://devdhar.in/services/react-native</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/ios-dev</loc>
+    <loc>https://devdhar.in/services/ios-dev</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/product-design</loc>
+    <loc>https://devdhar.in/services/product-design</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/seo-services</loc>
+    <loc>https://devdhar.in/services/seo-services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/google-ranking</loc>
+    <loc>https://devdhar.in/services/google-ranking</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/cloud-infra</loc>
+    <loc>https://devdhar.in/services/cloud-infra</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/ecommerce</loc>
+    <loc>https://devdhar.in/services/ecommerce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/services/it-consulting</loc>
+    <loc>https://devdhar.in/services/it-consulting</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Project Subpages -->
   <url>
-    <loc>https://devdhara.in/projects/romang-patel-associates</loc>
+    <loc>https://devdhar.in/projects/romang-patel-associates</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/industrial-cooling-solutions-omax-industries</loc>
+    <loc>https://devdhar.in/projects/industrial-cooling-solutions-omax-industries</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/restoplus-smart-ordering-saas</loc>
+    <loc>https://devdhar.in/projects/restoplus-smart-ordering-saas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/jaiswal-bandhu-shakti-sangathan-app</loc>
+    <loc>https://devdhar.in/projects/jaiswal-bandhu-shakti-sangathan-app</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/jaag-jnv-alumni-network</loc>
+    <loc>https://devdhar.in/projects/jaag-jnv-alumni-network</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/mv-fluid-industrial-digital-authority</loc>
+    <loc>https://devdhar.in/projects/mv-fluid-industrial-digital-authority</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/invoxaerp-saas-platform</loc>
+    <loc>https://devdhar.in/projects/invoxaerp-saas-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/awm-store-affiliate-ecommerce</loc>
+    <loc>https://devdhar.in/projects/awm-store-affiliate-ecommerce</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://devdhara.in/projects/savioerp-b2b-marketing-platform</loc>
+    <loc>https://devdhar.in/projects/savioerp-b2b-marketing-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
