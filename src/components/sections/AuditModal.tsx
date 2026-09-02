@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CheckCircle2, Rocket } from "lucide-react";
+import { X, CheckCircle2, Rocket, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { submitToFormspree } from "@/lib/formspree";
+import { toast } from "@/hooks/use-toast";
 
 interface AuditModalProps {
   open: boolean;
@@ -10,10 +12,60 @@ interface AuditModalProps {
 
 const AuditModal = ({ open, onClose }: AuditModalProps) => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    businessName: "",
+    service: "Select Service",
+    message: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMsg("");
+
+    const res = await submitToFormspree({
+      name: formData.name,
+      email: formData.email,
+      businessName: formData.businessName,
+      service: formData.service,
+      message: formData.message,
+      _subject: `Free Quote Request from ${formData.name || 'Audit Modal'}`,
+    });
+
+    setIsSubmitting(false);
+
+    if (res.success) {
+      setSubmitted(true);
+      toast({
+        title: "Quote Request Sent!",
+        description: "We have received your audit request and will respond within 24 hours.",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        businessName: "",
+        service: "Select Service",
+        message: "",
+      });
+    } else {
+      setErrorMsg(res.error || "Failed to submit request. Please try again.");
+      toast({
+        title: "Submission Failed",
+        description: res.error || "Failed to submit request.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -73,15 +125,26 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    {errorMsg && (
+                      <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 text-xs font-medium">
+                        {errorMsg}
+                      </div>
+                    )}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <input
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Your Name"
                         required
                         className="h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
                       />
                       <input
                         type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="Email Address"
                         required
                         className="h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
@@ -89,10 +152,18 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
                     </div>
                     <input
                       type="text"
+                      name="businessName"
+                      value={formData.businessName}
+                      onChange={handleChange}
                       placeholder="Business Name"
                       className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
                     />
-                    <select className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground focus:ring-2 focus:ring-blue transition-all">
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground focus:ring-2 focus:ring-blue transition-all"
+                    >
                       <option>Select Service</option>
                       <option>Web Development</option>
                       <option>Mobile App Development</option>
@@ -101,6 +172,9 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
                       <option>SEO / Google Ranking</option>
                     </select>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell us about your project requirements..."
                       rows={3}
                       className="w-full p-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-blue transition-all"
@@ -108,9 +182,17 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
                     
                     <Button
                       type="submit"
-                      className="w-full h-16 mt-4 rounded-2xl bg-blue text-white hover:bg-blue/90 text-lg font-bold shadow-xl shadow-blue/20 transition-all flex gap-2"
+                      disabled={isSubmitting}
+                      className="w-full h-16 mt-4 rounded-2xl bg-blue text-white hover:bg-blue/90 text-lg font-bold shadow-xl shadow-blue/20 transition-all flex items-center justify-center gap-2"
                     >
-                      Send Request
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        "Send Request"
+                      )}
                     </Button>
                     <p className="text-[10px] text-center text-muted-foreground mt-4">
                       We respect your privacy. No spam, ever.

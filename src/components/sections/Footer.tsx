@@ -1,7 +1,43 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
+import { submitToFormspree } from "@/lib/formspree";
+import { toast } from "@/hooks/use-toast";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    const res = await submitToFormspree({
+      email,
+      form_type: "newsletter_subscription",
+      _subject: `New Newsletter Subscription: ${email}`,
+    });
+
+    setIsSubmitting(false);
+
+    if (res.success) {
+      setIsSubmitted(true);
+      toast({
+        title: "Subscribed Successfully!",
+        description: "Thank you for subscribing to DevDhara technology insights.",
+      });
+      setEmail("");
+    } else {
+      toast({
+        title: "Subscription Failed",
+        description: res.error || "Please try again later.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <footer className="bg-[#F8F8F6] pt-24 pb-12 px-6 border-t border-black/[0.04] relative z-10">
       <div className="max-w-7xl mx-auto">
@@ -21,17 +57,40 @@ const Footer = () => {
               </p>
             </div>
             
-            <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your professional email"
-                className="flex-1 bg-white/[0.04] border border-white/10 text-white placeholder:text-white/30 rounded-xl px-5 h-12 text-sm focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all"
-              />
-              <button className="bg-white text-zinc-950 hover:bg-zinc-100 transition-colors rounded-xl h-12 px-6 font-display font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 group shrink-0">
-                Subscribe
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            </form>
+            {isSubmitted ? (
+              <div className="flex items-center gap-3 bg-white/10 border border-white/20 rounded-xl p-4 text-emerald-400 text-sm font-medium">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                <span>Thank you for subscribing! Check your inbox for updates.</span>
+              </div>
+            ) : (
+              <form className="flex flex-col sm:flex-row gap-3" onSubmit={handleSubscribe}>
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your professional email"
+                  className="flex-1 bg-white/[0.04] border border-white/10 text-white placeholder:text-white/30 rounded-xl px-5 h-12 text-sm focus:outline-none focus:border-gold/50 focus:bg-white/[0.06] transition-all"
+                />
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-white text-zinc-950 hover:bg-zinc-100 disabled:opacity-70 transition-colors rounded-xl h-12 px-6 font-display font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 group shrink-0"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Subscribing...
+                    </>
+                  ) : (
+                    <>
+                      Subscribe
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
