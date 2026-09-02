@@ -7,6 +7,7 @@ import projectMvFluid from "@/assets/mv-fluid.png";
 import projectInvoxa from "@/assets/invoxa-erp.png";
 import projectAwmStore from "@/assets/awm-store.png";
 import projectSavioErp from "@/assets/savio-erp.png";
+import projectChemx from "@/assets/chemx-pumps.png";
 
 export interface Project {
   slug: string;
@@ -292,6 +293,36 @@ export const projects: Project[] = [
       quote: "This platform successfully bridges the gap between our complex technical software and the business-centric needs of our clients. It has become our most powerful tool for lead generation and brand authority.",
       name: "Anand Patel",
       role: "Managing Director, SavioERP",
+    },
+  },
+  {
+    slug: "chemx-pumps-equipments-industrial-solutions",
+    title: "ChemX Pumps & Equipments - Chemical Process & Industrial Pump Solutions",
+    client: "ChemX Pumps & Equipments",
+    category: "Fullstack Development",
+    image: projectChemx,
+    excerpt: "A premier digital showcase and chemical process pump catalog platform engineered for high-precision industrial fluid handling and instant quote generation.",
+    description: "ChemX Pumps & Equipments is a leading manufacturer and supplier of heavy-duty chemical process pumps, metering pumps, and industrial fluid equipment. DevDhara Technologies engineered a modern, high-performance web platform featuring a digital product catalog, dynamic technical specification filters, and an integrated direct WhatsApp inquiry system. Optimized for chemical manufacturing hubs, the platform empowers procurement officers and plant engineers to quickly locate and order specialized equipment.",
+    services: [
+      "Fullstack Industrial Web App",
+      "Digital Product Catalog",
+      "Direct WhatsApp Lead System",
+      "Technical Specification Filters",
+      "Local & Industrial SEO Mastery",
+      "Responsive Industrial UI/UX"
+    ],
+    results: [
+      { label: "Tech Stack", value: "React 19 & Vite" },
+      { label: "Lead Speed", value: "Instant Quote" },
+      { label: "Industry", value: "Chemical & Fluid" },
+      { label: "SEO Rank", value: "Top Tier" },
+    ],
+    challenge: "ChemX Pumps & Equipments needed a modern digital transformation to showcase their complex range of chemical transfer, magnetic drive, and dosing pumps while streamlining lead generation for plant managers and industrial buyers.",
+    solution: "We engineered a clean, high-impact industrial web platform featuring interactive pump spec sheets, dynamic categorization by fluid chemical compatibility, and a frictionless WhatsApp quote request engine that instantly routes customer inquiries to the sales team.",
+    testimonial: {
+      quote: "DevDhara Technologies transformed our digital presence completely. The custom product catalog and instant quote system have brought in quality leads from chemical plant procurement teams across India.",
+      name: "Kalpesh Patel",
+      role: "Owner, ChemX Pumps & Equipments",
     },
   },
 ];

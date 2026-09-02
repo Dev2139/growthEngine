@@ -38,6 +38,12 @@ const testimonials = [
     quote: "Working with DevDhara Technologies was a transformative experience. Their ability to turn complex concepts into intuitive digital tools is unmatched. They don't just build software; they build the future of your business.",
     rating: 5,
   },
+  {
+    name: "Kalpesh Patel",
+    role: "Owner, ChemX Pumps & Equipments",
+    quote: "DevDhara Technologies transformed our digital presence completely. The custom product catalog and instant quote system have brought in quality leads from chemical plant procurement teams across India.",
+    rating: 5,
+  },
 ];
 
 const getAvatarGradient = (name: string) => {
@@ -54,8 +60,11 @@ const getAvatarGradient = (name: string) => {
 };
 
 const Testimonials = () => {
-  const row1 = [...testimonials.slice(0, 3), ...testimonials.slice(0, 3)];
-  const row2 = [...testimonials.slice(3, 6), ...testimonials.slice(3, 6)];
+  const half = Math.ceil(testimonials.length / 2);
+  const firstHalf = testimonials.slice(0, half);
+  const secondHalf = testimonials.slice(half);
+  const row1 = [...firstHalf, ...firstHalf];
+  const row2 = [...secondHalf, ...secondHalf];
 
   const trackVariants = {
     hidden: { y: 30, opacity: 0 },

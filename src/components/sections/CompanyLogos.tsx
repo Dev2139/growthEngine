@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 const companies = [
   { name: "Omax Industries", initials: "OI", logo: "https://res.cloudinary.com/dsddldquo/image/upload/v1777916054/nzyzdizrpbbrkhldn1br.png" },
   { name: "Romang Patel & Assoc.", initials: "RP", logo: "https://res.cloudinary.com/dsddldquo/image/upload/v1755931760/gcepe8ymvf9oti4b66q4.png" },
+  { name: "ChemX Pumps", initials: "CP" },
   { name: "MV Fluids", initials: "MV" },
   { name: "SavioERP", initials: "SE" },
   { name: "A World Marketing", initials: "AW" },
