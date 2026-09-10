@@ -32,7 +32,7 @@ const Projects = () => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "DevDhara Technologies Client Projects & Case Studies",
-    "description": "Comprehensive engineering portfolio by DevDhara Technologies including ScholarGrid ERP, ChemX Pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App, and AWM Store.",
+    "description": "Comprehensive engineering portfolio by DevDhara Technologies including Nidhi Air Compressors, ScholarGrid ERP, ChemX Pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App, and AWM Store.",
     "url": "https://devdhar.in/projects",
     "itemListElement": projects.map((p, index) => ({
       "@type": "ListItem",
@@ -53,8 +53,8 @@ const Projects = () => {
 
   useSEO({
     title: "Our Portfolio & Case Studies | DevDhara Technologies",
-    description: "Explore DevDhara Technologies' portfolio: ScholarGrid School Management ERP, Chemx pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG, Jaiswal App. High-performance custom software engineering.",
-    keywords: `DevDhara Portfolio, Case Studies, Software Projects, School ERP, ScholarGrid ERP, ChemX Pumps, Chem-X Pumps, Chemx, ${allProjectKeywords}`,
+    description: "Explore DevDhara Technologies' portfolio: Nidhi Air Compressors, ScholarGrid School Management ERP, Chemx pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG, Jaiswal App.",
+    keywords: `DevDhara Portfolio, Case Studies, Software Projects, Nidhi Air Compressors, Nidhi Air Compressor, School ERP, ScholarGrid ERP, ChemX Pumps, Chem-X Pumps, Chemx, ${allProjectKeywords}`,
     canonicalUrl: "https://devdhar.in/projects",
     jsonLd: projectsJsonLd
   });

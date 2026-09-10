@@ -21,6 +21,7 @@ import PartnerPrograms from "./pages/PartnerPrograms.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import JaiswalParivaarPrivacyPolicy from "./pages/JaiswalParivaarPrivacyPolicy.tsx";
 import JaiswalParivaarDeleteAccount from "./pages/JaiswalParivaarDeleteAccount.tsx";
+import JaiswalParivaarChildSafety from "./pages/JaiswalParivaarChildSafety.tsx";
 import WordCompetitionPrivacyPolicy from "./pages/WordCompetitionPrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/partners/programs" element={<PartnerPrograms />} />
           <Route path="/apps/jaiswal-parivaar/privacy-policy" element={<JaiswalParivaarPrivacyPolicy />} />
           <Route path="/apps/jaiswal-parivaar/delete-account" element={<JaiswalParivaarDeleteAccount />} />
+          <Route path="/apps/jaiswal-parivaar/child-safety" element={<JaiswalParivaarChildSafety />} />
           <Route path="/app/word-competition/privacy-policy" element={<WordCompetitionPrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

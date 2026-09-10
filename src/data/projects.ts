@@ -9,6 +9,7 @@ import projectAwmStore from "@/assets/awm-store.png";
 import projectSavioErp from "@/assets/savio-erp.png";
 import projectChemx from "@/assets/chemx-pumps.png";
 import projectSchoolErp from "@/assets/school-erp.png";
+import projectNidhi from "@/assets/nidhi-compressors.png";
 
 export interface Project {
   slug: string;
@@ -28,6 +29,47 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "nidhi-air-compressors-industrial-solutions",
+    title: "Nidhi Air Compressors - Industrial Air Engineering Platform & Corporate Brochure",
+    client: "Nidhi Air Compressors",
+    category: "Fullstack Development",
+    image: projectNidhi,
+    excerpt: "A high-performance web catalog platform and premium corporate marketing brochure engineered for a leading industrial air compressor manufacturer.",
+    description: "Nidhi Air Compressors is a premier manufacturer and supplier of heavy-duty industrial air compressors, rotary screw compressors, and pneumatic equipment. DevDhara Technologies delivered an end-to-end digital transformation and branding solution. We built a high-speed, SEO-optimized web platform featuring interactive technical spec sheets and a direct inquiry engine, accompanied by a professionally designed corporate print & digital brochure that elevates their brand authority across industrial sectors.",
+    searchKeywords: [
+      "Nidhi Air Compressors",
+      "Nidhi Air Compressor",
+      "Nidhi Compressors",
+      "Nidhi Air Compressors Website",
+      "Nidhi Air Compressors Brochure",
+      "Industrial Air Compressor Manufacturer Ahmedabad",
+      "Rotary Screw Air Compressor",
+      "Pneumatic Air Compressor Catalog"
+    ],
+    altNames: ["Nidhi Air Compressors", "Nidhi Air Compressor", "Nidhi Compressors"],
+    services: [
+      "Fullstack Industrial Web App",
+      "Corporate Brochure & Graphic Design",
+      "Technical Specification Catalog",
+      "Direct WhatsApp Lead System",
+      "Local & Industrial SEO Strategy",
+      "Responsive UI/UX Engineering"
+    ],
+    results: [
+      { label: "Deliverables", value: "Web & Brochure" },
+      { label: "Tech Stack", value: "React 19 & Vite" },
+      { label: "Lead Speed", value: "Instant Quote" },
+      { label: "Industry", value: "Air Compressors" },
+    ],
+    challenge: "Nidhi Air Compressors needed a unified brand identity and modern technical presentation to showcase their complex range of industrial air compression systems to plant managers, procurement teams, and factory engineers.",
+    solution: "We engineered a modern, high-impact industrial web platform featuring detailed technical spec filters and instant lead routing. In parallel, we authored and designed a sleek corporate brochure for sales representatives to use in offline pitches, creating a cohesive, high-converting brand presence both online and offline.",
+    testimonial: {
+      quote: "DevDhara Technologies transformed our market reach. The custom technical website combined with our new corporate brochure has given us unprecedented authority in pitching to industrial procurement clients.",
+      name: "Management Team",
+      role: "Nidhi Air Compressors",
+    },
+  },
   {
     slug: "scholargrid-school-management-erp",
     title: "ScholarGrid ERP - Next-Gen School Management & Educational Ecosystem",
