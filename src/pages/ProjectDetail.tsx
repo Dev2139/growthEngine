@@ -17,10 +17,78 @@ const ProjectDetail = () => {
   const [auditOpen, setAuditOpen] = useState(false);
   const project = projects.find((p) => p.slug === slug);
 
+  const keywordsList = project
+    ? [
+        ...(project.searchKeywords || []),
+        ...(project.altNames || []),
+        project.client,
+        project.category,
+        "DevDhara Case Study",
+        "Software Engineering Portfolio",
+      ].join(", ")
+    : "Case Studies, DevDhara";
+
+  const projectUrl = project ? `https://devdhar.in/projects/${project.slug}` : "https://devdhar.in/projects";
+
+  const jsonLdData = project
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "CaseStudy",
+          "name": project.title,
+          "alternateName": project.altNames || [project.client],
+          "headline": project.title,
+          "description": project.description,
+          "image": project.image,
+          "url": projectUrl,
+          "author": {
+            "@type": "Organization",
+            "name": "DevDhara Technologies",
+            "url": "https://devdhar.in"
+          },
+          "about": {
+            "@type": "Organization",
+            "name": project.client,
+            "description": project.excerpt
+          },
+          "keywords": keywordsList
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://devdhar.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://devdhar.in/projects"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": project.client,
+              "item": projectUrl
+            }
+          ]
+        }
+      ]
+    : undefined;
+
   useSEO({
-    title: project ? `${project.client} | Case Study | DevDhara Technologies` : "Case Study | DevDhara Technologies",
-    description: project ? project.excerpt : "Bespoke custom software and SaaS product case studies built by DevDhara Technologies.",
-    keywords: project ? `${project.client}, ${project.category}, DevDhara Case Study` : "Case Studies, DevDhara"
+    title: project ? `${project.client} (${(project.altNames || []).join(", ")}) | Case Study | DevDhara Technologies` : "Case Study | DevDhara Technologies",
+    description: project ? `${project.client} Case Study by DevDhara Technologies: ${project.excerpt} Keywords: ${(project.searchKeywords || []).join(", ")}` : "Bespoke custom software and SaaS product case studies built by DevDhara Technologies.",
+    keywords: keywordsList,
+    canonicalUrl: projectUrl,
+    ogImage: project?.image,
+    twitterImage: project?.image,
+    ogType: "article",
+    jsonLd: jsonLdData
   });
 
   if (!project) {
@@ -156,7 +224,7 @@ const ProjectDetail = () => {
             
             <div className="pt-8 border-t border-black/[0.03]">
               <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-black mb-4">Services Delivered:</h4>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2.5 mb-6">
                 {project.services.map((s) => (
                   <div key={s} className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.04] text-[10px] font-bold text-black/75 shadow-sm">
                     <CheckCircle2 className="w-3.5 h-3.5 text-gold" />
@@ -164,6 +232,19 @@ const ProjectDetail = () => {
                   </div>
                 ))}
               </div>
+
+              {project.searchKeywords && project.searchKeywords.length > 0 && (
+                <div className="pt-4 border-t border-black/[0.03]">
+                  <h4 className="text-[9px] font-extrabold uppercase tracking-widest text-black/40 mb-2">Project Keywords & Indexing Tags:</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.searchKeywords.map((kw) => (
+                      <span key={kw} className="px-2.5 py-1 rounded-md bg-black/[0.03] text-[9px] font-semibold text-black/50 border border-black/[0.03]">
+                        #{kw}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

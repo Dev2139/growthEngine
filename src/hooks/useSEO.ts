@@ -5,48 +5,59 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonicalUrl?: string;
+  ogImage?: string;
+  twitterImage?: string;
+  ogType?: string;
+  jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
-export const useSEO = ({ title, description, keywords, canonicalUrl }: SEOProps) => {
+export const useSEO = ({
+  title,
+  description,
+  keywords,
+  canonicalUrl,
+  ogImage,
+  twitterImage,
+  ogType = "website",
+  jsonLd,
+}: SEOProps) => {
   useEffect(() => {
     // 1. Update page title
     document.title = title;
 
-    // 2. Update meta description
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.setAttribute("name", "description");
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute("content", description);
+    // Helper function for meta tags
+    const updateOrCreateMeta = (selector: string, attrName: string, attrVal: string, content: string) => {
+      let element = document.querySelector(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute(attrName, attrVal);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", content);
+    };
 
-    // 3. Update meta keywords
-    let metaKey = document.querySelector('meta[name="keywords"]');
-    if (!metaKey) {
-      metaKey = document.createElement("meta");
-      metaKey.setAttribute("name", "keywords");
-      document.head.appendChild(metaKey);
-    }
-    const defaultKeywords = "DevDhara, DevDhara Technologies, DevDhar, Dev Patel, Web Development Ahmedabad, App Development Gujarat, Custom Software India, SEO Services, IT Consulting";
-    metaKey.setAttribute("content", keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords);
+    // 2. Meta description
+    updateOrCreateMeta('meta[name="description"]', "name", "description", description);
 
-    // 4. Update Open Graph Meta Tags
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", title);
+    // 3. Meta keywords
+    const defaultKeywords = "DevDhara, DevDhara Technologies, DevDhar, Dev Patel, ChemX Pumps, Chem-X Pumps, Chemx, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App, Web Development Ahmedabad, App Development Gujarat, Custom Software India, SEO Services, IT Consulting";
+    const fullKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
+    updateOrCreateMeta('meta[name="keywords"]', "name", "keywords", fullKeywords);
 
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", description);
+    // 4. Open Graph Meta Tags
+    updateOrCreateMeta('meta[property="og:title"]', "property", "og:title", title);
+    updateOrCreateMeta('meta[property="og:description"]', "property", "og:description", description);
+    updateOrCreateMeta('meta[property="og:type"]', "property", "og:type", ogType);
+    updateOrCreateMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl || window.location.href);
 
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", canonicalUrl || window.location.href);
+    const imageToUse = ogImage || "https://res.cloudinary.com/dsddldquo/image/upload/v1779710012/fsm1uhfqtmeamioetwao.png";
+    updateOrCreateMeta('meta[property="og:image"]', "property", "og:image", imageToUse);
 
-    // 5. Update Twitter Meta Tags
-    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute("content", title);
-
-    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute("content", description);
+    // 5. Twitter Meta Tags
+    updateOrCreateMeta('meta[name="twitter:title"]', "name", "twitter:title", title);
+    updateOrCreateMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
+    updateOrCreateMeta('meta[name="twitter:image"]', "name", "twitter:image", twitterImage || imageToUse);
+    updateOrCreateMeta('meta[name="twitter:card"]', "name", "twitter:card", "summary_large_image");
 
     // 6. Update Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -56,5 +67,20 @@ export const useSEO = ({ title, description, keywords, canonicalUrl }: SEOProps)
       document.head.appendChild(canonical);
     }
     canonical.setAttribute("href", canonicalUrl || window.location.href);
-  }, [title, description, keywords, canonicalUrl]);
+
+    // 7. Dynamic JSON-LD Structured Data
+    let jsonLdScript = document.getElementById("dynamic-seo-schema") as HTMLScriptElement | null;
+    if (jsonLd) {
+      if (!jsonLdScript) {
+        jsonLdScript = document.createElement("script");
+        jsonLdScript.id = "dynamic-seo-schema";
+        jsonLdScript.type = "application/ld+json";
+        document.head.appendChild(jsonLdScript);
+      }
+      jsonLdScript.textContent = JSON.stringify(jsonLd, null, 2);
+    } else if (jsonLdScript) {
+      jsonLdScript.remove();
+    }
+  }, [title, description, keywords, canonicalUrl, ogImage, twitterImage, ogType, jsonLd]);
 };
+

@@ -25,8 +25,9 @@ const Index = () => {
 
   useSEO({
     title: "DevDhara Technologies | Premium Software Engineering & IT Services",
-    description: "DevDhara Technologies is a premium software engineering agency in Ahmedabad, Gujarat. We build elite custom web development, mobile apps, SaaS, and IT solutions.",
-    keywords: "Home, DevDhara Ahmedabad, Premium Software, IT Agency India"
+    description: "DevDhara Technologies is a premier software engineering agency in Ahmedabad, Gujarat. Engineering portfolio projects: ChemX Pumps, Chem-X Pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App.",
+    keywords: "DevDhara Ahmedabad, Chemx pumps, Chem-X pumps, chemx, ChemX Pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App, Premium Software Agency India, Web & Mobile App Engineering",
+    canonicalUrl: "https://devdhar.in/"
   });
 
   return (

@@ -5,7 +5,7 @@
  * Supports VITE_FORMSPREE_ID or VITE_FORMSPREE_ENDPOINT environment variables.
  */
 
-export const DEFAULT_FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "mqaevepk";
+export const DEFAULT_FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || "xoeqdwrr";
 
 export interface FormspreePayload {
   [key: string]: any;

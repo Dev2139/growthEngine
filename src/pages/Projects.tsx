@@ -18,10 +18,45 @@ const Projects = () => {
   const [auditOpen, setAuditOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
+  const allProjectKeywords = Array.from(
+    new Set(
+      projects.flatMap((p) => [
+        ...(p.searchKeywords || []),
+        ...(p.altNames || []),
+        p.client,
+      ])
+    )
+  ).join(", ");
+
+  const projectsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "DevDhara Technologies Client Projects & Case Studies",
+    "description": "Comprehensive engineering portfolio by DevDhara Technologies including ScholarGrid ERP, ChemX Pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG Alumni, Jaiswal App, and AWM Store.",
+    "url": "https://devdhar.in/projects",
+    "itemListElement": projects.map((p, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "CreativeWork",
+        "name": p.title,
+        "alternateName": p.altNames || [p.client],
+        "url": `https://devdhar.in/projects/${p.slug}`,
+        "description": p.excerpt,
+        "author": {
+          "@type": "Organization",
+          "name": "DevDhara Technologies"
+        }
+      }
+    }))
+  };
+
   useSEO({
     title: "Our Portfolio & Case Studies | DevDhara Technologies",
-    description: "Explore DevDhara Technologies' client portfolio. High-performance software engineering, bespoke corporate ERP tools, custom community apps, and SaaS platforms.",
-    keywords: "DevDhara Portfolio, Case Studies, Software Projects, ERP Gujarat, Custom Flutter Apps"
+    description: "Explore DevDhara Technologies' portfolio: ScholarGrid School Management ERP, Chemx pumps, Omax Industries, RestoPlus, InvoxaERP, SavioERP, MV Fluid, JAAG, Jaiswal App. High-performance custom software engineering.",
+    keywords: `DevDhara Portfolio, Case Studies, Software Projects, School ERP, ScholarGrid ERP, ChemX Pumps, Chem-X Pumps, Chemx, ${allProjectKeywords}`,
+    canonicalUrl: "https://devdhar.in/projects",
+    jsonLd: projectsJsonLd
   });
 
   const filtered = activeCategory === "All" ? projects : projects.filter((p) => p.category === activeCategory);

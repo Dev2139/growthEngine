@@ -8,6 +8,7 @@ import projectInvoxa from "@/assets/invoxa-erp.png";
 import projectAwmStore from "@/assets/awm-store.png";
 import projectSavioErp from "@/assets/savio-erp.png";
 import projectChemx from "@/assets/chemx-pumps.png";
+import projectSchoolErp from "@/assets/school-erp.png";
 
 export interface Project {
   slug: string;
@@ -22,9 +23,52 @@ export interface Project {
   challenge: string;
   solution: string;
   testimonial?: { quote: string; name: string; role: string };
+  searchKeywords?: string[];
+  altNames?: string[];
 }
 
 export const projects: Project[] = [
+  {
+    slug: "scholargrid-school-management-erp",
+    title: "ScholarGrid ERP - Next-Gen School Management & Educational Ecosystem",
+    client: "In-House Product",
+    category: "SaaS Products",
+    image: projectSchoolErp,
+    excerpt: "Our proprietary enterprise educational ERP SaaS engineered to digitize K-12 and university student lifecycles, automated fee billing, attendance, grading, and parent portals.",
+    description: "ScholarGrid ERP is our in-house enterprise school management platform designed from the ground up to digitize and automate educational institution operations. Built to handle end-to-end K-12 and higher education administrative lifecycles, the platform unifies student admissions, automated fee collection with online payment gateways, biometric attendance tracking, examination gradebooks, timetable generation, and multi-channel parent-teacher communication into one intuitive cloud-native dashboard.",
+    searchKeywords: [
+      "ScholarGrid ERP",
+      "School Management ERP",
+      "School Management System",
+      "EduPulse ERP",
+      "Educational ERP SaaS",
+      "School Administration Software",
+      "Student Information System SIS",
+      "School Fee Invoicing SaaS"
+    ],
+    altNames: ["ScholarGrid ERP", "EduPulse School ERP", "School Management System"],
+    services: [
+      "In-House Product Engineering",
+      "Multi-Tenant SaaS Architecture",
+      "Automated Fee Collection & Gateways",
+      "Real-Time Attendance & Biometric Sync",
+      "Examination & Gradebook Engine",
+      "Parent-Teacher Mobile Communication Portal"
+    ],
+    results: [
+      { label: "Product Type", value: "In-House SaaS" },
+      { label: "Target Sector", value: "K-12 & Higher Ed" },
+      { label: "Core Modules", value: "15+ Academic" },
+      { label: "Status", value: "Production Ready" },
+    ],
+    challenge: "Educational institutions frequently face severe operational bottlenecks due to fragmented software tools for fee collection, attendance tracking, grading, and parent communication, resulting in high administrative costs and delayed reporting.",
+    solution: "We engineered ScholarGrid ERP as a unified, cloud-native SaaS ecosystem. It integrates student lifecycle management, automated online fee payment with instant digital receipts, automated report card generation, and real-time SMS/WhatsApp attendance alerts. School administrators gain centralized operational control while parents and teachers benefit from dedicated mobile-responsive portals.",
+    testimonial: {
+      quote: "Designed and engineered by our team, ScholarGrid ERP empowers educational institutions to replace tedious paperwork with intelligent automation and seamless digital collaboration.",
+      name: "DevDhara Product Team",
+      role: "SaaS Product Architects",
+    },
+  },
   {
     slug: "romang-patel-associates",
     title: "Romang Patel And Associates - Professional Architectural Portfolio",
@@ -33,6 +77,14 @@ export const projects: Project[] = [
     image: projectRomang,
     excerpt: "A high-performance architectural business platform featuring a dynamic project gallery and secure admin dashboard for portfolio management.",
     description: "This project is a professional business website for Romang Patel And Associates, a premier architectural and consulting firm. It is a modern, high-performance web application built to showcase their portfolio, services, and company profile. The application serves both as a public-facing brand platform and an internal management tool for the firm.",
+    searchKeywords: [
+      "Romang Patel",
+      "Romang Patel and Associates",
+      "Romang Patel Architect",
+      "Romang Patel Portfolio",
+      "Architectural Portfolio Ahmedabad"
+    ],
+    altNames: ["Romang Patel & Associates", "Romang Patel Architecture"],
     services: [
       "React 19 Development",
       "Supabase Backend",
@@ -63,6 +115,14 @@ export const projects: Project[] = [
     image: projectOmax,
     excerpt: "A comprehensive digital platform and product catalog for a global leader in industrial cooling, featuring high-precision thermal management solutions.",
     description: "Omax Industries is a premier manufacturer and supplier of industrial cooling systems. This project involved building a robust digital platform to showcase their energy-efficient thermal management equipment. The catalog includes specialized solutions for food & beverage, pharmaceuticals, and medical research sectors, emphasizing ISO-certified engineering excellence.",
+    searchKeywords: [
+      "Omax Industries",
+      "Omax Chillers",
+      "Omax Industrial Cooling",
+      "Omax Thermal Regulation",
+      "Omax Cooling Solutions"
+    ],
+    altNames: ["Omax Industries", "Omax Thermal Systems"],
     services: [
       "Full-Stack Web Development",
       "Dynamic Product Catalog",
@@ -93,6 +153,14 @@ export const projects: Project[] = [
     image: projectRestoplus,
     excerpt: "Our flagship 'Smart Ordering' SaaS product, built from the ground up to modernize dining experiences and streamline restaurant operations globally.",
     description: "RestoPlus is our proprietary professional SaaS platform designed to revolutionize the hospitality industry. Built entirely by our team, it is an open ecosystem available to all restaurants seeking digital transformation. The platform combines contactless QR-based ordering with real-time analytics and WebSocket synchronization to create a seamless bridge between customers and kitchen staff.",
+    searchKeywords: [
+      "RestoPlus",
+      "Resto Plus",
+      "RestoPlus Smart Ordering",
+      "RestoPlus SaaS",
+      "Restaurant Smart Ordering System"
+    ],
+    altNames: ["RestoPlus", "Resto Plus SaaS"],
     services: [
       "In-House Product Engineering",
       "SaaS Architecture Design",
@@ -123,6 +191,14 @@ export const projects: Project[] = [
     image: projectJaiswal,
     excerpt: "A comprehensive cross-platform Flutter application designed to digitally unite and empower the Jaiswal community through social and professional networking.",
     description: "Developed under GrowthAxis Software Solutions, this comprehensive community-centric platform serves as a social network, professional directory, and support ecosystem. The app facilitates information sharing, introduces community-owned businesses to one another, and fosters development through features like a digital directory, matrimonial hub, and job portal. It represents a shift from physical registers to a modern, mobile-first community management approach.",
+    searchKeywords: [
+      "Jaiswal Bandhu Shakti Sangathan",
+      "Jaiswal Samaj App",
+      "Jaiswal App",
+      "Jaiswal Samaj Naroda",
+      "Jaiswal Community Network"
+    ],
+    altNames: ["Jaiswal Samaj App", "Jaiswal Sangathan App"],
     services: [
       "Flutter Cross-Platform Development",
       "iOS & Android Deployment",
@@ -153,6 +229,14 @@ export const projects: Project[] = [
     image: projectJaag,
     excerpt: "A sophisticated professional and social networking ecosystem designed to bridge the gap between different generations of JNV Gandhinagar alumni and students.",
     description: "JAAG is more than just a directory; it's a comprehensive platform for the Navodayan community. It features a searchable alumni database with house-based color coding, professional profile management, an opportunity board for jobs and mentorship, and a modern social feed with stories and trending discussions. The platform prioritizes privacy with a secure passcode system and customizable visibility settings.",
+    searchKeywords: [
+      "JAAG Alumni",
+      "JAAG JNV",
+      "JNV Association of Alumni Gandhinagar",
+      "JAAG Gandhinagar",
+      "Navodayan Alumni Network"
+    ],
+    altNames: ["JAAG JNV Alumni", "JAAG Gandhinagar"],
     services: [
       "Custom Web Development",
       "Dynamic Networking Engine",
@@ -183,6 +267,14 @@ export const projects: Project[] = [
     image: projectMvFluid,
     excerpt: "A high-impact 'Dark Industrial' digital platform for an Ahmedabad leader in hydraulic solutions, optimized for instant lead generation and local SEO mastery.",
     description: "MV Fluid is a premium digital platform designed for a leading industrial manufacturing firm. It serves as a modern bridge between traditional heavy engineering and the digital-first business world. The platform features a high-impact visual catalog for specialized hydraulic cylinders and power packs, integrated with a direct-to-WhatsApp inquiry system to accelerate the B2B sales cycle. Optimized for the Ahmedabad industrial sector (Kathwada GIDC), it establishes digital authority through performance-first architecture and precision design.",
+    searchKeywords: [
+      "MV Fluid",
+      "MV Fluids",
+      "MV Fluid Hydraulic Engineering",
+      "MV Fluid Kathwada",
+      "Hydraulic Cylinder Manufacturer Ahmedabad"
+    ],
+    altNames: ["MV Fluid", "MV Fluids Hydraulic"],
     services: [
       "Fullstack Industrial Web App",
       "Local SEO Strategy (GIDC)",
@@ -213,6 +305,14 @@ export const projects: Project[] = [
     image: projectInvoxa,
     excerpt: "A powerful Enterprise Resource Planning (ERP) platform designed to streamline CRM, financial tracking, invoicing, and business analytics in one centralized SaaS ecosystem.",
     description: "InvoxaERP is our proprietary SaaS solution tailored for modern businesses to manage their end-to-end operations. From maintaining a detailed client CRM to generating professional PDF quotes and invoices, the platform acts as the financial backbone of an organization. It features a robust product catalog, real-time expense tracking, customizable tax management, and secure administrative controls, all wrapped in a clean, intuitive dashboard.",
+    searchKeywords: [
+      "InvoxaERP",
+      "Invoxa ERP",
+      "Invoxa SaaS",
+      "Invoxa Invoicing",
+      "Business Billing ERP SaaS"
+    ],
+    altNames: ["InvoxaERP", "Invoxa ERP SaaS"],
     services: [
       "SaaS Architecture & Development",
       "Financial Tracking & Tax Engine",
@@ -243,6 +343,14 @@ export const projects: Project[] = [
     image: projectAwmStore,
     excerpt: "A high-conversion e-commerce platform that seamlessly integrates a frictionless guest checkout experience with a robust, automated affiliate marketing ecosystem.",
     description: "AWM Store (A World Marketing) is a dynamic retail platform built to scale sales organically through a motivated network of agents. The ecosystem serves three distinct user bases: retail customers enjoying a frictionless shopping experience, affiliates tracking real-time commission earnings, and administrators managing operations from a centralized command center. The platform is engineered to maximize conversion rates while fully automating referral tracking and payouts.",
+    searchKeywords: [
+      "AWM Store",
+      "A World Marketing",
+      "AWM Affiliate Store",
+      "AWM E-Commerce",
+      "Affiliate E-Commerce Platform"
+    ],
+    altNames: ["AWM Store", "A World Marketing Store"],
     services: [
       "Custom E-Commerce Engine",
       "Affiliate Tracking System",
@@ -273,6 +381,14 @@ export const projects: Project[] = [
     image: projectSavioErp,
     excerpt: "A sophisticated digital storefront and marketing platform that translates a massive manufacturing ERP ecosystem into digestible, high-conversion business value.",
     description: "The SavioERP Website is a professional lead generation engine designed for a comprehensive Enterprise Resource Planning (ERP) software tailored to mid-to-large manufacturers. Acting as more than an informational brochure, the platform utilizes interactive module showcases to educate decision-makers on supply chain, production, finance, and CRM integrations. It establishes deep domain authority while driving prospective clients toward demo bookings.",
+    searchKeywords: [
+      "SavioERP",
+      "Savio ERP",
+      "SavioERP Manufacturing",
+      "Savio ERP B2B",
+      "Manufacturing ERP Software"
+    ],
+    altNames: ["SavioERP", "Savio ERP Marketing Platform"],
     services: [
       "B2B Corporate Website",
       "Lead Generation Integration",
@@ -303,6 +419,24 @@ export const projects: Project[] = [
     image: projectChemx,
     excerpt: "A premier digital showcase and chemical process pump catalog platform engineered for high-precision industrial fluid handling and instant quote generation.",
     description: "ChemX Pumps & Equipments is a leading manufacturer and supplier of heavy-duty chemical process pumps, metering pumps, and industrial fluid equipment. DevDhara Technologies engineered a modern, high-performance web platform featuring a digital product catalog, dynamic technical specification filters, and an integrated direct WhatsApp inquiry system. Optimized for chemical manufacturing hubs, the platform empowers procurement officers and plant engineers to quickly locate and order specialized equipment.",
+    searchKeywords: [
+      "Chemx pumps",
+      "Chem-X pumps",
+      "chemx",
+      "chem x pumps",
+      "ChemX Pumps & Equipments",
+      "chemical process pumps",
+      "metering pumps ahmedabad",
+      "industrial pump catalog",
+      "ChemX Pumps"
+    ],
+    altNames: [
+      "ChemX Pumps",
+      "Chem-X Pumps",
+      "Chemx",
+      "Chem X Pumps",
+      "ChemX Pumps & Equipments"
+    ],
     services: [
       "Fullstack Industrial Web App",
       "Digital Product Catalog",
