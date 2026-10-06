@@ -125,6 +125,7 @@ const Footer = () => {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground mb-6">Services</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/services/full-stack-web" className="text-foreground/50 hover:text-gold transition-colors font-light">Web Development</Link></li>
+              <li><Link to="/services/social-media-marketing" className="text-foreground/50 hover:text-gold transition-colors font-light">Social Media Marketing</Link></li>
               <li><Link to="/services/enterprise-software" className="text-foreground/50 hover:text-gold transition-colors font-light">Custom Software</Link></li>
               <li><Link to="/services/react-native" className="text-foreground/50 hover:text-gold transition-colors font-light">Mobile Apps</Link></li>
               <li><Link to="/services/product-design" className="text-foreground/50 hover:text-gold transition-colors font-light">UI/UX Design</Link></li>

@@ -165,6 +165,7 @@ const AuditModal = ({ open, onClose }: AuditModalProps) => {
                       className="w-full h-14 px-6 rounded-2xl bg-blue/5 border-none text-sm text-foreground focus:ring-2 focus:ring-blue transition-all"
                     >
                       <option>Select Service</option>
+                      <option>Social Media Marketing</option>
                       <option>Web Development</option>
                       <option>Mobile App Development</option>
                       <option>Custom Software</option>
