@@ -1,5 +1,11 @@
 import { Globe, Smartphone, Layout, Database, Code2, Layers, Cpu, ShieldCheck, Zap, Monitor, SmartphoneNfc, Terminal, Search, TrendingUp, Settings, Megaphone, Target, Share2, BarChart3 } from "lucide-react";
 
+export interface ProcessStep {
+  step: string;
+  title: string;
+  desc: string;
+}
+
 export interface ServiceDetail {
   slug: string;
   title: string;
@@ -14,6 +20,8 @@ export interface ServiceDetail {
   techStack: string[];
   deliverables: string[];
   faqs: { q: string; a: string }[];
+  process?: ProcessStep[];
+  highlights?: { label: string; value: string }[];
 }
 
 export const serviceCategories = [
@@ -89,7 +97,19 @@ export const services: ServiceDetail[] = [
     faqs: commonFaqs.web,
     features: [
       { title: "Custom Coding", desc: "No templates. Everything is built from scratch for your brand." },
-      { title: "Interactive UI", desc: "Engaging interfaces that keep users on your site." }
+      { title: "Interactive UI", desc: "Engaging interfaces that keep users on your site." },
+      { title: "Headless CMS Setup", desc: "Empower your content creators with flexible, easy-to-use CMS integration." },
+      { title: "Performance Tuning", desc: "Sub-second loading times for max conversion and SEO." }
+    ],
+    process: [
+      { step: "01", title: "Discovery & Architecture", desc: "Mapping your business goals, target audience, and defining technical specifications." },
+      { step: "02", title: "UI/UX Engineering", desc: "Designing high-fidelity prototypes with interactive micro-animations." },
+      { step: "03", title: "Full-Stack Development", desc: "Writing clean, modular code with modern frameworks and robust security." },
+      { step: "04", title: "Deployment & Scaling", desc: "Automated CI/CD pipelines, SSL configuration, and global CDN deployment." }
+    ],
+    highlights: [
+      { label: "Lighthouse Score", value: "99+ Performance" },
+      { label: "Load Time", value: "< 0.8 Seconds" }
     ]
   },
   {
@@ -107,7 +127,15 @@ export const services: ServiceDetail[] = [
     faqs: commonFaqs.web,
     features: [
       { title: "Process Automation", desc: "Automate repetitive tasks to save time and money." },
-      { title: "Data Security", desc: "Built with industry-standard encryption and security protocols." }
+      { title: "Data Security", desc: "Built with industry-standard encryption and security protocols." },
+      { title: "API Integrations", desc: "Seamless integration with ERPs, CRMs, and third-party payment gateways." },
+      { title: "High-Availability Architecture", desc: "Fault-tolerant design built for 99.99% operational uptime." }
+    ],
+    process: [
+      { step: "01", title: "Requirement Analysis", desc: "Deconstructing workflows to architect customized software blueprints." },
+      { step: "02", title: "Agile Development", desc: "Iterative sprints with bi-weekly client demos and continuous feedback loops." },
+      { step: "03", title: "Security & QA", desc: "Rigorous automated testing, load testing, and penetration testing." },
+      { step: "04", title: "Enterprise Rollout", desc: "Zero-downtime deployment, data migration, and team onboarding." }
     ]
   },
   {
@@ -125,7 +153,15 @@ export const services: ServiceDetail[] = [
     faqs: commonFaqs.mobile,
     features: [
       { title: "Native Feel", desc: "Apps that look and behave like they were built for the device." },
-      { title: "Offline Sync", desc: "Allow users to work even without an internet connection." }
+      { title: "Offline Sync", desc: "Allow users to work even without an internet connection." },
+      { title: "Push Notifications", desc: "Engage users with automated push campaigns and deep linking." },
+      { title: "In-App Payments", desc: "Secure multi-currency payment gateway integrations." }
+    ],
+    process: [
+      { step: "01", title: "App Prototype", desc: "Creating clickable wireframes and user interaction flows." },
+      { step: "02", title: "Cross-Platform Build", desc: "Engineered single codebase for smooth 60fps performance on iOS & Android." },
+      { step: "03", title: "Store Submission", desc: "Navigating App Store and Google Play compliance guidelines for instant approval." },
+      { step: "04", title: "Post-Launch Updates", desc: "OTA updates and ongoing performance monitoring." }
     ]
   },
   {
@@ -169,17 +205,38 @@ export const services: ServiceDetail[] = [
     title: "Social Media Marketing",
     category: "Growth & Marketing",
     icon: Megaphone,
-    tagline: "Strategic social campaigns that build brand authority and drive growth.",
+    tagline: "Strategic social campaigns that build brand authority and drive viral growth.",
     description: "End-to-end social media management, creative content creation, and targeted brand growth across Instagram, LinkedIn, and Meta platforms.",
     fullDescription: "At DevDhara Technologies, we turn social media into a high-converting growth engine for your business. From visual storytelling and viral reel creation to community management and influencer partnerships, we elevate your brand image and connect you directly with your ideal audience.",
     image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fit=crop",
     benefits: ["Brand Authority", "Audience Engagement", "High Conversion", "Targeted Reach"],
     techStack: ["Meta Business Suite", "LinkedIn Ads", "Canva & Adobe Suite", "Hootsuite", "CapCut Pro", "GA4"],
-    deliverables: ["Monthly Content Calendar", "Custom Graphics & Reels", "Community Management", "Growth & ROI Reports"],
-    faqs: commonFaqs.smm,
+    deliverables: ["Monthly Content Calendar", "Custom Graphics & Viral Reels", "Community Engagement Strategy", "Monthly ROI & Growth Analytics"],
+    faqs: [
+      { q: "Which social media platforms do you manage?", a: "We manage and scale accounts on Meta (Instagram & Facebook), LinkedIn, Twitter/X, and YouTube depending on where your target audience hangs out." },
+      { q: "Do you handle video production and scriptwriting for Reels?", a: "Yes, we handle end-to-end production including scriptwriting, dynamic captions, trending audio curation, motion transitions, and high-definition reel editing." },
+      { q: "How do we track the ROI of social media marketing?", a: "We provide detailed monthly analytics covering impressions, engagement rates, click-through rates (CTR), lead generation, and ROAS (Return on Ad Spend)." },
+      { q: "Can we review and approve content before it goes live?", a: "Always. We upload all monthly content calendars, visual assets, and captions to a shared client dashboard for your review and approval prior to scheduling." },
+      { q: "What frequency of posting is included?", a: "Our standard packages include 4 to 6 high-impact posts per week per platform, combining static carousels, dynamic reels, and interactive stories." }
+    ],
     features: [
-      { title: "Creative Content Studio", desc: "High-quality visual posts, carousels, and engaging short-form video reels tailored to your brand." },
-      { title: "Hyper-Targeted Campaigns", desc: "Precision ad targeting and audience segmenting to capture active buyer intent." }
+      { title: "Short-Form Reel & Video Studio", desc: "High-engagement Instagram Reels, Shorts, and TikTok videos crafted with viral hooks, custom motion graphics, and trending audio." },
+      { title: "Visual Branding & Carousel Design", desc: "Premium aesthetic grid designs, multi-slide educational carousels, and infographics that establish industry leadership." },
+      { title: "Targeted Paid Social Advertising", desc: "Hyper-targeted ad setup across Meta and LinkedIn to convert high-intent prospects into paying clients." },
+      { title: "Community & Reputation Management", desc: "Active direct message response strategy, comment moderation, and active community engagement to foster customer loyalty." },
+      { title: "Influencer & Creator Outreach", desc: "End-to-end strategic collaborations with micro and macro niche influencers to multiply organic brand reach." },
+      { title: "Executive Thought Leadership", desc: "Ghostwriting and personal brand positioning on LinkedIn for founders, CEOs, and executive leaders." }
+    ],
+    process: [
+      { step: "01", title: "Audit & Brand Strategy", desc: "In-depth research into your target demographic, brand identity tone, competitor tactics, and benchmark metrics." },
+      { step: "02", title: "Content Creation & Studio", desc: "Designing eye-catching visuals, writing compelling ad copy, and editing short-form video reels 30 days in advance." },
+      { step: "03", title: "Scheduling & Paid Campaigns", desc: "Multi-platform scheduling at peak audience activity hours paired with targeted paid campaign execution." },
+      { step: "04", title: "Optimization & Scaling", desc: "Monthly performance reviews, double-down on top-performing content pillars, and audience scale growth." }
+    ],
+    highlights: [
+      { label: "Average Growth", value: "3.5x Engagement" },
+      { label: "Content Reach", value: "+250k Monthly Impressions" },
+      { label: "Targeting Precision", value: "98% Demographic Match" }
     ]
   },
   {
@@ -189,15 +246,35 @@ export const services: ServiceDetail[] = [
     icon: Target,
     tagline: "Data-driven paid ads optimized for maximum ROAS and lead generation.",
     description: "High-ROI PPC, Meta ads, Google ads, and retargeting funnels engineered for scale.",
-    fullDescription: "Accelerate revenue growth with high-yield performance marketing. We build, test, and scale paid advertising campaigns on Meta, Google, and LinkedIn that convert clicks into qualified leads and revenue.",
+    fullDescription: "Accelerate revenue growth with high-yield performance marketing. We build, test, and scale paid advertising campaigns on Meta, Google, and LinkedIn that convert clicks into qualified leads and measurable revenue.",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80&fit=crop",
     benefits: ["Immediate Leads", "Measurable ROAS", "Hyper-Targeted Ads", "Scalable Funnels"],
     techStack: ["Google Ads Manager", "Meta Ads Manager", "LinkedIn Campaign Manager", "Hotjar", "Zapier"],
-    deliverables: ["Ad Funnel Strategy", "Custom Ad Creatives", "Conversion Pixel Setup", "Weekly Performance Dashboards"],
-    faqs: commonFaqs.smm,
+    deliverables: ["Ad Funnel Strategy", "Custom Ad Creatives & Copy", "Pixel & Conversion Setup", "Weekly Performance Dashboards"],
+    faqs: [
+      { q: "What minimum ad spend budget do you recommend?", a: "We recommend starting with a monthly ad budget of $1,000 – $3,000 to allow sufficient testing volume for algorithm machine learning and rapid scaling." },
+      { q: "How quickly can we expect leads from paid advertising?", a: "Unlike organic SEO, paid campaigns begin generating traffic and leads within 24 to 48 hours of campaign launch." },
+      { q: "How do you optimize ad performance over time?", a: "We continuously run A/B split tests on ad copy, visual assets, headlines, and landing page conversion paths to lower Cost-Per-Lead (CPL)." },
+      { q: "Which ad platforms provide the best ROI?", a: "Google Ads excel for high-intent search queries, Meta (Instagram/Facebook) is ideal for visual product discovery & lead gen, and LinkedIn dominates for high-ticket B2B." }
+    ],
     features: [
-      { title: "Conversion Funnel Optimization", desc: "Optimized landing pages and retargeting ads that maximize audience conversion rates." },
-      { title: "Continuous A/B Testing", desc: "Data-backed testing of ad copy, visual assets, and CTAs for optimal cost-per-lead." }
+      { title: "Google Search & Shopping Ads", desc: "Capturing active buyer intent with targeted keyword bidding, responsive search ads, and shopping catalog feeds." },
+      { title: "Meta Hyper-Targeted Ad Funnels", desc: "Multi-stage ad funnels on Instagram and Facebook leveraging custom lookalike audiences and retargeting." },
+      { title: "LinkedIn B2B Lead Generation", desc: "Direct outreach campaigns reaching decision-makers, CEOs, and corporate procurement heads." },
+      { title: "Dynamic Retargeting Campaigns", desc: "Re-engaging warm website visitors across channels to convert lost traffic into closed deals." },
+      { title: "Landing Page CRO Optimization", desc: "Custom high-conversion landing page design engineered specifically to maximize ad click-to-lead ratios." },
+      { title: "Server-Side Conversion API Setup", desc: "Accurate tracking with Meta CAPI and GA4 Server-Side tracking to bypass iOS privacy restrictions." }
+    ],
+    process: [
+      { step: "01", title: "Funnel & Pixel Audit", desc: "Reviewing account history, configuring conversion tracking pixels, and identifying highest-converting audience segments." },
+      { step: "02", title: "Creative & Copy Lab", desc: "Drafting high-converting ad copy variations, graphic creatives, and video hooks for A/B testing." },
+      { step: "03", title: "Campaign Launch & Bidding", desc: "Launching structured ad campaigns with automated bid strategies, negative keywords, and fraud filters." },
+      { step: "04", title: "Scale & ROAS Maximization", desc: "Reallocating budget to top-performing ad sets, launching retargeting funnels, and scaling weekly ad spend." }
+    ],
+    highlights: [
+      { label: "Average ROAS", value: "4.2x Return on Ad Spend" },
+      { label: "Conversion Lift", value: "+140% Lead Volume" },
+      { label: "Cost Reduction", value: "-35% Cost per Acquisition" }
     ]
   },
   {
@@ -215,7 +292,15 @@ export const services: ServiceDetail[] = [
     faqs: commonFaqs.seo,
     features: [
       { title: "On-Page SEO", desc: "Optimizing your website's content and structure for Google." },
-      { title: "Backlink Strategy", desc: "Building authority through high-quality external links." }
+      { title: "Backlink Strategy", desc: "Building authority through high-quality external links." },
+      { title: "Technical SEO Fixes", desc: "Resolving crawl errors, schema markup, and canonical issues." },
+      { title: "Content Strategy", desc: "Keyword research and blog content tailored to high-value intent." }
+    ],
+    process: [
+      { step: "01", title: "SEO Site Audit", desc: "Comprehensive technical, content, and backlink profile analysis." },
+      { step: "02", title: "Keyword & Strategy Blueprint", desc: "Mapping buyer intent keywords with low difficulty and high search volume." },
+      { step: "03", title: "On-Page & Technical Execution", desc: "Optimizing site speed, meta tags, schema data, and mobile usability." },
+      { step: "04", title: "Link Building & Scale", desc: "High-DA backlink outreach and monthly ranking reports." }
     ]
   },
   {
