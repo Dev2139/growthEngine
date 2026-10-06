@@ -1,4 +1,4 @@
-import { Globe, Smartphone, Layout, Database, Code2, Layers, Cpu, ShieldCheck, Zap, Monitor, SmartphoneNfc, Terminal, Search, TrendingUp, Settings } from "lucide-react";
+import { Globe, Smartphone, Layout, Database, Code2, Layers, Cpu, ShieldCheck, Zap, Monitor, SmartphoneNfc, Terminal, Search, TrendingUp, Settings, Megaphone, Target, Share2, BarChart3 } from "lucide-react";
 
 export interface ServiceDetail {
   slug: string;
@@ -34,8 +34,10 @@ export const serviceCategories = [
     ]
   },
   {
-    title: "Growth & SEO",
+    title: "Growth & Marketing",
     services: [
+      { name: "Social Media Marketing", slug: "social-media-marketing", icon: Megaphone },
+      { name: "Performance Marketing", slug: "performance-marketing", icon: Target },
       { name: "SEO Services", slug: "seo-services", icon: Search },
       { name: "Google Ranking", slug: "google-ranking", icon: TrendingUp },
     ]
@@ -63,6 +65,11 @@ const commonFaqs = {
   seo: [
     { q: "How long does it take to see SEO results?", a: "SEO is a long-term strategy. Typically, significant ranking improvements are seen within 3-6 months." },
     { q: "Do you guarantee #1 ranking on Google?", a: "While no one can guarantee #1, we use data-driven strategies that consistently put our clients on the first page." }
+  ],
+  smm: [
+    { q: "Which social media platforms do you manage?", a: "We manage and scale accounts on Meta (Instagram & Facebook), LinkedIn, Twitter/X, and YouTube depending on where your target audience hangs out." },
+    { q: "Do you handle content creation and ad management?", a: "Yes, we provide end-to-end management including strategy, graphic design, reel editing, copywriting, and targeted ad campaign management." },
+    { q: "How do we track the ROI of social media marketing?", a: "We provide detailed monthly analytics covering reach, engagement, click-through rates, lead generation, and ROAS (Return on Ad Spend)." }
   ]
 };
 
@@ -158,9 +165,45 @@ export const services: ServiceDetail[] = [
     ]
   },
   {
+    slug: "social-media-marketing",
+    title: "Social Media Marketing",
+    category: "Growth & Marketing",
+    icon: Megaphone,
+    tagline: "Strategic social campaigns that build brand authority and drive growth.",
+    description: "End-to-end social media management, creative content creation, and targeted brand growth across Instagram, LinkedIn, and Meta platforms.",
+    fullDescription: "At DevDhara Technologies, we turn social media into a high-converting growth engine for your business. From visual storytelling and viral reel creation to community management and influencer partnerships, we elevate your brand image and connect you directly with your ideal audience.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fit=crop",
+    benefits: ["Brand Authority", "Audience Engagement", "High Conversion", "Targeted Reach"],
+    techStack: ["Meta Business Suite", "LinkedIn Ads", "Canva & Adobe Suite", "Hootsuite", "CapCut Pro", "GA4"],
+    deliverables: ["Monthly Content Calendar", "Custom Graphics & Reels", "Community Management", "Growth & ROI Reports"],
+    faqs: commonFaqs.smm,
+    features: [
+      { title: "Creative Content Studio", desc: "High-quality visual posts, carousels, and engaging short-form video reels tailored to your brand." },
+      { title: "Hyper-Targeted Campaigns", desc: "Precision ad targeting and audience segmenting to capture active buyer intent." }
+    ]
+  },
+  {
+    slug: "performance-marketing",
+    title: "Performance Marketing",
+    category: "Growth & Marketing",
+    icon: Target,
+    tagline: "Data-driven paid ads optimized for maximum ROAS and lead generation.",
+    description: "High-ROI PPC, Meta ads, Google ads, and retargeting funnels engineered for scale.",
+    fullDescription: "Accelerate revenue growth with high-yield performance marketing. We build, test, and scale paid advertising campaigns on Meta, Google, and LinkedIn that convert clicks into qualified leads and revenue.",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80&fit=crop",
+    benefits: ["Immediate Leads", "Measurable ROAS", "Hyper-Targeted Ads", "Scalable Funnels"],
+    techStack: ["Google Ads Manager", "Meta Ads Manager", "LinkedIn Campaign Manager", "Hotjar", "Zapier"],
+    deliverables: ["Ad Funnel Strategy", "Custom Ad Creatives", "Conversion Pixel Setup", "Weekly Performance Dashboards"],
+    faqs: commonFaqs.smm,
+    features: [
+      { title: "Conversion Funnel Optimization", desc: "Optimized landing pages and retargeting ads that maximize audience conversion rates." },
+      { title: "Continuous A/B Testing", desc: "Data-backed testing of ad copy, visual assets, and CTAs for optimal cost-per-lead." }
+    ]
+  },
+  {
     slug: "seo-services",
     title: "SEO Services",
-    category: "Growth & SEO",
+    category: "Growth & Marketing",
     icon: Search,
     tagline: "Data-driven SEO strategies to increase visibility and growth.",
     description: "Data-driven SEO strategies to increase visibility and organic traffic.",
@@ -178,7 +221,7 @@ export const services: ServiceDetail[] = [
   {
     slug: "google-ranking",
     title: "Google Ranking",
-    category: "Growth & SEO",
+    category: "Growth & Marketing",
     icon: TrendingUp,
     tagline: "Get your business to the top of search results.",
     description: "Expert ranking strategies to get your business to the top of search results.",
@@ -248,3 +291,4 @@ export const services: ServiceDetail[] = [
     ]
   }
 ];
+

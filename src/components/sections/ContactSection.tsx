@@ -187,6 +187,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     className="w-full bg-[#F8F8F6] border border-black/[0.06] rounded-xl p-4 text-xs text-foreground/75 focus:outline-none focus:border-gold/50 transition-all font-light appearance-none"
                   >
+                    <option>Social Media Marketing</option>
                     <option>Web Development</option>
                     <option>Software Development</option>
                     <option>Mobile App Development</option>

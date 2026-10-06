@@ -10,6 +10,7 @@ import {
   Terminal, 
   ShoppingCart, 
   Settings,
+  Megaphone,
   ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,6 +36,13 @@ const services = [
     icon: Smartphone,
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&fit=crop",
     slug: "react-native"
+  },
+  {
+    title: "Social Media Marketing",
+    desc: "Strategic social media management, content creation, and targeted audience growth.",
+    icon: Megaphone,
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80&fit=crop",
+    slug: "social-media-marketing"
   },
   {
     title: "UI/UX Design",
@@ -70,13 +78,6 @@ const services = [
     icon: ShoppingCart,
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80&fit=crop",
     slug: "ecommerce"
-  },
-  {
-    title: "Maintenance & Support",
-    desc: "Reliable 24/7 technical support and maintenance for your digital products.",
-    icon: Settings,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80&fit=crop",
-    slug: "it-consulting"
   }
 ];
 
