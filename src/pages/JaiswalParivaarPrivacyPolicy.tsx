@@ -315,6 +315,31 @@ const JaiswalParivaarPrivacyPolicy = () => {
                 </div>
               </div>
             </section>
+
+            {/* Apple App Store & Legal Navigation */}
+            <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-950/40 rounded-2xl border border-blue-100 dark:border-blue-900/50 flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <h4 className="font-bold text-gray-900 dark:text-white text-sm">Official App Resources & Apple App Store URLs</h4>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Essential URLs and compliance references for users and App Store review</p>
+              </div>
+              <div className="flex flex-wrap gap-4 text-xs font-semibold">
+                <a href="/apps/jaiswal-samaj/support" className="text-blue-700 dark:text-blue-300 hover:underline">
+                  App Support URL →
+                </a>
+                <a href="/apps/jaiswal-samaj" className="text-blue-700 dark:text-blue-300 hover:underline">
+                  Marketing URL →
+                </a>
+                <a href="/apps/jaiswal-samaj/copyright" className="text-blue-700 dark:text-blue-300 hover:underline">
+                  Copyright Notice →
+                </a>
+                <a href="/apps/jaiswal-parivaar/child-safety" className="text-blue-700 dark:text-blue-300 hover:underline">
+                  Child Safety Standards →
+                </a>
+                <a href="/apps/jaiswal-parivaar/delete-account" className="text-blue-700 dark:text-blue-300 hover:underline">
+                  Account Deletion →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </main>

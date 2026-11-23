@@ -22,6 +22,9 @@ import NotFound from "./pages/NotFound.tsx";
 import JaiswalParivaarPrivacyPolicy from "./pages/JaiswalParivaarPrivacyPolicy.tsx";
 import JaiswalParivaarDeleteAccount from "./pages/JaiswalParivaarDeleteAccount.tsx";
 import JaiswalParivaarChildSafety from "./pages/JaiswalParivaarChildSafety.tsx";
+import JaiswalSamajSupport from "./pages/JaiswalSamajSupport.tsx";
+import JaiswalSamajMarketing from "./pages/JaiswalSamajMarketing.tsx";
+import JaiswalSamajCopyright from "./pages/JaiswalSamajCopyright.tsx";
 import WordCompetitionPrivacyPolicy from "./pages/WordCompetitionPrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
@@ -55,9 +58,20 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/partners/programs" element={<PartnerPrograms />} />
+          <Route path="/apps/jaiswal-parivaar" element={<JaiswalSamajMarketing />} />
+          <Route path="/apps/jaiswal-samaj" element={<JaiswalSamajMarketing />} />
+          <Route path="/apps/jaiswal-parivaar/marketing" element={<JaiswalSamajMarketing />} />
+          <Route path="/apps/jaiswal-samaj/marketing" element={<JaiswalSamajMarketing />} />
+          <Route path="/apps/jaiswal-parivaar/support" element={<JaiswalSamajSupport />} />
+          <Route path="/apps/jaiswal-samaj/support" element={<JaiswalSamajSupport />} />
+          <Route path="/apps/jaiswal-parivaar/copyright" element={<JaiswalSamajCopyright />} />
+          <Route path="/apps/jaiswal-samaj/copyright" element={<JaiswalSamajCopyright />} />
           <Route path="/apps/jaiswal-parivaar/privacy-policy" element={<JaiswalParivaarPrivacyPolicy />} />
+          <Route path="/apps/jaiswal-samaj/privacy-policy" element={<JaiswalParivaarPrivacyPolicy />} />
           <Route path="/apps/jaiswal-parivaar/delete-account" element={<JaiswalParivaarDeleteAccount />} />
+          <Route path="/apps/jaiswal-samaj/delete-account" element={<JaiswalParivaarDeleteAccount />} />
           <Route path="/apps/jaiswal-parivaar/child-safety" element={<JaiswalParivaarChildSafety />} />
+          <Route path="/apps/jaiswal-samaj/child-safety" element={<JaiswalParivaarChildSafety />} />
           <Route path="/app/word-competition/privacy-policy" element={<WordCompetitionPrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
